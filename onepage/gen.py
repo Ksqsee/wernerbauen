@@ -311,11 +311,12 @@ def project(title, names, cover=None):
     return out
 
 
-def split(blocks, projects):
+def split(blocks, projects, heading='h1first'):
     rows = []
     for b in blocks:
         p = photo(b['photo'])
         rows.append({'title': b.get('title', ''), 'text': b.get('text', ''), 'bullets': b.get('bullets', ''), 'textAfter': b.get('textAfter', ''),
+                     'linkLabel': b.get('linkLabel', ''), 'linkHref': b.get('linkHref', ''),
                      'image': p['image'], 'imageAlt': p['alt']})
     ctl = {
         'blocks': c('Text & Bild (abwechselnd links/rechts)', 'array', rows, 'content', 'blocks', items={
@@ -323,8 +324,12 @@ def split(blocks, projects):
             'text': {'title': 'Text (Absätze mit Leerzeile trennen, **fett**)', 'type': 'text'},
             'bullets': {'title': 'Aufzählung (eine Zeile pro Punkt)', 'type': 'text'},
             'textAfter': {'title': 'Text nach Aufzählung', 'type': 'text'},
+            'linkLabel': {'title': 'Link Text (optional)', 'type': 'text'},
+            'linkHref': {'title': 'Link (optional)', 'type': 'text'},
             'image': {'title': 'Bild', 'type': 'media'},
             'imageAlt': {'title': 'Bild Alt-Text', 'type': 'text'}}),
+        'headingMode': c('Erste Überschrift', 'select', heading, 'settings', 'labels', options=[
+            {'value': 'h1first', 'label': 'Seitentitel (H1) mit Einleitung'}, {'value': 'h2', 'label': 'Normale Überschrift (H2)'}]),
         'projectsEyebrow': c('Überzeile', 'text', 'Referenzen', 'content', 'projects'),
         'projectsTitle': c('Überschrift', 'text', 'Projekte & Einblicke', 'content', 'projects'),
         'photos': c('Fotos (gleicher Projektname = eine Karte)', 'array', [ph for grp in projects for ph in grp], 'content', 'photos', items={

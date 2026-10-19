@@ -57,6 +57,9 @@
   background: var(--color-kit-light, #F3F0EB);
 }
 .img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s ease; }
+.mediaLink { display: block; }
+.mediaLink:hover .img { transform: scale(1.03); }
+.more { padding-top: 6px; }
 
 .projects { margin-top: 200px; padding-top: 120px; border-top: 1px solid #1D1D1B14; }
 .projectsHead { display: flex; flex-direction: column; gap: 14px; margin-bottom: 64px; }

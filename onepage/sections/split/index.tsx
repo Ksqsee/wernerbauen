@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image, { mediaUrl } from '@siteui/image';
 import Icon from '@siteui/icon';
+import Button from '@siteui/button';
 import styles from './styles.module.css';
 
 function paras(t: any): string[] {
@@ -18,7 +19,7 @@ function valid(list: any): any[] {
   return (Array.isArray(list) ? list : []).filter((x: any) => x && x.image && x.image.src);
 }
 
-export default function Split({ blocks, projectsEyebrow, projectsTitle, photos, photosLabel, openLabel, closeLabel, prevLabel, nextLabel }: any) {
+export default function Split({ blocks, headingMode, projectsEyebrow, projectsTitle, photos, photosLabel, openLabel, closeLabel, prevLabel, nextLabel }: any) {
   const rows: any[] = Array.isArray(blocks) ? blocks : [];
   const cards: any[] = [];
   valid(photos).forEach((ph: any) => {
@@ -57,18 +58,25 @@ export default function Split({ blocks, projectsEyebrow, projectsTitle, photos, 
         {rows.map((b: any, i: number) => (
           <div key={i} className={[styles.row, i % 2 === 1 ? styles.flip : ''].join(' ')}>
             <div className={styles.text}>
-              {b.title ? (i === 0 ? <h1 className={styles.h1}>{b.title}</h1> : <h2 className={styles.h2}>{b.title}</h2>) : null}
-              {paras(b.text).map((p, k) => <p key={k} className={i === 0 && k === 0 ? styles.lead : styles.p}>{rich(p)}</p>)}
+              {b.title ? (i === 0 && headingMode === 'h1first' ? <h1 className={styles.h1}>{b.title}</h1> : <h2 className={styles.h2}>{b.title}</h2>) : null}
+              {paras(b.text).map((p, k) => <p key={k} className={i === 0 && k === 0 && headingMode === 'h1first' ? styles.lead : styles.p}>{rich(p)}</p>)}
               {lines(b.bullets).length ? (
                 <ul className={styles.list}>
                   {lines(b.bullets).map((li, k) => <li key={k} className={styles.li}>{li}</li>)}
                 </ul>
               ) : null}
               {paras(b.textAfter).map((p, k) => <p key={'a' + k} className={styles.p}>{rich(p)}</p>)}
+              {b.linkLabel && b.linkHref ? <div className={styles.more}><Button href={b.linkHref} variant="link" size="md" arrow>{b.linkLabel}</Button></div> : null}
             </div>
-            <div className={styles.media}>
-              {b.image && b.image.src ? <Image src={b.image.src} alt={b.imageAlt} className={styles.img} /> : null}
-            </div>
+            {b.linkHref ? (
+              <a className={[styles.media, styles.mediaLink].join(' ')} href={b.linkHref} tabIndex={-1} aria-hidden="true">
+                {b.image && b.image.src ? <Image src={b.image.src} alt="" className={styles.img} /> : null}
+              </a>
+            ) : (
+              <div className={styles.media}>
+                {b.image && b.image.src ? <Image src={b.image.src} alt={b.imageAlt} className={styles.img} /> : null}
+              </div>
+            )}
           </div>
         ))}
 
