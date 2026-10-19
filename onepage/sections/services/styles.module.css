@@ -18,8 +18,8 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px;
-  margin-top: -92px;
+  gap: 48px;
+  margin-top: -56px;
   position: relative;
 }
 .col { display: flex; flex-direction: column; }
@@ -33,12 +33,12 @@
   background: var(--color-kit-key2, #1D1D1B);
   color: #ffffff;
   font-family: var(--font-kit-header-font), 'Archivo', sans-serif;
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: center;
-  padding: 30px 16px;
+  padding: 22px 16px;
   transition: background 0.3s ease;
 }
 .card:hover .label { background: var(--color-kit-key1, #D52625); }
@@ -63,7 +63,7 @@
   transform: translateX(-50%) rotate(45deg);
 }
 .body {
-  padding-top: 34px;
+  padding-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 18px;

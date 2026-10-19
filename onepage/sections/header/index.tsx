@@ -16,21 +16,32 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
         <div className={styles.right}>
           <div className={styles.meta}>
             <a className={styles.metaLink} href={'mailto:' + email}>
-              <span className={styles.metaIcon}><Icon name="mail" size={16} /></span>
+              <Icon name="mail" size={14} />
               <span>{email}</span>
             </a>
+            <span className={styles.sep} aria-hidden="true" />
             <a className={styles.metaLink} href={phoneHref}>
-              <span className={styles.metaIcon}><Icon name="phone" size={16} /></span>
+              <Icon name="phone" size={14} />
               <span>{phone}</span>
             </a>
-            <a className={styles.contact} href={contactHref}>{contactLabel}</a>
-            {applyLabel ? <a className={styles.apply} href={applyHref}>{applyLabel}</a> : null}
+            {applyLabel ? (
+              <>
+                <span className={styles.sep} aria-hidden="true" />
+                <a className={styles.apply} href={applyHref}>
+                  <span>{applyLabel}</span>
+                  <Icon name="arrow" size={14} />
+                </a>
+              </>
+            ) : null}
           </div>
-          <nav className={styles.nav} aria-label={menuLabel}>
-            {items.map((it: any, i: number) => (
-              <NavLink key={i} href={it.href} size="sm" active={it.href === activeHref} className={styles.navLink}>{it.label}</NavLink>
-            ))}
-          </nav>
+          <div className={styles.navRow}>
+            <nav className={styles.nav} aria-label={menuLabel}>
+              {items.map((it: any, i: number) => (
+                <NavLink key={i} href={it.href} size="sm" active={it.href === activeHref} className={styles.navLink}>{it.label}</NavLink>
+              ))}
+            </nav>
+            <a className={[styles.contact, contactHref === activeHref ? styles.contactActive : ''].join(' ')} href={contactHref}>{contactLabel}</a>
+          </div>
         </div>
         <button
           type="button"
@@ -40,7 +51,7 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
           aria-label={open ? closeLabel : menuLabel}
           onClick={() => setOpen(!open)}
         >
-          <Icon name={open ? 'close' : 'menu'} size={26} />
+          <Icon name={open ? 'close' : 'menu'} size={24} />
         </button>
       </div>
       <div id="wb-mobile-nav" className={[styles.mobile, open ? styles.mobileOpen : ''].join(' ')}>
@@ -48,8 +59,10 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
           {items.map((it: any, i: number) => (
             <NavLink key={i} href={it.href} active={it.href === activeHref} onClick={() => setOpen(false)} className={styles.mobileLink}>{it.label}</NavLink>
           ))}
-          <NavLink href={contactHref} active={contactHref === activeHref} onClick={() => setOpen(false)} className={styles.mobileLink}>{contactLabel}</NavLink>
-          {applyLabel ? <a className={[styles.apply, styles.mobileApply].join(' ')} href={applyHref} onClick={() => setOpen(false)}>{applyLabel}</a> : null}
+          <div className={styles.mobileActions}>
+            <a className={styles.contact} href={contactHref} onClick={() => setOpen(false)}>{contactLabel}</a>
+            {applyLabel ? <a className={styles.apply} href={applyHref} onClick={() => setOpen(false)}><span>{applyLabel}</span><Icon name="arrow" size={14} /></a> : null}
+          </div>
         </nav>
       </div>
     </header>
