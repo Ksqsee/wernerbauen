@@ -1,46 +1,53 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Image from '@siteui/image';
-import Title from '@siteui/title';
-import Text from '@siteui/text';
-import Icon from '@siteui/icon';
 import styles from './styles.module.css';
 
-export default function Team({ people, tone }: any) {
-  const list: any[] = Array.isArray(people) ? people : [];
+function paras(t: any): string[] {
+  return String(t || '').split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+}
+function rich(p: string) {
+  const parts = p.split(/\*\*(.+?)\*\*/g);
+  return parts.map((s, i) => (i % 2 === 1 ? <strong key={i}>{s}</strong> : <React.Fragment key={i}>{s}</React.Fragment>));
+}
+
+function TextCell({ blocks, logo, logoAlt }: any) {
+  const list: any[] = Array.isArray(blocks) ? blocks : [];
   return (
-    <section className={[styles.section, styles['tone_' + tone]].join(' ')}>
-      <div className={styles.container}>
-        <div className={styles.grid}>
-          {list.map((p: any, i: number) => (
-            <motion.article
-              key={i}
-              className={styles.card}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, delay: i * 0.1 }}
-            >
-              <div className={styles.photo}>
-                {p.photo && p.photo.src ? <Image src={p.photo.src} alt={p.name} className={styles.img} /> : <span className={styles.ph}><Icon name="user" size={56} /></span>}
-              </div>
-              <div className={styles.info}>
-                <Title as="h3" size="sm">{p.name}</Title>
-                <Text size="sm" tone="muted">{p.role}</Text>
-                <div className={styles.contacts}>
-                  <a className={styles.contact} href={p.phoneHref}>
-                    <Icon name="phone" size={16} />
-                    <span><span className={styles.lbl}>{p.phoneLabel}</span> {p.phone}</span>
-                  </a>
-                  <a className={styles.contact} href={'mailto:' + p.email}>
-                    <Icon name="mail" size={16} />
-                    <span><span className={styles.lbl}>{p.emailLabel}</span> {p.email}</span>
-                  </a>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+    <div className={styles.textCell}>
+      {list.map((b: any, i: number) => (
+        <div key={i} className={styles.block}>
+          {b.title ? (b.big ? <h2 className={styles.h1}>{b.title}</h2> : <h3 className={styles.h2}>{b.title}</h3>) : null}
+          {paras(b.text).map((p, k) => <p key={k} className={styles.p}>{rich(p)}</p>)}
         </div>
+      ))}
+      {logo && logo.src ? <Image src={logo.src} alt={logoAlt} className={styles.groupLogo} /> : null}
+    </div>
+  );
+}
+
+function Person({ p }: any) {
+  return (
+    <article className={styles.person}>
+      <div className={styles.photo}>{p.photo && p.photo.src ? <Image src={p.photo.src} alt={p.name} className={styles.img} /> : null}</div>
+      <div className={styles.info}>
+        <h3 className={styles.name}>{p.name}</h3>
+        <p className={styles.role}>{p.role}</p>
+        <p className={styles.line}>{p.phoneLabel} <a href={p.phoneHref}>{p.phone}</a></p>
+        <p className={styles.line}>{p.emailLabel} <a href={'mailto:' + p.email}>{p.email}</a></p>
+      </div>
+    </article>
+  );
+}
+
+export default function Team({ introBlocks, valuesBlocks, groupBlocks, groupLogo, groupLogoAlt, people }: any) {
+  const ppl: any[] = Array.isArray(people) ? people : [];
+  return (
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <TextCell blocks={introBlocks} />
+        <TextCell blocks={valuesBlocks} />
+        <TextCell blocks={groupBlocks} logo={groupLogo} logoAlt={groupLogoAlt} />
+        {ppl.map((p: any, i: number) => <Person key={i} p={p} />)}
       </div>
     </section>
   );

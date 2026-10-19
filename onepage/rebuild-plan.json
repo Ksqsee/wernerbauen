@@ -1,0 +1,38 @@
+{
+  "site_id": "498f204d-7441-4a20-840b-33b1b2c41cd7",
+  "pages": {
+    "fassadensanierung": {"page_id": "737d1331-d90d-46f9-b5ee-8df31618be25", "writes": [
+      ["1-header.json", "header", "6ad5d398a7c6fd5dec114829"], ["2-hero.json", "hero", "6ad5d3c83757838507ac63b4"],
+      ["3-content.json", "content", "6ad5d3fe3757838507ac63e8"], ["4-certs.json", "certs", "6ad5d4973757838507ac64ae"],
+      ["5-footer.json", "footer", "6ad5d4ba3757838507ac64dd"]],
+      "delete_sections_titled": ["Galerie"], "create": []},
+    "wohnung": {"page_id": "0ca3261c-8aa5-4e2a-b6d5-eaf06de01fe0", "writes": [
+      ["1-header.json", "header", "6ad5d4e16d65534abe968284"], ["2-hero.json", "hero", "6ad5d4ffbb2df2d54cad169b"],
+      ["3-content.json", "content", "6ad5d52e3757838507ac6550"], ["4-certs.json", "certs", "6ad5d57fa7c6fd5dec114a27"],
+      ["5-footer.json", "footer", "6ad5d59f6d65534abe968326"]],
+      "delete_sections_titled": ["Galerie"], "create": []},
+    "oeffentlich": {"page_id": "67a69316-82b9-41b6-b1db-97ac25729785", "writes": [
+      ["1-header.json", "header", "6ad5d390bb2df2d54cad14dc"], ["2-hero.json", "hero", "6ad5d3afbb2df2d54cad14f1"],
+      ["3-content.json", "content", "6ad5d3e43757838507ac63c6"], ["4-certs.json", "certs", "6ad5d474bb2df2d54cad15f4"],
+      ["5-footer.json", "footer", "6ad5d494a7c6fd5dec11494a"]],
+      "delete_sections_titled": ["Galerie"], "create": []},
+    "ueber-uns": {"page_id": "f42cdc35-69d6-4b9b-8fac-cfef8f0d089e", "writes": [
+      ["1-header.json", "header", "6ad5d4ba3757838507ac64db"], ["2-hero.json", "hero", "6ad5d4d2a7c6fd5dec1149b5"],
+      ["3-team.json", "team", "6ad5d4fb3757838507ac652a"], ["4-certs.json", "certs", "6ad5d52c6d65534abe9682b8"],
+      ["5-footer.json", "footer", "6ad5d54d6d65534abe9682d3"]],
+      "delete_sections_titled": ["Team"], "create": []},
+    "kontakt": {"page_id": "f341813a-a805-4495-854c-1fccd18330df", "writes": [
+      ["1-header.json", "header", "6ad5d3943757838507ac6397"], ["2-hero.json", "hero", "6ad5d3afa7c6fd5dec11482f"],
+      ["3-contact.json", "contact", "6ad5d3df3757838507ac63be"], ["4-certs.json", "certs", "6ad5d40ea7c6fd5dec11488d"],
+      ["5-footer.json", "footer", "6ad5d42ca7c6fd5dec1148ba"]],
+      "delete_sections_titled": [], "create": []},
+    "impressum": {"page_id": "6808d8ce-99b0-43f5-b66d-a6c76428ab35", "writes": [
+      ["1-header.json", "header", "6ad5d3903757838507ac638f"], ["3-content.json", "content", "6ad5d3bba7c6fd5dec114838"],
+      ["4-footer.json", "footer", "6ad5d3e16d65534abe96813c"]],
+      "delete_sections_titled": [], "create": [["2-hero.json", "hero", 2, "Banner"]]},
+    "datenschutz": {"page_id": "4a3d0eef-fb7f-4618-b2ac-107623722652", "writes": [
+      ["1-header.json", "header", "6ad5d4033757838507ac63eb"], ["3-content.json", "content", "6ad5d4426d65534abe9681ce"],
+      ["4-footer.json", "footer", "6ad5d4616d65534abe9681e9"]],
+      "delete_sections_titled": [], "create": [["2-hero.json", "hero", 2, "Banner"]]}
+  }
+}

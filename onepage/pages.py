@@ -12,37 +12,33 @@ PAGES = {}
 
 PAGES['start'] = [
     ('header', 'Navigation', header('/')),
-    ('hero', 'Hero', hero(img(BAN + 'banner-1.jpg'), 'WERNER BAU', eyebrow='WERNER GMBH Bauunternehmung',
-                          text='Zuverlässig – Erfahren – Qualifiziert', primary=('Kontakt', '/kontakt'),
-                          secondary=('Mehr Infos', '#leistungen'), height='lg', size='xxl', overlay=75)),
-    ('services', 'Leistungen', services([
-        {'image': img(F + 'fassadensanierung-hamburg-1.jpg'), 'imageAlt': 'Fassadensanierung', 'title': 'FASSADENSANIERUNG',
+    ('services', 'Banner & Leistungen', services(img(BAN + 'banner-1.jpg'), [
+        {'image': img('_themes/lightwhite/content_fassadensanierung.jpg'), 'imageAlt': 'Fassadensanierung', 'title': 'Fassadensanierung',
          'text': 'Die fachgerechte Erhaltung einer Fassade dient der Werterhaltung des gesamten Gebäudes. Sie ist die schützende Hülle eines jeden Bauwerks und bestimmt dessen optischen Gesamteindruck. Die Fassadensanierung bedarf Erfahrung und umfassende Fachkenntnisse - insbesondere, wenn es sich um Altbauobjekte oder unter Denkmalschutz stehende Gebäude handelt. Als traditionsreiches Unternehmen, welches bald 100 Jahre tätig ist, können wir auf einen umfangreichen Erfahrungsschatz zurückgreifen. Im Rahmen der Fassadensanierung führen wir auch bekämpfende Holzschutzmaßnahmen sowie die Sanierung von Balkonen durch.',
-         'buttonLabel': 'Mehr Infos', 'buttonHref': '/fassadensanierung'},
-        {'image': img(W + 'Wohnungssanierung-Kueche-1b-nacher.jpg'), 'imageAlt': 'Wohnungs- & Gebäudesanierung', 'title': 'WOHNUNGS- & GEBÄUDESANIERUNG',
+         'linkLabel': 'Mehr Infos', 'linkHref': '/fassadensanierung'},
+        {'image': img('_themes/lightwhite/content_wohnungssanierung.jpg'), 'imageAlt': 'Wohnungs- & Gebäudesanierung', 'title': 'Wohnungs- & Gebäudesanierung',
          'text': 'Die Sanierung von Wohnraum und ganzer Gebäude erfordert neben qualitativ hochwertiger und fachgerechter Umsetzung vor allen Dingen eine termingerechte Fertigstellung. Denn jeder Leerstand von Wohn- oder Gewerbeflächen verursacht beim Eigentümer zusätzliche Kosten. Das Management aller Gewerke sowie die einwandfreie und terminierte Umsetzung hat daher bei uns höchste Priorität. Von Maurer-, Putz- und Malerarbeiten über den Einbau von Türen und Fenstern sowie Heizungs-, Elektro- und Sanitärtechnik bis hin zu Bodenbelags- & Fliesenarbeiten – bei uns erhalten Sie alle Leistungen aus einer Hand.',
-         'buttonLabel': 'Mehr Infos', 'buttonHref': '/wohnungs-gebaeudesanierung'},
-        {'image': img(O + 'c_0083_1000px.jpg'), 'imageAlt': 'Öffentliche Einrichtungen', 'title': 'ÖFFENTLICHE EINRICHTUNGEN',
+         'linkLabel': 'Mehr Infos', 'linkHref': '/wohnungs-gebaeudesanierung'},
+        {'image': img('_themes/lightwhite/content_oeffentliche.jpg'), 'imageAlt': 'Öffentliche Einrichtungen', 'title': 'Öffentliche Einrichtungen',
          'text': 'Seit Jahrzehnten setzen wir umfangreiche Projekte im Bereich der Fassaden- sowie Innenraumsanierung für öffentliche Auftraggeber um. So sind wir bestens vertraut mit den Anforderungen öffentlicher Auftraggeber und haben ein umfangreiches Know-how – insbesondere im Bereich der historischen und denkmalgeschützten Gebäude, wie beispielsweise die zahlreichen Hamburger Schulen mit historischen Backsteinfassaden. Für öffentliche Vergabeverfahren sind wir natürlich präqualifiziert und weisen die Eignungsvoraussetzungen der VOB mit der PQ VOB nach.',
-         'buttonLabel': 'Mehr Infos', 'buttonHref': '/oeffentliche-einrichtungen'},
+         'linkLabel': 'Mehr Infos', 'linkHref': '/oeffentliche-einrichtungen'},
     ])),
-    ('about', 'Über uns', about(img(F + 'fassade-oberfinanzdirektion.jpg'), 'WERNER BAU', 'Zuverlässig – Erfahren – Qualifiziert',
-        'Unser traditionsreiches, mittelständisches Unternehmen mit Sitz in Hamburg kann auf eine fast hundertjährige Geschichte zurückblicken. Seit jeher ist es unser Anspruch, für unsere Kunden die optimale Lösung zu finden und diese nach höchsten Qualitätsanforderungen umzusetzen. Dabei pflegen wir mit unseren Kunden eine partnerschaftliche Zusammenarbeit. Sie können sich auf unsere Absprachen verlassen und sicher sein, eine ehrliche und kompetente Beratung zu erhalten.\n\nErfahrungen wurden bei uns seit jeher von Generation zu Generation weitergegeben und werden fortlaufend durch Schulungsprogramme zu neuen, innovativen Produkten und Techniken ausgebaut.',
+    ('about', 'Werner Bau', about('WERNER BAU', 'Zuverlässig – Erfahren – Qualifiziert',
+        'Unser traditionsreiches, mittelständisches Unternehmen mit Sitz in Hamburg kann auf eine fast hundertjährige Geschichte zurückblicken. Seit jeher ist es unser Anspruch, für unsere Kunden die optimale Lösung zu finden und diese nach höchsten Qualitätsanforderungen umzusetzen. Dabei pflegen wir mit unseren Kunden eine partnerschaftliche Zusammenarbeit. Sie können sich auf unsere Absprachen verlassen und sicher sein, eine ehrliche und kompetente Beratung zu erhalten.',
+        'Erfahrungen wurden bei uns seit jeher von Generation zu Generation weitergegeben und werden fortlaufend durch Schulungsprogramme zu neuen, innovativen Produkten und Techniken ausgebaut.',
         ('Mehr Infos', '/ueber-uns'))),
     ('footer', 'Footer', footer()),
 ]
 
 def sub(active, banner, h1, blocks, gal_cat=None, extra=None):
-    secs = [('header', 'Navigation', header(active)),
-            ('hero', 'Hero', hero(img(BAN + banner), h1, height='md', size='xl', overlay=65)),
-            ('content', 'Inhalt', content(blocks))]
-    if gal_cat:
-        secs.append(('gallery', 'Galerie', gallery(cat(gal_cat), eyebrow=h1)))
-    if extra:
-        secs += extra
-    secs.append(('certs', 'Qualifikationen', certs()))
-    secs.append(('footer', 'Footer', footer()))
-    return secs
+    blocks = [dict(b) for b in blocks]
+    if not blocks[0].get('title'):
+        blocks[0]['title'] = h1
+    return [('header', 'Navigation', header(active)),
+            ('hero', 'Banner', hero(img(BAN + banner), h1)),
+            ('content', 'Inhalt', content(blocks, cat(gal_cat) if gal_cat else [])),
+            ('certs', 'Qualifikationen', certs()),
+            ('footer', 'Footer', footer())]
 
 
 PAGES['fassadensanierung'] = sub('/fassadensanierung', 'banner-1.jpg', 'Fassadensanierung', [
@@ -82,26 +78,30 @@ PAGES['oeffentlich'] = sub('/oeffentliche-einrichtungen', 'banner-4.jpg', 'Schul
      'text': 'Wir sind für öffentliche Vergabeverfahren präqualifiziert. Mit der PQ VOB weisen wir die Eignungsvoraussetzungen der VOB in Bezug auf unsere Fachkunde, Zuverlässigkeit und Leistungsfähigkeit nach.'},
 ], 'oeffentlich')
 
-PAGES['ueber-uns'] = sub('/ueber-uns', 'banner-1.jpg', 'Über uns', [
-    {'lead': True, 'text': 'Wir sind ein traditionsreiches Hamburger Bauunternehmen, das auf eine bald hundertjährige Firmengeschichte zurückblicken kann. Erfahrungen werden bei uns seit jeher von Generation zu Generation weitergegeben. Spezialisiert auf Sanierungsarbeiten – sowohl für Wohn- und Gewerbeimmobilien als auch öffentliche Einrichtungen – konnten wir das Stadtbild Hamburgs im Laufe unserer Geschichte schon ein wenig mitgestalten und blicken immer wieder gern auf unsere umgesetzten Projekte.'},
-    {'title': 'Erfahrung & Know-How', 'layout': 'imageRight', 'image': img(F + 'fassadensanierung-hamburg-experten-2.jpg'), 'imageAlt': 'Erfahrung & Know-How',
-     'text': 'Wir sind seit fast 100 Jahren am Markt. Erfahrungen wurden bei uns seit jeher von Generation zu Generation übertragen. Wir setzen seit Jahren auf einen bestehenden festen und qualifizierten Mitarbeiterstamm. Durch Weiterbildungsmaßnahmen aber auch den internen Austausch stellen wir die stetige Weiterentwicklung sicher. Dank Schulungen zu innovativen Produkten und Techniken beherrschen wir auch diese und können Ihnen stets das optimale Verfahren für die Umsetzung Ihres Projektes empfehlen.'},
-    {'title': 'Wofür wir stehen', 'layout': 'text',
-     'text': 'Wir sind zuverlässig. Auf unsere Absprachen können Sie zählen. Vereinbarte Termine und Ausführungen werden bei uns so abgeliefert wie besprochen.\n\nWir liefern Qualität. Wir blicken mit Stolz auf unsere umgesetzten Projekte. Das können wir, weil wir ein jedes Projekt mit unserem hohen Anspruch an Qualität umsetzen. Deshalb arbeiten wir auch nur mit Spezialisten anderer Gewerke zusammen, welche den gleichen Anspruch an fachgerechte und qualitativ hochwertige Umsetzung haben wie wir.\n\nWir finden die optimale Lösung für Sie. Wir führen kein Projekt nach Schema F durch. Grundlage einer jeden Sanierung ist eine Untersuchung der Ursachen. Anhand der Ergebnisse entwickeln wir das optimale Konzept zur Umsetzung Ihres Vorhabens. Ehrliche Beratung wird bei uns groß geschrieben.'},
-    {'title': 'Teil einer starken Gruppe', 'layout': 'text',
-     'text': 'Die Werner GmbH Bauunternehmung ist Teil der Unternehmensgruppe GRUPPENWERK, der mittelständische Betriebe der norddeutschen Handwerks und Immobilienwirtschaft angehören. Alle Unternehmen der Gruppe vereinigt ein gemeinsamer Qualitätsanspruch und der Antrieb unsere Kunden zu begeistern. Unsere Vision: Gemeinsam erreichen wir den größten Mehrwert für jedes einzelne Unternehmen, unsere Kunden und Mitarbeiter.'},
-], None, extra=[('team', 'Team', team())])
+PAGES['ueber-uns'] = [
+    ('header', 'Navigation', header('/ueber-uns')),
+    ('hero', 'Banner', hero(img(BAN + 'banner-1.jpg'), 'Über uns')),
+    ('team', 'Über uns', team(
+        [{'title': 'Über uns', 'big': True, 'text': 'Wir sind ein traditionsreiches Hamburger Bauunternehmen, das auf eine bald hundertjährige Firmengeschichte zurückblicken kann. Erfahrungen werden bei uns seit jeher von Generation zu Generation weitergegeben. Spezialisiert auf Sanierungsarbeiten – sowohl für Wohn- und Gewerbeimmobilien als auch öffentliche Einrichtungen – konnten wir das Stadtbild Hamburgs im Laufe unserer Geschichte schon ein wenig mitgestalten und blicken immer wieder gern auf unsere umgesetzten Projekte.'},
+         {'title': 'Erfahrung & Know-How', 'big': False, 'text': 'Wir sind seit fast 100 Jahren am Markt. Erfahrungen wurden bei uns seit jeher von Generation zu Generation übertragen. Wir setzen seit Jahren auf einen bestehenden festen und qualifizierten Mitarbeiterstamm. Durch Weiterbildungsmaßnahmen aber auch den internen Austausch stellen wir die stetige Weiterentwicklung sicher. Dank Schulungen zu innovativen Produkten und Techniken beherrschen wir auch diese und können Ihnen stets das optimale Verfahren für die Umsetzung Ihres Projektes empfehlen.'}],
+        [{'title': 'Wofür wir stehen', 'big': True, 'text': '**Wir sind zuverlässig.** Auf unsere Absprachen können Sie zählen. Vereinbarte Termine und Ausführungen werden bei uns so abgeliefert wie besprochen.\n\n**Wir liefern Qualität.** Wir blicken mit Stolz auf unsere umgesetzten Projekte. Das können wir, weil wir ein jedes Projekt mit unserem hohen Anspruch an Qualität umsetzen. Deshalb arbeiten wir auch nur mit Spezialisten anderer Gewerke zusammen, welche den gleichen Anspruch an fachgerechte und qualitativ hochwertige Umsetzung haben wie wir.\n\n**Wir finden die optimale Lösung für Sie.** Wir führen kein Projekt nach Schema F durch. Grundlage einer jeden Sanierung ist eine Untersuchung der Ursachen. Anhand der Ergebnisse entwickeln wir das optimale Konzept zur Umsetzung Ihres Vorhabens. Ehrliche Beratung wird bei uns groß geschrieben.'}],
+        [{'title': 'Teil einer starken Gruppe', 'big': True, 'text': 'Die Werner GmbH Bauunternehmung ist Teil der Unternehmensgruppe GRUPPENWERK, der mittelständische Betriebe der norddeutschen Handwerks und Immobilienwirtschaft angehören. Alle Unternehmen der Gruppe vereinigt ein gemeinsamer Qualitätsanspruch und der Antrieb unsere Kunden zu begeistern. Unsere Vision: Gemeinsam erreichen wir den größten Mehrwert für jedes einzelne Unternehmen, unsere Kunden und Mitarbeiter.'}],
+        {'src': BY_SRC['https://www.werner-bau.eu/assets/images/6/Gruppenwerk_Logo_RGB-43e28d96.png']['url'], 'name': 'Gruppenwerk_Logo_RGB.png', 'width': 1000, 'height': 200})),
+    ('certs', 'Qualifikationen', certs()),
+    ('footer', 'Footer', footer()),
+]
 
 PAGES['kontakt'] = [
     ('header', 'Navigation', header('/kontakt')),
-    ('hero', 'Hero', hero(img(BAN + 'banner-3.jpg'), 'Kontakt', height='sm', size='xl', overlay=65)),
-    ('contact', 'Kontakt', contact()),
+    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), 'Kontakt')),
+    ('contact', 'Kontakt', contact('1687bf91-566b-4be1-9fa7-fcd03825055c')),
     ('certs', 'Qualifikationen', certs()),
     ('footer', 'Footer', footer()),
 ]
 
 PAGES['impressum'] = [
     ('header', 'Navigation', header('/impressum')),
+    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), 'Impressum')),
     ('content', 'Impressum', content([
         {'title': 'Impressum', 'h1': True, 'layout': 'text',
          'text': 'WERNER GMBH\nBauunternehmung\nHeselstücken 10\n22453 Hamburg\n\nTelefon: (040) 357 032-74\nTelefax: (040) 357 032-680\nE-Mail: info@werner-bau.eu\n\nUSt-ID: DE 118 694 510\nHandelsregister: HR Hamburg, Nr.B 38869\nGeschäftsführer: Meik Thie, Axel Seehafer\n\nVerantwortlich für den Inhalt:\nAxel Seehafer'},
@@ -109,16 +109,19 @@ PAGES['impressum'] = [
          'text': 'Werner GmbH\nAlle Rechte vorbehalten.\n\nInhalte der Website unterliegen dem Schutz des Urheberrechts und anderer Schutzgesetze. Die Vervielfältigung von Informationen oder Daten, insbesondere die Verwendung von Texten, Textteilen oder Bildmaterial, bedarf der vorherigen Zustimmung der Werner GmbH.\n\nAls öffentlich gekennzeichnete Dokumente (wie Pressemitteilungen) dürfen in öffentlichen Mitteilungen verwenden werden.'},
         {'title': 'Haftungsbeschränkung', 'layout': 'text',
          'text': 'Diese Website wurde mit größtmöglicher Sorgfalt zusammengestellt und wird regelmäßig aktualisiert. Trotzdem kann keine Gewähr für die Fehlerfreiheit und Genauigkeit der enthaltenen Informationen übernommen werden. Jegliche Haftung für Schäden, die direkt oder indirekt aus der Benutzung dieser Website entstehen, wird ausgeschlossen, soweit diese nicht auf Vorsatz oder grober Fahrlässigkeit beruhen.\n\nSofern von dieser Website auf Internetseiten verwiesen wird, die von Dritten betrieben werden, haftet die Werner GmbH nicht für deren Inhalte.\n\nDie Werner GmbH behält sich das Recht vor, Änderungen oder Ergänzungen der an bereitgestellten Informationen jederzeit vorzunehmen.'},
-    ], compact=True)),
+    ])),
     ('footer', 'Footer', footer()),
 ]
 
 GA_OPT = 'Sie können die Erfassung Ihrer Daten durch Google Analytics verhindern, indem Sie auf folgenden Link klicken. Es wird ein Opt-Out-Cookie gesetzt, der die Erfassung Ihrer Daten bei zukünftigen Besuchen dieser Website verhindert: Google Analytics deaktivieren'
 PAGES['datenschutz'] = [
     ('header', 'Navigation', header('/datenschutz')),
+    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), 'Datenschutz')),
     ('content', 'Datenschutz', content([
         {'title': 'Datenschutz', 'h1': True, 'layout': 'text',
          'text': 'Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.\n\nDie Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.\n\nWir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.'},
+        {'title': 'Hosting', 'layout': 'text',
+         'text': 'Diese Website wird bei Onepage (onepage.io) gehostet. Beim Aufruf unserer Seiten verarbeitet der Hosting-Anbieter automatisch technisch notwendige Daten, etwa Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufenen Seiten sowie Informationen zu Browser und Betriebssystem (Server-Logfiles). Diese Daten werden benötigt, um die Website sicher und stabil bereitzustellen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in einer zuverlässigen und sicheren Darstellung unserer Website.\n\nAnfragen, die Sie uns über das Kontaktformular senden, werden ebenfalls über Onepage verarbeitet und dort gespeichert, damit wir Ihre Anfrage bearbeiten können. Mit dem Anbieter haben wir einen Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO geschlossen.'},
         {'title': 'Cookies', 'layout': 'text',
          'text': 'Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert.\n\nDie meisten der von uns verwendeten Cookies sind so genannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Diese Cookies ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.\n\nSie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browser aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.'},
         {'title': 'Kontaktformular', 'layout': 'text',
@@ -130,7 +133,7 @@ PAGES['datenschutz'] = [
         {'title': 'Widerspruch gegen Datenerfassung', 'layout': 'text', 'text': GA_OPT},
         {'title': 'Auftragsdatenverarbeitung', 'layout': 'text',
          'text': 'Wir haben mit Google einen Vertrag zur Auftragsdatenverarbeitung abgeschlossen und setzen die strengen Vorgaben der deutschen Datenschutzbehörden bei der Nutzung von Google Analytics vollständig um.\n\nQuellverweis: https://www.e-recht24.de'},
-    ], compact=True)),
+    ])),
     ('footer', 'Footer', footer()),
 ]
 

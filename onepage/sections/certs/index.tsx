@@ -1,34 +1,25 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import FeatureCard from '@siteui/feature-card';
+import Image from '@siteui/image';
+import Button from '@siteui/button';
 import styles from './styles.module.css';
 
-export default function Certs({ items, tone }: any) {
+export default function Certs({ items }: any) {
   const list: any[] = Array.isArray(items) ? items : [];
   return (
-    <section className={[styles.section, styles['tone_' + tone]].join(' ')}>
+    <section className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.grid}>
-          {list.map((it: any, i: number) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-            >
-              <FeatureCard
-                logo={it.logo && it.logo.src ? it.logo.src : undefined}
-                logoAlt={it.logoAlt}
-                title={it.title}
-                text={it.text}
-                linkLabel={it.linkLabel}
-                linkHref={it.linkHref}
-                tone={tone === 'dark' ? 'dark' : 'light'}
-              />
-            </motion.div>
-          ))}
-        </div>
+        {list.map((it: any, i: number) => (
+          <article key={i} className={styles.item}>
+            <div className={styles.logoWrap}>
+              {it.logo && it.logo.src ? <Image src={it.logo.src} alt={it.logoAlt} className={styles.logo} /> : null}
+            </div>
+            <div className={styles.body}>
+              <h3 className={styles.title}>{it.title}</h3>
+              <p className={styles.text}>{it.text}</p>
+              {it.linkLabel && it.linkHref ? <div><Button href={it.linkHref} variant="link" size="sm" arrow>{it.linkLabel}</Button></div> : null}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

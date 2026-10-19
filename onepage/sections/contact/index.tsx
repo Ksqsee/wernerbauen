@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { crm } from 'onepage-kit';
-import Title from '@siteui/title';
 import Text from '@siteui/text';
 import Button from '@siteui/button';
 import Icon from '@siteui/icon';
@@ -13,7 +11,7 @@ const EMPTY = { firstName: '', lastName: '', company: '', phone: '', email: '', 
 export default function Contact({
   infoTitle, companyLines, phoneLabel, phone, phoneHref, faxLabel, fax, emailLabel, email,
   formTitle, firstNameLabel, lastNameLabel, companyLabel, phoneFieldLabel, emailFieldLabel, messageLabel,
-  consentText, privacyLabel, privacyHref, requiredNote, submitLabel, sendingLabel, successText, errorText, requiredError, emailError,
+  consentPre, consentPost, privacyLabel, privacyHref, requiredNote, submitLabel, sendingLabel, successText, errorText, requiredError, emailError,
   formId,
 }: any) {
   const [data, setData] = useState<any>(EMPTY);
@@ -47,44 +45,20 @@ export default function Contact({
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <motion.aside
-          className={styles.info}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
-        >
-          <Title as="h2" size="md" tone="light">{infoTitle}</Title>
-          <div className={styles.address}>
-            <span className={styles.pin}><Icon name="pin" size={20} /></span>
-            <div>
-              {lines.map((l, i) => <Text key={i} size="md" tone={i === 0 ? 'light' : 'lightMuted'} className={i === 0 ? styles.company : ''}>{l}</Text>)}
-            </div>
+        <aside className={styles.info}>
+          <h1 className={styles.h1}>{infoTitle}</h1>
+          <div className={styles.lines}>
+            {lines.map((l, i) => <p key={i} className={styles.line}>{l}</p>)}
           </div>
-          <div className={styles.channels}>
-            <a className={styles.channel} href={phoneHref}>
-              <span className={styles.chIcon}><Icon name="phone" size={18} /></span>
-              <span><span className={styles.chLabel}>{phoneLabel}</span><span className={styles.chValue}>{phone}</span></span>
-            </a>
-            <div className={styles.channel}>
-              <span className={styles.chIcon}><Icon name="fax" size={18} /></span>
-              <span><span className={styles.chLabel}>{faxLabel}</span><span className={styles.chValue}>{fax}</span></span>
-            </div>
-            <a className={styles.channel} href={'mailto:' + email}>
-              <span className={styles.chIcon}><Icon name="mail" size={18} /></span>
-              <span><span className={styles.chLabel}>{emailLabel}</span><span className={styles.chValue}>{email}</span></span>
-            </a>
+          <div className={styles.lines}>
+            <p className={styles.line}>{phoneLabel}: <a href={phoneHref}>{phone}</a></p>
+            <p className={styles.line}>{faxLabel}: {fax}</p>
           </div>
-        </motion.aside>
+          <p className={styles.line}>{emailLabel}: <a className={styles.red} href={'mailto:' + email}>{email}</a></p>
+        </aside>
 
-        <motion.div
-          className={styles.formWrap}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          <Title as="h2" size="md">{formTitle}</Title>
+        <div className={styles.formWrap}>
+          <h2 className={styles.h1}>{formTitle}</h2>
           {status === 'ok' ? (
             <div className={styles.success} role="status">
               <span className={styles.okIcon}><Icon name="check" size={22} /></span>
@@ -102,19 +76,17 @@ export default function Contact({
               </div>
               <FormField id="email" label={emailFieldLabel} type="email" value={data.email} onChange={set('email')} required error={errors.email} autoComplete="email" />
               <FormField id="message" label={messageLabel} value={data.message} onChange={set('message')} required multiline error={errors.message} />
-              <Text size="sm" tone="muted">
-                {consentText} <a className={styles.privacy} href={privacyHref}>{privacyLabel}</a>
-              </Text>
-              <Text size="sm" tone="muted">{requiredNote}</Text>
-              {status === 'error' ? <Text size="sm" className={styles.err}>{errorText}</Text> : null}
+              <p className={styles.note}>{consentPre} <a className={styles.red} href={privacyHref}>{privacyLabel}</a> {consentPost}</p>
+              <p className={styles.note}>{requiredNote}</p>
+              {status === 'error' ? <p className={[styles.note, styles.red].join(' ')}>{errorText}</p> : null}
               <div>
-                <Button type="submit" variant="primary" size="lg" arrow disabled={status === 'sending'}>
+                <Button type="submit" variant="primary" size="md" arrow disabled={status === 'sending'}>
                   {status === 'sending' ? sendingLabel : submitLabel}
                 </Button>
               </div>
             </form>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

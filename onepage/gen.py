@@ -46,99 +46,72 @@ NAV = [
 LINK_ITEMS = {'label': {'title': 'Label', 'type': 'text'}, 'href': {'title': 'Link', 'type': 'text'}}
 
 
+NAV_MAIN = [n for n in NAV if n['href'] != '/kontakt']
+
+
 def header(active):
     ctl = {
         'logo': c('Logo', 'media', img('_themes/lightwhite/logo-wernerbau.svg'), 'content', 'brand'),
         'logoAlt': c('Logo Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'brand'),
         'logoHref': c('Logo Link', 'text', '/', 'content', 'brand'),
-        'emailLabel': c('E-Mail Label', 'text', 'E-Mail:', 'content', 'topbar'),
-        'email': c('E-Mail', 'text', EMAIL, 'content', 'topbar'),
-        'phoneLabel': c('Telefon Label', 'text', 'Telefon:', 'content', 'topbar'),
-        'phone': c('Telefon', 'text', PHONE, 'content', 'topbar'),
-        'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'topbar'),
-        'showTopbar': c('Kontaktleiste anzeigen', 'checkbox', True, 'content', 'topbar'),
-        'navItems': c('Menüpunkte', 'array', NAV, 'content', 'nav', items=LINK_ITEMS),
+        'email': c('E-Mail', 'text', EMAIL, 'content', 'meta'),
+        'phone': c('Telefon', 'text', PHONE, 'content', 'meta'),
+        'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'meta'),
+        'contactLabel': c('Kontakt Text', 'text', 'Kontakt', 'content', 'meta'),
+        'contactHref': c('Kontakt Link', 'text', '/kontakt', 'content', 'meta'),
+        'navItems': c('Menüpunkte', 'array', NAV_MAIN, 'content', 'nav', items=LINK_ITEMS),
         'activeHref': c('Aktive Seite (Link)', 'text', active, 'content', 'nav'),
         'menuLabel': c('Menü öffnen Label', 'text', 'Menü öffnen', 'content', 'nav'),
         'closeLabel': c('Menü schließen Label', 'text', 'Menü schließen', 'content', 'nav'),
-        'ctaLabel': c('Button Text', 'text', 'Kontakt', 'content', 'cta'),
-        'ctaHref': c('Button Link', 'text', '/kontakt', 'content', 'cta'),
-        'bgColor': c('Hintergrund', 'color', '#ffffff', 'content', 'cta'),
     }
-    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'topbar': {'title': 'Kontaktleiste'}, 'nav': {'title': 'Navigation'}, 'cta': {'title': 'Button & Stil'}})
+    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'meta': {'title': 'Kontaktzeile'}, 'nav': {'title': 'Navigation'}})
 
-
-def hero(image, title, eyebrow='', text='', primary=('', ''), secondary=('', ''), height='md', size='xl', overlay=70):
+def hero(image, alt, height='md'):
     ctl = {
-        'image': c('Hintergrundbild', 'media', image, 'content', 'root'),
-        'imageAlt': c('Bild Alt-Text', 'text', title, 'content', 'root'),
-        'height': c('Höhe', 'select', height, 'layout', 'root', options=[{'value': 'lg', 'label': 'Groß'}, {'value': 'md', 'label': 'Mittel'}, {'value': 'sm', 'label': 'Klein'}]),
-        'overlay': c('Abdunklung', 'number-slider', overlay, 'layout', 'root', min=0, max=95, step=5),
-        **FULL,
-        'eyebrow': c('Überzeile', 'text', eyebrow, 'content', 'texts'),
-        'title': c('Überschrift', 'text', title, 'content', 'texts'),
-        'text': c('Text', 'text', text, 'content', 'texts'),
-        'titleSize': c('Schriftgröße', 'select', size, 'styles', 'texts', options=[{'value': 'lg', 'label': 'L'}, {'value': 'xl', 'label': 'XL'}, {'value': 'xxl', 'label': 'XXL'}]),
-        'primaryLabel': c('Button 1 Text', 'text', primary[0], 'content', 'buttons'),
-        'primaryHref': c('Button 1 Link', 'text', primary[1], 'content', 'buttons'),
-        'secondaryLabel': c('Button 2 Text', 'text', secondary[0], 'content', 'buttons'),
-        'secondaryHref': c('Button 2 Link', 'text', secondary[1], 'content', 'buttons'),
+        'image': c('Bannerbild', 'media', image, 'content', 'root'),
+        'imageAlt': c('Bild Alt-Text', 'text', alt, 'content', 'root'),
+        'height': c('Höhe', 'select', height, 'content', 'root', options=[{'value': 'lg', 'label': 'Groß'}, {'value': 'md', 'label': 'Mittel'}, {'value': 'sm', 'label': 'Klein'}]),
     }
-    return pkg('hero', ctl, {'texts': {'title': 'Texte'}, 'buttons': {'title': 'Buttons'}})
+    return pkg('hero', ctl, {})
 
-
-def services(items):
+def services(banner, items):
     ctl = {
-        'anchorId': c('Anker-ID', 'text', 'leistungen', 'settings', 'root'),
-        'bgColor': c('Hintergrund', 'color', '#ffffff', 'settings', 'root'),
+        'bannerImage': c('Bannerbild', 'media', banner, 'content', 'root'),
+        'bannerAlt': c('Banner Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'root'),
+        'anchorId': c('Anker-ID', 'text', 'leistungen', 'content', 'root'),
         'items': c('Leistungen', 'array', items, 'content', 'items', items={
-            'image': {'title': 'Bild', 'type': 'media'}, 'imageAlt': {'title': 'Alt-Text', 'type': 'text'},
-            'title': {'title': 'Titel', 'type': 'text'}, 'text': {'title': 'Text', 'type': 'text'},
-            'buttonLabel': {'title': 'Button Text', 'type': 'text'}, 'buttonHref': {'title': 'Button Link', 'type': 'text'}}),
+            'image': {'title': 'Bild', 'type': 'media'}, 'title': {'title': 'Titel', 'type': 'text'},
+            'text': {'title': 'Text', 'type': 'text'}, 'imageAlt': {'title': 'Alt-Text', 'type': 'text'},
+            'linkLabel': {'title': 'Link Text', 'type': 'text'}, 'linkHref': {'title': 'Link', 'type': 'text'}}),
     }
     return pkg('services', ctl, {'items': {'title': 'Leistungen'}})
 
-
-def about(image, eyebrow, title, text, btn):
+def about(title, subtitle, left, right, btn):
     ctl = {
-        'image': c('Bild', 'media', image, 'content', 'root'),
-        'imageAlt': c('Alt-Text', 'text', title, 'content', 'root'),
-        'eyebrow': c('Überzeile', 'text', eyebrow, 'content', 'root'),
         'title': c('Überschrift', 'text', title, 'content', 'root'),
-        'text': c('Text (Absätze mit Leerzeile trennen)', 'text', text, 'content', 'root'),
-        'buttonLabel': c('Button Text', 'text', btn[0], 'content', 'root'),
-        'buttonHref': c('Button Link', 'text', btn[1], 'content', 'root'),
-        'bgColor': c('Hintergrund', 'color', 'var(--color-kit-key2)', 'content', 'root'),
+        'subtitle': c('Unterzeile', 'text', subtitle, 'content', 'root'),
+        'textLeft': c('Text links', 'text', left, 'content', 'root'),
+        'textRight': c('Text rechts', 'text', right, 'content', 'root'),
+        'buttonLabel': c('Link Text', 'text', btn[0], 'content', 'root'),
+        'buttonHref': c('Link', 'text', btn[1], 'content', 'root'),
     }
     return pkg('about', ctl, {})
 
-
-def content(blocks, tone='white', compact=False):
-    full = []
-    for b in blocks:
-        d = {'eyebrow': '', 'title': '', 'h1': False, 'lead': False, 'text': '', 'bullets': '', 'textAfter': '',
-             'image': None, 'imageAlt': '', 'layout': 'text'}
-        d.update(b)
-        if d['image'] is None:
-            del d['image']
-        full.append(d)
+def content(blocks, images=None):
+    full = [{'title': b.get('title', ''), 'text': b.get('text', ''), 'bullets': b.get('bullets', ''), 'textAfter': b.get('textAfter', '')} for b in blocks]
     ctl = {
-        'tone': c('Hintergrund', 'select', tone, 'styles', 'root', options=TONE),
-        'compact': c('Kompakte Abstände', 'checkbox', compact, 'styles', 'root'),
         'blocks': c('Textblöcke', 'array', full, 'content', 'blocks', items={
-            'image': {'title': 'Bild', 'type': 'media'},
-            'eyebrow': {'title': 'Überzeile', 'type': 'text'},
             'title': {'title': 'Überschrift', 'type': 'text'},
-            'text': {'title': 'Text (Absätze mit Leerzeile trennen)', 'type': 'text'},
+            'text': {'title': 'Text (Absätze mit Leerzeile trennen, **fett**)', 'type': 'text'},
             'bullets': {'title': 'Aufzählung (eine Zeile pro Punkt)', 'type': 'text'},
-            'textAfter': {'title': 'Text nach Aufzählung', 'type': 'text'},
-            'imageAlt': {'title': 'Bild Alt-Text', 'type': 'text'},
-            'layout': {'title': 'Layout', 'type': 'select', 'options': [{'value': 'text', 'label': 'Nur Text'}, {'value': 'imageRight', 'label': 'Bild rechts'}, {'value': 'imageLeft', 'label': 'Bild links'}]},
-            'h1': {'title': 'Als Hauptüberschrift (H1)', 'type': 'checkbox'},
-            'lead': {'title': 'Erster Absatz hervorgehoben', 'type': 'checkbox'}}),
+            'textAfter': {'title': 'Text nach Aufzählung', 'type': 'text'}}),
+        'images': c('Bilder (rechte Spalte)', 'array', images or [], 'content', 'images', items={'image': {'title': 'Bild', 'type': 'media'}, 'alt': {'title': 'Alt-Text', 'type': 'text'}}),
+        'openLabel': c('Bild öffnen (Screenreader)', 'text', 'Bild vergrößern', 'content', 'images'),
+        'closeLabel': c('Schließen (Screenreader)', 'text', 'Schließen', 'content', 'images'),
+        'prevLabel': c('Zurück (Screenreader)', 'text', 'Vorheriges Bild', 'content', 'images'),
+        'nextLabel': c('Weiter (Screenreader)', 'text', 'Nächstes Bild', 'content', 'images'),
     }
-    return pkg('content', ctl, {'blocks': {'title': 'Textblöcke'}})
-
+    return pkg('content', ctl, {'blocks': {'title': 'Text'}, 'images': {'title': 'Bilder'}})
 
 def gallery(images, eyebrow='', title='', tone='light', initial=9):
     ctl = {
@@ -171,7 +144,6 @@ def certs():
         {'logo': img('logo-handwerk.png'), 'logoAlt': 'Norddeutscher Baugewerbeverband e.V.', 'title': 'Norddeutscher Baugewerbeverband e.V.', 'text': NBV, 'linkLabel': '', 'linkHref': ''},
     ]
     ctl = {
-        'tone': c('Hintergrund', 'select', 'light', 'styles', 'root', options=TONE),
         'items': c('Qualifikationen', 'array', items, 'content', 'items', items={
             'logo': {'title': 'Logo', 'type': 'media'}, 'logoAlt': {'title': 'Logo Alt-Text', 'type': 'text'},
             'title': {'title': 'Titel', 'type': 'text'}, 'text': {'title': 'Text', 'type': 'text'},
@@ -180,7 +152,8 @@ def certs():
     return pkg('certs', ctl, {'items': {'title': 'Qualifikationen'}})
 
 
-def team():
+def team(intro, values, group, group_logo):
+    TB = {'title': {'title': 'Überschrift', 'type': 'text'}, 'text': {'title': 'Text (Absätze mit Leerzeile trennen, **fett**)', 'type': 'text'}, 'big': {'title': 'Große Überschrift', 'type': 'checkbox'}}
     p = lambda photo, name, role, mail: {'photo': img('team/' + photo), 'name': name, 'role': role, 'phoneLabel': 'Rufnummer:', 'phone': '(040) 357 032-74', 'phoneHref': PHONE_HREF, 'emailLabel': 'E-Mail:', 'email': mail}
     people = [
         p('AxelSeehafer-Showroom-Lifestyle-Fotograf-Kathrin-Stahl-46.jpg', 'Meik Thie', 'Geschäftsführer', 'm.thie@werner-bau.eu'),
@@ -188,14 +161,17 @@ def team():
         p('Christoph%20Kapust.jpg', 'Christoph Kapust', 'Projekt-/Bauleiter', 'c.kapust@werner-bau.eu'),
     ]
     ctl = {
-        'tone': c('Hintergrund', 'select', 'white', 'styles', 'root', options=TONE[:2]),
+        'introBlocks': c('Spalte links oben', 'array', intro, 'content', 'texts', items=TB),
+        'valuesBlocks': c('Spalte rechts oben', 'array', values, 'content', 'texts', items=TB),
+        'groupBlocks': c('Gruppe', 'array', group, 'content', 'group', items=TB),
+        'groupLogo': c('Gruppenwerk Logo', 'media', group_logo, 'content', 'group'),
+        'groupLogoAlt': c('Logo Alt-Text', 'text', 'GRUPPENWERK', 'content', 'group'),
         'people': c('Ansprechpartner', 'array', people, 'content', 'people', items={
             'photo': {'title': 'Foto', 'type': 'media'}, 'name': {'title': 'Name', 'type': 'text'}, 'role': {'title': 'Funktion', 'type': 'text'},
             'phoneLabel': {'title': 'Telefon Label', 'type': 'text'}, 'phone': {'title': 'Telefon', 'type': 'text'}, 'phoneHref': {'title': 'Telefon Link', 'type': 'text'},
             'emailLabel': {'title': 'E-Mail Label', 'type': 'text'}, 'email': {'title': 'E-Mail', 'type': 'text'}}),
     }
-    return pkg('team', ctl, {'people': {'title': 'Ansprechpartner'}})
-
+    return pkg('team', ctl, {'texts': {'title': 'Texte'}, 'group': {'title': 'Gruppe'}, 'people': {'title': 'Ansprechpartner'}})
 
 def contact(form_id=''):
     ctl = {
@@ -216,8 +192,9 @@ def contact(form_id=''):
         'emailFieldLabel': c('E-Mail Adresse', 'text', 'E-Mail Adresse', 'content', 'fields'),
         'messageLabel': c('Nachricht', 'text', 'Nachricht', 'content', 'fields'),
         'submitLabel': c('Absenden Button', 'text', 'Nachricht senden', 'content', 'fields'),
-        'consentText': c('Datenschutz-Hinweis', 'text', 'Mit dem Absenden des Formulars nehmen Sie unserer Datenschutzerklärung zur Kenntnis und akzeptieren diese.', 'content', 'notes'),
-        'privacyLabel': c('Datenschutz Link Text', 'text', 'Datenschutz', 'content', 'notes'),
+        'consentPre': c('Datenschutz-Hinweis (vor Link)', 'text', 'Mit dem Absenden des Formulars nehmen Sie unserer', 'content', 'notes'),
+        'privacyLabel': c('Datenschutz Link Text', 'text', 'Datenschutzerklärung', 'content', 'notes'),
+        'consentPost': c('Datenschutz-Hinweis (nach Link)', 'text', 'zur Kenntnis und akzeptieren diese.', 'content', 'notes'),
         'privacyHref': c('Datenschutz Link', 'text', '/datenschutz', 'content', 'notes'),
         'requiredNote': c('Pflichtfeld-Hinweis', 'text', 'Felder, welche mit * markiert sind, sind Pflichtfelder und müssen vor dem Absenden ausgefüllt werden.', 'content', 'notes'),
         'sendingLabel': c('Senden läuft', 'text', 'Wird gesendet …', 'content', 'messages'),
@@ -230,21 +207,18 @@ def contact(form_id=''):
     return pkg('contact', ctl, {'info': {'title': 'Kontaktdaten'}, 'fields': {'title': 'Formularfelder'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen & CRM'}})
 
 
+FOOTER_BG = {'src': 'https://onecdn.io/media/fb608040-1adc-425e-8524-af41b2d94094/full', 'name': 'footer.jpg', 'width': 2000, 'height': 500}
+
+
 def footer():
     ctl = {
+        'background': c('Hintergrundbild', 'media', FOOTER_BG, 'content', 'brand'),
         'logo': c('Logo (hell)', 'media', img('_themes/lightwhite/logo-wernerbau-negative.svg'), 'content', 'brand'),
         'logoAlt': c('Logo Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'brand'),
-        'companyLines': c('Adresse', 'text', 'WERNER GMBH Bauunternehmung\nHeselstücken 10\n22453 Hamburg', 'content', 'brand'),
-        'phone': c('Telefon', 'text', PHONE, 'content', 'brand'),
-        'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'brand'),
-        'email': c('E-Mail', 'text', EMAIL, 'content', 'brand'),
-        'navTitle': c('Navigation Überschrift', 'text', 'Navigation', 'content', 'nav'),
-        'navItems': c('Menüpunkte', 'array', NAV, 'content', 'nav', items=LINK_ITEMS),
-        'legalItems': c('Rechtliches', 'array', [{'label': 'Impressum', 'href': '/impressum'}, {'label': 'Datenschutz', 'href': '/datenschutz'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'nav', items=LINK_ITEMS),
-        'copyright': c('Copyright', 'text', '© Werner GmbH. Alle Rechte vorbehalten.', 'content', 'nav'),
-        'groupLogo': c('Gruppenwerk Logo', 'media', img('Gruppenwerk_Unternehmen_weiss.png'), 'content', 'group'),
         'groupTitle': c('Gruppe Text', 'text', 'Ein Unternehmen von Gruppenwerk', 'content', 'group'),
+        'groupLogo': c('Gruppenwerk Logo', 'media', img('Gruppenwerk_Unternehmen_weiss.png'), 'content', 'group'),
         'groupAlt': c('Gruppe Alt-Text', 'text', 'Zur Gruppenwerk Website', 'content', 'group'),
         'groupHref': c('Gruppe Link', 'text', 'https://www.gruppenwerk.de', 'content', 'group'),
+        'legalItems': c('Links', 'array', [{'label': 'Impressum', 'href': '/impressum'}, {'label': 'Datenschutz', 'href': '/datenschutz'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'group', items=LINK_ITEMS),
     }
-    return pkg('footer', ctl, {'brand': {'title': 'Logo & Kontakt'}, 'nav': {'title': 'Links'}, 'group': {'title': 'Gruppenwerk'}})
+    return pkg('footer', ctl, {'brand': {'title': 'Hintergrund & Logo'}, 'group': {'title': 'Gruppenwerk & Links'}})
