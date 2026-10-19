@@ -13,13 +13,13 @@ PAGES = {}
 PAGES['start'] = [
     ('header', 'Navigation', header('/')),
     ('services', 'Banner & Leistungen', services(img(BAN + 'banner-1.jpg'), [
-        {'image': img('_themes/lightwhite/content_fassadensanierung.jpg'), 'imageAlt': 'Fassadensanierung', 'title': 'Fassadensanierung',
+        {'image': img(F + 'fassade-oberfinanzdirektion-9.jpg'), 'imageAlt': alt('fassade-oberfinanzdirektion-9.jpg'), 'title': 'Fassadensanierung',
          'text': 'Die fachgerechte Erhaltung einer Fassade dient der Werterhaltung des gesamten Gebäudes. Sie ist die schützende Hülle eines jeden Bauwerks und bestimmt dessen optischen Gesamteindruck. Die Fassadensanierung bedarf Erfahrung und umfassende Fachkenntnisse - insbesondere, wenn es sich um Altbauobjekte oder unter Denkmalschutz stehende Gebäude handelt. Als traditionsreiches Unternehmen, welches bald 100 Jahre tätig ist, können wir auf einen umfangreichen Erfahrungsschatz zurückgreifen. Im Rahmen der Fassadensanierung führen wir auch bekämpfende Holzschutzmaßnahmen sowie die Sanierung von Balkonen durch.',
          'linkLabel': 'Mehr Infos', 'linkHref': '/fassadensanierung'},
-        {'image': img('_themes/lightwhite/content_wohnungssanierung.jpg'), 'imageAlt': 'Wohnungs- & Gebäudesanierung', 'title': 'Wohnungs- & Gebäudesanierung',
+        {'image': img(W + 'Wohnungssanierung-1-Flur.jpg'), 'imageAlt': alt('Wohnungssanierung-1-Flur.jpg'), 'title': 'Wohnungs- & Gebäudesanierung',
          'text': 'Die Sanierung von Wohnraum und ganzer Gebäude erfordert neben qualitativ hochwertiger und fachgerechter Umsetzung vor allen Dingen eine termingerechte Fertigstellung. Denn jeder Leerstand von Wohn- oder Gewerbeflächen verursacht beim Eigentümer zusätzliche Kosten. Das Management aller Gewerke sowie die einwandfreie und terminierte Umsetzung hat daher bei uns höchste Priorität. Von Maurer-, Putz- und Malerarbeiten über den Einbau von Türen und Fenstern sowie Heizungs-, Elektro- und Sanitärtechnik bis hin zu Bodenbelags- & Fliesenarbeiten – bei uns erhalten Sie alle Leistungen aus einer Hand.',
          'linkLabel': 'Mehr Infos', 'linkHref': '/wohnungs-gebaeudesanierung'},
-        {'image': img('_themes/lightwhite/content_oeffentliche.jpg'), 'imageAlt': 'Öffentliche Einrichtungen', 'title': 'Öffentliche Einrichtungen',
+        {'image': img(O + 'c_0006_1000px.jpg'), 'imageAlt': alt('c_0006_1000px.jpg'), 'title': 'Öffentliche Einrichtungen',
          'text': 'Seit Jahrzehnten setzen wir umfangreiche Projekte im Bereich der Fassaden- sowie Innenraumsanierung für öffentliche Auftraggeber um. So sind wir bestens vertraut mit den Anforderungen öffentlicher Auftraggeber und haben ein umfangreiches Know-how – insbesondere im Bereich der historischen und denkmalgeschützten Gebäude, wie beispielsweise die zahlreichen Hamburger Schulen mit historischen Backsteinfassaden. Für öffentliche Vergabeverfahren sind wir natürlich präqualifiziert und weisen die Eignungsvoraussetzungen der VOB mit der PQ VOB nach.',
          'linkLabel': 'Mehr Infos', 'linkHref': '/oeffentliche-einrichtungen'},
     ])),
@@ -30,18 +30,23 @@ PAGES['start'] = [
     ('footer', 'Footer', footer()),
 ]
 
+def banner_alt(path):
+    name = path.rsplit('/', 1)[-1]
+    return BANNER_ALT.get(name) or alt(name)
+
+
 def sub(active, banner, h1, blocks, gal_cat=None, extra=None):
     blocks = [dict(b) for b in blocks]
     if not blocks[0].get('title'):
         blocks[0]['title'] = h1
     return [('header', 'Navigation', header(active)),
-            ('hero', 'Banner', hero(img(BAN + banner), h1)),
+            ('hero', 'Banner', hero(img(banner), banner_alt(banner))),
             ('content', 'Inhalt', content(blocks, cat(gal_cat) if gal_cat else [])),
             ('certs', 'Qualifikationen', certs()),
             ('footer', 'Footer', footer())]
 
 
-PAGES['fassadensanierung'] = sub('/fassadensanierung', 'banner-1.jpg', 'Fassadensanierung', [
+PAGES['fassadensanierung'] = sub('/fassadensanierung', F + 'fassade-oberfinanzdirektion-8.jpg', 'Fassadensanierung', [
     {'lead': True, 'text': 'Die Fassade bestimmt stets den ersten Gesamteindruck eines Gebäudes. Sie nimmt Einfluss auf den Charakter ganzer Straßenzüge und Stadtteile. Teilweise sind Fassaden sogar Zeugen unserer Geschichte - insbesondere Altbauten und denkmalgeschützte Gebäude sind hier anzuführen. Entsprechend wichtig ist die fachgerechte Erhaltung der Fassade – nicht nur aus optischen Gesichtspunkten. Fassadensanierung dient der Werterhaltung des gesamten Gebäudes.'},
     {'title': 'Individuelle Sanierungskonzepte', 'layout': 'imageRight', 'image': img(F + 'fassadensanierung-hamburg-experten.jpg'), 'imageAlt': 'Individuelle Sanierungskonzepte',
      'text': 'Schäden an Fassaden können unterschiedlichsten Ursprungs sein: Umwelteinflüsse durch Abgase, Witterung aber auch chemische Prozesse wirken auf die Fassade. Ein universell einsetzbares Verfahren zur Erhaltung und Sanierung von Mauerwerk und Fassade gibt es nicht. Wir erarbeiten individuelle Sanierungskonzepte auf Basis der vorliegenden Schädigung und der eingesetzten Baustoffe.\n\nAuf Basis unserer langjährigen Erfahrung sowie umfassenden Fachkenntnissen über bauphysikalische Zusammenhänge sanieren wir Mauerwerk und Fassaden von Ein- und Mehrfamilienhäusern, Wohnhäusern sowie Öffentlichen Einrichtungen. Wir sind Experten für die fachgerechte Sanierung von',
@@ -54,7 +59,7 @@ PAGES['fassadensanierung'] = sub('/fassadensanierung', 'banner-1.jpg', 'Fassaden
      'text': 'Holz zerstörende Pilze, welche durch Feuchtigkeit verursacht werden, und Insekten können Holzfassaden und -elemente elementar schädigen. Vorbeugende Maßnahmen sind sehr empfehlenswert. Wurde dies jedoch verpasst und ist der Befall von Pilzen oder Insekten bereits gegeben, sollten unverzüglich bekämpfende Holzschutzmaßnahmen eingeleitet werden. Die jeweiligen Sanierungsschritte werden nach einer genauen Analyse geplant und sind abhängig von der Art des Befalls sowie vom Beschädigungsgrad des Holzes.'},
 ], 'fassade')
 
-PAGES['wohnung'] = sub('/wohnungs-gebaeudesanierung', 'banner-2.jpg', 'Wohnungssanierung & Gebäuderevitalisierung', [
+PAGES['wohnung'] = sub('/wohnungs-gebaeudesanierung', BAN + 'banner-2.jpg', 'Wohnungssanierung & Gebäuderevitalisierung', [
     {'lead': True, 'text': 'Als Vermieter sind gepflegte Immobilien unerlässlich, um angemessene Mietrenditen und Wertsteigerungen zu erzielen. Doch Leerstand von Wohn- und Gewerbeflächen kostet. Eine termingerechte und fachmännische Sanierung ist erforderlich, um eine zügige Wiedervermietung sicherzustellen. Wir sind spezialisiert auf die umfassende und ganzheitliche Sanierung von Wohnungen im Bestand sowie die komplette Revitalisierung von Gebäuden. Durch gute Planung und Arbeitsvorbereitung stellen wir die qualitativ einwandfreie sowie terminierte Fertigstellung unserer Sanierungsprojekte sicher.'},
     {'title': 'Alle Arbeiten aus einer Hand', 'layout': 'imageRight', 'image': img(W + 'Wohnungssanierung-Badezimmer-1b-nachher.jpg'), 'imageAlt': 'Alle Arbeiten aus einer Hand',
      'text': 'Bei uns haben Sie einen Ansprechpartner, welcher mit Ihnen das Projekt bespricht und während der Projektzeit zur Seite steht. Wir liefern alle Leistungen bis zur bezugsfertigen Wohneinheit aus einer Hand. Sie müssen sich nicht mit unterschiedlichen Gewerken abstimmen. Arbeiten, die wir nicht selbst ausführen, werden ausschließlich durch verlässliche Spezialisten, mit denen wir schon viele Jahre zusammenarbeiten, durchgeführt. Gemeinsam mit unseren Partnern führen wir alle Sanierungs- und Revitalisierungsarbeiten nach höchsten Ansprüchen durch, dazu gehören',
@@ -65,7 +70,7 @@ PAGES['wohnung'] = sub('/wohnungs-gebaeudesanierung', 'banner-2.jpg', 'Wohnungss
      'text': 'Bei feuchten Kellerwänden oder gar Schimmel an den Wänden empfiehlt sich zügiges Handeln. Feuchtigkeit als Ursache für viele Arten von Bauschäden beeinflusst die Lebensdauer eines Bauwerkes maßgeblich. Nicht nur zum Schutz der Bausubstanz sollte die Dichtigkeit des Kellers gegeben sein, Pilze oder Mikroorganismen können sich ansiedeln und die Gesundheit der Bewohner beeinträchtigen.\n\nJeder Kellertrockenlegung geht bei uns eine Analyse der Ursachen voraus, wie die Feuchtigkeit eindringen konnte. Auf Basis der Ergebnisse leiten wir individuelle Maßnahmen zur Sanierung und Trockenlegung der Kellerräume ab. In der Umsetzung arbeiten wir ausschließlich mit den hochwertigen und praxiserprobten Produktsystemen von Remmers. Wir vertrauen in die innovativen Produktsysteme des deutschen Herstellers und können Ihnen mit der Remmers-System-Garantie (RSG) eine 10-jährige Qualitätsgarantie geben.'},
 ], 'wohnung')
 
-PAGES['oeffentlich'] = sub('/oeffentliche-einrichtungen', 'banner-4.jpg', 'Schulen & öffentliche Einrichtungen', [
+PAGES['oeffentlich'] = sub('/oeffentliche-einrichtungen', BAN + 'banner-4.jpg', 'Schulen & öffentliche Einrichtungen', [
     {'lead': True, 'text': 'Die Sanierung öffentlicher Einrichtungen erfordert spezielle Kenntnisse, insbesondere wenn es sich um Altbau oder gar denkmalgeschützte Bauwerke handelt. Beispielhaft sind hier die vielen Hamburger Schulen aus Backstein anzuführen. Durch unsere Spezialisierung auf die Fassadensanierung sowie die Innenraumsanierung decken wir das nötige Leistungsspektrum zur fachgerechten Umsetzung optimal ab. Aus diesem Grund arbeiten wir seit Jahrzehnten für öffentliche Auftraggeber und verfügen über einen entsprechend großen Erfahrungsschatz.'},
     {'title': 'Alle Arbeiten aus einer Hand', 'layout': 'imageRight', 'image': img(O + 'c_0125_1000px.jpg'), 'imageAlt': 'Alle Arbeiten aus einer Hand',
      'text': 'Von der Fassade über die Kantine bis hin zur Umsetzung von Anbauten - bieten wir Ihnen alle Leistungen, welche für die Sanierung oder Erweiterung von öffentlichen Einrichtungen notwendig sind. Arbeiten, die wir nicht selbst ausführen, werden ausschließlich durch verlässliche Spezialisten, mit denen wir schon viele Jahre zusammenarbeiten, durchgeführt. Sie als Auftraggeber müssen sich nicht mit verschiedenen Gewerken abstimmen, dies übernimmt Ihr Ansprechpartner aus unserem Hause. Gemeinsam mit unseren Partnern führen wir alle Arbeiten nach höchsten Ansprüchen an Qualität und fachgerechter Umsetzung durch, dazu gehören',
@@ -80,7 +85,7 @@ PAGES['oeffentlich'] = sub('/oeffentliche-einrichtungen', 'banner-4.jpg', 'Schul
 
 PAGES['ueber-uns'] = [
     ('header', 'Navigation', header('/ueber-uns')),
-    ('hero', 'Banner', hero(img(BAN + 'banner-1.jpg'), 'Über uns')),
+    ('hero', 'Banner', hero(img(F + 'fassadensanierung-hamburg-experten-1.jpg'), alt('fassadensanierung-hamburg-experten-1.jpg'))),
     ('team', 'Über uns', team(
         [{'title': 'Über uns', 'big': True, 'text': 'Wir sind ein traditionsreiches Hamburger Bauunternehmen, das auf eine bald hundertjährige Firmengeschichte zurückblicken kann. Erfahrungen werden bei uns seit jeher von Generation zu Generation weitergegeben. Spezialisiert auf Sanierungsarbeiten – sowohl für Wohn- und Gewerbeimmobilien als auch öffentliche Einrichtungen – konnten wir das Stadtbild Hamburgs im Laufe unserer Geschichte schon ein wenig mitgestalten und blicken immer wieder gern auf unsere umgesetzten Projekte.'},
          {'title': 'Erfahrung & Know-How', 'big': False, 'text': 'Wir sind seit fast 100 Jahren am Markt. Erfahrungen wurden bei uns seit jeher von Generation zu Generation übertragen. Wir setzen seit Jahren auf einen bestehenden festen und qualifizierten Mitarbeiterstamm. Durch Weiterbildungsmaßnahmen aber auch den internen Austausch stellen wir die stetige Weiterentwicklung sicher. Dank Schulungen zu innovativen Produkten und Techniken beherrschen wir auch diese und können Ihnen stets das optimale Verfahren für die Umsetzung Ihres Projektes empfehlen.'}],
@@ -93,7 +98,7 @@ PAGES['ueber-uns'] = [
 
 PAGES['kontakt'] = [
     ('header', 'Navigation', header('/kontakt')),
-    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), 'Kontakt')),
+    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), BANNER_ALT['banner-3.jpg'])),
     ('contact', 'Kontakt', contact('1687bf91-566b-4be1-9fa7-fcd03825055c')),
     ('certs', 'Qualifikationen', certs()),
     ('footer', 'Footer', footer()),
@@ -101,7 +106,7 @@ PAGES['kontakt'] = [
 
 PAGES['impressum'] = [
     ('header', 'Navigation', header('/impressum')),
-    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), 'Impressum')),
+    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), BANNER_ALT['banner-3.jpg'])),
     ('content', 'Impressum', content([
         {'title': 'Impressum', 'h1': True, 'layout': 'text',
          'text': 'WERNER GMBH\nBauunternehmung\nHeselstücken 10\n22453 Hamburg\n\nTelefon: (040) 357 032-74\nTelefax: (040) 357 032-680\nE-Mail: info@werner-bau.eu\n\nUSt-ID: DE 118 694 510\nHandelsregister: HR Hamburg, Nr.B 38869\nGeschäftsführer: Meik Thie, Axel Seehafer\n\nVerantwortlich für den Inhalt:\nAxel Seehafer'},
@@ -116,7 +121,7 @@ PAGES['impressum'] = [
 GA_OPT = 'Sie können die Erfassung Ihrer Daten durch Google Analytics verhindern, indem Sie auf folgenden Link klicken. Es wird ein Opt-Out-Cookie gesetzt, der die Erfassung Ihrer Daten bei zukünftigen Besuchen dieser Website verhindert: Google Analytics deaktivieren'
 PAGES['datenschutz'] = [
     ('header', 'Navigation', header('/datenschutz')),
-    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), 'Datenschutz')),
+    ('hero', 'Banner', hero(img(BAN + 'banner-3.jpg'), BANNER_ALT['banner-3.jpg'])),
     ('content', 'Datenschutz', content([
         {'title': 'Datenschutz', 'h1': True, 'layout': 'text',
          'text': 'Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.\n\nDie Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.\n\nWir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.'},
@@ -135,7 +140,7 @@ PAGES['datenschutz'] = [
 
 PAGES['karriere'] = [
     ('header', 'Navigation', header('/karriere')),
-    ('hero', 'Banner', hero(img(F + 'fassadensanierung-hamburg-experten-2.jpg'), 'Karriere bei Werner Bau')),
+    ('hero', 'Banner', hero(img(F + 'fassadensanierung-hamburg-experten-2.jpg'), alt('fassadensanierung-hamburg-experten-2.jpg'))),
     ('career', 'Karriere', career()),
     ('footer', 'Footer', footer()),
 ]

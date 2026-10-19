@@ -1,6 +1,9 @@
 """Generate package.json files (controls + page-specific defaults) for every section instance."""
 import json, os, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from alts import alt, BANNER_ALT  # noqa: E402
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 UP = json.load(open(os.path.join(HERE, 'uploaded.json')))
 BY_SRC = {u['src']: u for u in UP}
@@ -15,7 +18,7 @@ def img(path):
 
 
 def cat(c):
-    return [{'image': {'src': u['url'], 'name': u['name'], 'width': u.get('width') or 1000, 'height': u.get('height') or 667}, 'alt': ''}
+    return [{'image': {'src': u['url'], 'name': u['name'], 'width': u.get('width') or 1000, 'height': u.get('height') or 667}, 'alt': alt(u['name'])}
             for u in UP if u['cat'] == c and u.get('url')]
 
 
@@ -80,7 +83,7 @@ def hero(image, alt, height='md'):
 def services(banner, items):
     ctl = {
         'bannerImage': c('Bannerbild', 'media', banner, 'content', 'root'),
-        'bannerAlt': c('Banner Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'root'),
+        'bannerAlt': c('Banner Alt-Text', 'text', BANNER_ALT['banner-1.jpg'], 'content', 'root'),
         'anchorId': c('Anker-ID', 'text', 'leistungen', 'content', 'root'),
         'items': c('Leistungen', 'array', items, 'content', 'items', items={
             'image': {'title': 'Bild', 'type': 'media'}, 'title': {'title': 'Titel', 'type': 'text'},
