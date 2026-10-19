@@ -292,3 +292,50 @@ def career(form_id=''):
         'formId': c('CRM Formular-ID', 'text', form_id, 'settings', 'form'),
     }
     return pkg('career', ctl, {'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Stellen'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
+
+
+def photo(name):
+    u = next((x for x in UP if x['name'] == name and x.get('url')), None)
+    if not u:
+        raise SystemExit('missing photo: ' + name)
+    return {'image': {'src': u['url'], 'name': u['name'], 'width': u.get('width') or 1000, 'height': u.get('height') or 667}, 'alt': alt(name)}
+
+
+def project(title, names, cover=None):
+    out = []
+    for n in names:
+        ph = photo(n)
+        ph['project'] = title
+        ph['cover'] = n == cover
+        out.append(ph)
+    return out
+
+
+def split(blocks, projects):
+    rows = []
+    for b in blocks:
+        p = photo(b['photo'])
+        rows.append({'title': b.get('title', ''), 'text': b.get('text', ''), 'bullets': b.get('bullets', ''), 'textAfter': b.get('textAfter', ''),
+                     'image': p['image'], 'imageAlt': p['alt']})
+    ctl = {
+        'blocks': c('Text & Bild (abwechselnd links/rechts)', 'array', rows, 'content', 'blocks', items={
+            'title': {'title': 'Überschrift', 'type': 'text'},
+            'text': {'title': 'Text (Absätze mit Leerzeile trennen, **fett**)', 'type': 'text'},
+            'bullets': {'title': 'Aufzählung (eine Zeile pro Punkt)', 'type': 'text'},
+            'textAfter': {'title': 'Text nach Aufzählung', 'type': 'text'},
+            'image': {'title': 'Bild', 'type': 'media'},
+            'imageAlt': {'title': 'Bild Alt-Text', 'type': 'text'}}),
+        'projectsEyebrow': c('Überzeile', 'text', 'Referenzen', 'content', 'projects'),
+        'projectsTitle': c('Überschrift', 'text', 'Projekte & Einblicke', 'content', 'projects'),
+        'photos': c('Fotos (gleicher Projektname = eine Karte)', 'array', [ph for grp in projects for ph in grp], 'content', 'photos', items={
+            'image': {'title': 'Bild', 'type': 'media'},
+            'alt': {'title': 'Alt-Text', 'type': 'text'},
+            'project': {'title': 'Projekt', 'type': 'text'},
+            'cover': {'title': 'Titelbild der Karte', 'type': 'checkbox'}}),
+        'photosLabel': c('Wort hinter Fotoanzahl', 'text', 'Fotos', 'content', 'projects'),
+        'openLabel': c('Öffnen (Screenreader)', 'text', 'Fotos ansehen', 'content', 'labels'),
+        'closeLabel': c('Schließen (Screenreader)', 'text', 'Schließen', 'content', 'labels'),
+        'prevLabel': c('Zurück (Screenreader)', 'text', 'Vorheriges Bild', 'content', 'labels'),
+        'nextLabel': c('Weiter (Screenreader)', 'text', 'Nächstes Bild', 'content', 'labels'),
+    }
+    return pkg('split', ctl, {'blocks': {'title': 'Text & Bild'}, 'projects': {'title': 'Projektkarten'}, 'photos': {'title': 'Projektfotos'}, 'labels': {'title': 'Beschriftungen'}})
