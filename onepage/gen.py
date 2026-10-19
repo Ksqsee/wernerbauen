@@ -215,7 +215,7 @@ def footer():
         'background': c('Hintergrundbild', 'media', FOOTER_BG, 'content', 'brand'),
         'logo': c('Logo (hell)', 'media', img('_themes/lightwhite/logo-wernerbau-negative.svg'), 'content', 'brand'),
         'logoAlt': c('Logo Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'brand'),
-        'groupTitle': c('Gruppe Text', 'text', 'Ein Unternehmen von Gruppenwerk', 'content', 'group'),
+        'groupTitle': c('Gruppe Text', 'text', '', 'content', 'group'),
         'groupLogo': c('Gruppenwerk Logo', 'media', img('Gruppenwerk_Unternehmen_weiss.png'), 'content', 'group'),
         'groupAlt': c('Gruppe Alt-Text', 'text', 'Zur Gruppenwerk Website', 'content', 'group'),
         'groupHref': c('Gruppe Link', 'text', 'https://www.gruppenwerk.de', 'content', 'group'),

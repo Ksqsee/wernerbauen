@@ -12,7 +12,7 @@ export default function Footer({ background, logo, logoAlt, groupTitle, groupLog
       <div className={styles.container}>
         <div className={styles.brand}>
           {logo && logo.src ? <Image src={logo.src} alt={logoAlt} className={styles.logo} /> : null}
-          <Text as="span" size="sm" tone="lightMuted" className={styles.groupTitle}>{groupTitle}</Text>
+          {groupTitle ? <Text as="span" size="sm" tone="lightMuted" className={styles.groupTitle}>{groupTitle}</Text> : null}
           <a href={groupHref} target="_blank" rel="noopener noreferrer" aria-label={groupAlt}>
             {groupLogo && groupLogo.src ? <Image src={groupLogo.src} alt={groupAlt} className={styles.groupLogo} /> : null}
           </a>
