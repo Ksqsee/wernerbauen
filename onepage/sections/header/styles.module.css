@@ -1,0 +1,97 @@
+.header {
+  font-family: var(--font-kit-text-font), 'Inter', sans-serif;
+  position: relative;
+  z-index: 50;
+  border-bottom: 1px solid #1D1D1B14;
+}
+.header * { font-family: inherit; box-sizing: border-box; }
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.topbar {
+  background: var(--color-kit-key2, #1D1D1B);
+  color: #ffffffcc;
+  font-size: 13px;
+}
+.topInner {
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 9px 0;
+}
+.topLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffffcc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.topLink:hover { color: #ffffff; }
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 92px;
+}
+.logoLink { display: inline-flex; align-items: center; flex: none; }
+.logo { height: 64px; width: auto; display: block; }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+}
+.actions { display: flex; align-items: center; gap: 12px; }
+.burger {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #1D1D1B26;
+  background: #ffffff;
+  color: var(--color-kit-key2, #1D1D1B);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.burger:focus-visible { outline: 2px solid var(--color-kit-key1, #D52625); outline-offset: 3px; }
+.mobile {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  background: #ffffff;
+}
+.mobileOpen { max-height: 720px; }
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 0 8px;
+  border-top: 1px solid #1D1D1B14;
+}
+.mobileCta { padding: 18px 0 28px; }
+
+@media (max-width: 1180px) {
+  .nav { gap: 22px; }
+}
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .cta { display: none; }
+  .burger { display: inline-flex; }
+  .mobile { display: block; }
+  .bar { min-height: 78px; }
+  .logo { height: 52px; }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .topInner { justify-content: space-between; gap: 12px; font-size: 12px; }
+  .topLink span { white-space: nowrap; }
+}
+@media (max-width: 420px) {
+  .topLink:first-child span { display: none; }
+}

@@ -1,0 +1,93 @@
+.section {
+  padding: 100px 0 120px;
+  background: var(--color-kit-light, #F3F0EB);
+  font-family: var(--font-kit-text-font), 'Inter', sans-serif;
+}
+.section * { box-sizing: border-box; }
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 32px;
+  align-items: start;
+}
+.info {
+  background: var(--color-kit-key2, #1D1D1B);
+  border-radius: 24px;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: sticky;
+  top: 24px;
+}
+.address { display: flex; gap: 16px; }
+.pin { color: var(--color-kit-key1, #D52625); padding-top: 4px; }
+.company { font-weight: 600; }
+.channels { display: flex; flex-direction: column; gap: 12px; }
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff0d;
+  border: 1px solid #ffffff14;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+a.channel:hover { background: #ffffff1a; border-color: #ffffff33; }
+.chIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-kit-key1, #D52625);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.chLabel { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff99; }
+.chValue { display: block; font-size: 17px; font-weight: 600; word-break: break-word; }
+.formWrap {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 44px 44px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-shadow: 0 30px 60px -45px #1D1D1B55;
+}
+.form { display: flex; flex-direction: column; gap: 20px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.privacy { color: var(--color-kit-key1, #D52625); }
+.err { color: var(--color-kit-key1, #D52625); }
+.success {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #1f9d551a;
+}
+.okIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1f9d55;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+@media (max-width: 960px) {
+  .section { padding: 64px 0 80px; }
+  .container { grid-template-columns: 1fr; padding: 0 20px; }
+  .info { position: static; padding: 32px 24px; }
+  .formWrap { padding: 32px 22px 36px; }
+  .row { grid-template-columns: 1fr; }
+}

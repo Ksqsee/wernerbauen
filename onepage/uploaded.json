@@ -1,0 +1,1538 @@
+[
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/logo-wernerbau.svg",
+  "name": "logo-wernerbau.svg",
+  "url": "https://onecdn.io/media/5be520fb-bb94-43af-8488-176401ad777e/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/logo-wernerbau-negative.svg",
+  "name": "logo-wernerbau-negative.svg",
+  "url": "https://onecdn.io/media/7d0e1be6-3b43-400d-bec2-fb30c4090b17/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/Gruppenwerk_Unternehmen_weiss.png",
+  "name": "Gruppenwerk_Unternehmen_weiss.png",
+  "url": "https://onecdn.io/media/a137175d-3d7e-4481-87a3-7b05950f5eeb/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/logo-handwerk.png",
+  "name": "logo-handwerk.png",
+  "url": "https://onecdn.io/media/c0569aa1-0625-4e9c-a42c-b676710f13e6/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/logo-pq-vob.png",
+  "name": "logo-pq-vob.png",
+  "url": "https://onecdn.io/media/0e91a4e8-a723-429f-b902-432c17a77312/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/logo-sivv.png",
+  "name": "logo-sivv.png",
+  "url": "https://onecdn.io/media/52b8de0b-e500-41f4-a3d9-fd793a7fd0cd/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/logo-trgs.png",
+  "name": "logo-trgs.png",
+  "url": "https://onecdn.io/media/e0f009e6-2045-454c-9440-ce434fc3cb5c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/icons/favicon-192.png",
+  "name": "favicon-192.png",
+  "url": "https://onecdn.io/media/892527db-2d04-456c-a44a-fecddd632d3a/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "banner",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/banner/banner-1.jpg",
+  "name": "banner-1.jpg",
+  "url": "https://onecdn.io/media/7599dcfb-f5a5-4990-a0b5-b71bd4466915/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "banner",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/banner/banner-2.jpg",
+  "name": "banner-2.jpg",
+  "url": "https://onecdn.io/media/8f411136-0fbb-4f8c-ada4-f0974cb2472c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "banner",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/banner/banner-3.jpg",
+  "name": "banner-3.jpg",
+  "url": "https://onecdn.io/media/f6956a31-7642-4c3f-9707-3ddc5cc7605d/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "banner",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/banner/banner-4.jpg",
+  "name": "banner-4.jpg",
+  "url": "https://onecdn.io/media/de7536e9-a637-4eca-b067-6bec28a9f376/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "home",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/content_fassadensanierung.jpg",
+  "name": "content_fassadensanierung.jpg",
+  "url": "https://onecdn.io/media/ebcde6dc-64d5-482d-923a-a00495e9634f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "home",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/content_wohnungssanierung.jpg",
+  "name": "content_wohnungssanierung.jpg",
+  "url": "https://onecdn.io/media/73133db2-ef18-4a2d-8414-83b39fd90e57/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "home",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/_themes/lightwhite/content_oeffentliche.jpg",
+  "name": "content_oeffentliche.jpg",
+  "url": "https://onecdn.io/media/670ebc8d-47cd-4f08-bd13-d9ed17ce4df1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "team",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/team/AxelSeehafer-Showroom-Lifestyle-Fotograf-Kathrin-Stahl-31.jpg",
+  "name": "AxelSeehafer-Showroom-Lifestyle-Fotograf-Kathrin-Stahl-31.jpg",
+  "url": "https://onecdn.io/media/7cdf840b-e7c2-4de3-b059-c58c79bf6b15/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "team",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/team/AxelSeehafer-Showroom-Lifestyle-Fotograf-Kathrin-Stahl-46.jpg",
+  "name": "AxelSeehafer-Showroom-Lifestyle-Fotograf-Kathrin-Stahl-46.jpg",
+  "url": "https://onecdn.io/media/3aea68ad-7370-44e0-b1b7-56f12a9ea7fd/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "team",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/team/Christoph%20Kapust.jpg",
+  "name": "Christoph-Kapust.jpg",
+  "url": "https://onecdn.io/media/edd134c8-4b33-48cb-a5bc-4133bd6f84e9/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "brand",
+  "src": "https://www.werner-bau.eu/assets/images/6/Gruppenwerk_Logo_RGB-43e28d96.png",
+  "name": "Gruppenwerk_Logo_RGB-43e28d96.png",
+  "url": "https://onecdn.io/media/d45cfd8f-a9b6-4513-8e2d-45d2706c920a/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-1.jpg",
+  "name": "fassade-oberfinanzdirektion-1.jpg",
+  "url": "https://onecdn.io/media/be87e902-63f9-4ed8-8e42-87dd47ea7593/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-2.jpg",
+  "name": "fassade-oberfinanzdirektion-2.jpg",
+  "url": "https://onecdn.io/media/b5f9e368-0ca5-41a0-b4a4-d0fe26774499/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-3.jpg",
+  "name": "fassade-oberfinanzdirektion-3.jpg",
+  "url": "https://onecdn.io/media/021bebfc-a972-4f99-a24a-0d74626716af/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-4.jpg",
+  "name": "fassade-oberfinanzdirektion-4.jpg",
+  "url": "https://onecdn.io/media/7612deb8-9b28-4eff-9cbc-2c17cd813232/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-5.jpg",
+  "name": "fassade-oberfinanzdirektion-5.jpg",
+  "url": "https://onecdn.io/media/6723e963-3685-403a-a168-db5853a99930/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-6.jpg",
+  "name": "fassade-oberfinanzdirektion-6.jpg",
+  "url": "https://onecdn.io/media/452af889-2a88-40f4-a6ca-b5743b564580/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-7.jpg",
+  "name": "fassade-oberfinanzdirektion-7.jpg",
+  "url": "https://onecdn.io/media/56f50ba8-ba7f-425b-a9d9-7e4ee288965a/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-8.jpg",
+  "name": "fassade-oberfinanzdirektion-8.jpg",
+  "url": "https://onecdn.io/media/98872063-7ed5-457e-9f0f-08e1055fc996/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-9.jpg",
+  "name": "fassade-oberfinanzdirektion-9.jpg",
+  "url": "https://onecdn.io/media/d2cc543d-edd4-4cad-82e6-ef7dd777a412/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion-10.jpg",
+  "name": "fassade-oberfinanzdirektion-10.jpg",
+  "url": "https://onecdn.io/media/1cc84b54-2a2c-45d9-8079-491752c13a6b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-oberfinanzdirektion.jpg",
+  "name": "fassade-oberfinanzdirektion.jpg",
+  "url": "https://onecdn.io/media/b00339ac-34ee-49ac-a47c-e175dc437f4b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-1.jpg",
+  "name": "fassade-sanierung-balkon-1.jpg",
+  "url": "https://onecdn.io/media/399e99ee-0ec3-45c5-8585-b2f3bf85ef0b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-2.jpg",
+  "name": "fassade-sanierung-balkon-2.jpg",
+  "url": "https://onecdn.io/media/a1b38ae5-f627-4c2b-9d56-07cbff038a1e/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-3.jpg",
+  "name": "fassade-sanierung-balkon-3.jpg",
+  "url": "https://onecdn.io/media/21a854c5-fbae-40be-b421-8525457a000a/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-4.jpg",
+  "name": "fassade-sanierung-balkon-4.jpg",
+  "url": "https://onecdn.io/media/fa978358-9858-41b9-91f7-5ac0bf5f2287/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-5.jpg",
+  "name": "fassade-sanierung-balkon-5.jpg",
+  "url": "https://onecdn.io/media/9b5f9e61-eeb4-41cd-b93d-efb2a275f097/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-6.jpg",
+  "name": "fassade-sanierung-balkon-6.jpg",
+  "url": "https://onecdn.io/media/475a0bfb-9ecc-46d1-8545-b37ee0495da0/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-7.jpg",
+  "name": "fassade-sanierung-balkon-7.jpg",
+  "url": "https://onecdn.io/media/296d2aa6-a6e4-480e-b093-e3ab64e9cf67/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-8.jpg",
+  "name": "fassade-sanierung-balkon-8.jpg",
+  "url": "https://onecdn.io/media/03ef078f-4c9e-4250-8fbf-5b4f0e1dfead/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-9.jpg",
+  "name": "fassade-sanierung-balkon-9.jpg",
+  "url": "https://onecdn.io/media/d412d2a0-0e96-4b64-a8c9-764866bd43d7/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-10.jpg",
+  "name": "fassade-sanierung-balkon-10.jpg",
+  "url": "https://onecdn.io/media/13550d48-dc12-4362-ae02-42258818f128/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon-11.jpg",
+  "name": "fassade-sanierung-balkon-11.jpg",
+  "url": "https://onecdn.io/media/6beda0d2-4953-4aa6-9b23-d20716655486/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-balkon.jpg",
+  "name": "fassade-sanierung-balkon.jpg",
+  "url": "https://onecdn.io/media/c14d1206-b388-4716-9df2-9a2cf1961930/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-1.jpg",
+  "name": "fassade-sanierung-hamburg-1.jpg",
+  "url": "https://onecdn.io/media/a3df06c7-ec46-44cc-ac2b-5369d4099b47/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-2.jpg",
+  "name": "fassade-sanierung-hamburg-2.jpg",
+  "url": "https://onecdn.io/media/b7b9be04-a7ef-41fc-9b13-8c1b65c28a01/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-3.jpg",
+  "name": "fassade-sanierung-hamburg-3.jpg",
+  "url": "https://onecdn.io/media/4bfd222f-8acf-4ddc-8b12-360e3dec712e/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-4.jpg",
+  "name": "fassade-sanierung-hamburg-4.jpg",
+  "url": "https://onecdn.io/media/151edcce-82d0-4767-b798-bb75ac21fb3b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-5.jpg",
+  "name": "fassade-sanierung-hamburg-5.jpg",
+  "url": "https://onecdn.io/media/f1abfd8b-bb1d-46d3-bb05-4f55bc827b44/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-6.jpg",
+  "name": "fassade-sanierung-hamburg-6.jpg",
+  "url": "https://onecdn.io/media/1456bf87-41c8-434e-8703-5af3b92b5cf8/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-7.jpg",
+  "name": "fassade-sanierung-hamburg-7.jpg",
+  "url": "https://onecdn.io/media/d77c874e-b6d6-41cf-a4bb-3afdb721c164/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-8.jpg",
+  "name": "fassade-sanierung-hamburg-8.jpg",
+  "url": "https://onecdn.io/media/404e6672-1ec1-44de-b68f-d12420924386/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg-9.jpg",
+  "name": "fassade-sanierung-hamburg-9.jpg",
+  "url": "https://onecdn.io/media/b966f578-b7e3-4295-b625-ac1d43e19c32/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassade-sanierung-hamburg.jpg",
+  "name": "fassade-sanierung-hamburg.jpg",
+  "url": "https://onecdn.io/media/8abb8cc7-6f85-46f2-af80-481e0ee4c4f6/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-1.jpg",
+  "name": "fassadensanierung-hamburg-1.jpg",
+  "url": "https://onecdn.io/media/ee981b0e-1919-4a94-8b33-bdbd8e5b3757/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-3.jpg",
+  "name": "fassadensanierung-hamburg-3.jpg",
+  "url": "https://onecdn.io/media/d5f21632-dd96-4d8b-b8d3-961e38a0b5d6/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-4.jpg",
+  "name": "fassadensanierung-hamburg-4.jpg",
+  "url": "https://onecdn.io/media/d5f9895a-2513-480e-a73f-cb9217768b08/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-5.jpg",
+  "name": "fassadensanierung-hamburg-5.jpg",
+  "url": "https://onecdn.io/media/148a4b75-c2fb-484d-b288-de6a1373fec8/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-6.jpg",
+  "name": "fassadensanierung-hamburg-6.jpg",
+  "url": "https://onecdn.io/media/2d9cdc4a-9ce5-46d1-9f03-532b0e234f05/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-7.jpg",
+  "name": "fassadensanierung-hamburg-7.jpg",
+  "url": "https://onecdn.io/media/b8955a4b-1bbc-43a2-932d-fec585b07627/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-8.jpg",
+  "name": "fassadensanierung-hamburg-8.jpg",
+  "url": "https://onecdn.io/media/ab60c07b-c430-4526-851a-dbc582abfb84/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-9.jpg",
+  "name": "fassadensanierung-hamburg-9.jpg",
+  "url": "https://onecdn.io/media/b474c9ea-e63c-414d-b548-8794b63a5eee/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-10.jpg",
+  "name": "fassadensanierung-hamburg-10.jpg",
+  "url": "https://onecdn.io/media/5d45fdf2-df1a-4804-81ac-99326b636554/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-11.jpg",
+  "name": "fassadensanierung-hamburg-11.jpg",
+  "url": "https://onecdn.io/media/8b2b61e3-6394-4113-9c48-87c633641092/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-12.jpg",
+  "name": "fassadensanierung-hamburg-12.jpg",
+  "url": "https://onecdn.io/media/ae2110e7-818d-4435-9b4b-91c688b4b281/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-13.jpg",
+  "name": "fassadensanierung-hamburg-13.jpg",
+  "url": "https://onecdn.io/media/31382657-ee88-4bb9-b236-4bfc06524335/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-14.jpg",
+  "name": "fassadensanierung-hamburg-14.jpg",
+  "url": "https://onecdn.io/media/84cd91d3-0c9f-41ff-bfa2-94910db9813c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-15.jpg",
+  "name": "fassadensanierung-hamburg-15.jpg",
+  "url": "https://onecdn.io/media/db4d405d-4b78-4fa0-b68c-61d18e089ad1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-16.jpg",
+  "name": "fassadensanierung-hamburg-16.jpg",
+  "url": "https://onecdn.io/media/da83cff9-1f72-47ae-b17c-026a94ca16aa/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-17.jpg",
+  "name": "fassadensanierung-hamburg-17.jpg",
+  "url": "https://onecdn.io/media/0f95860a-aa14-417a-938b-d838d142bb94/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-18.jpg",
+  "name": "fassadensanierung-hamburg-18.jpg",
+  "url": "https://onecdn.io/media/b3a2cd43-c748-44b3-99df-012488948eda/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-19.jpg",
+  "name": "fassadensanierung-hamburg-19.jpg",
+  "url": "https://onecdn.io/media/1f26ef63-ba5c-4d50-b1d5-0c78f4676a0b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-20.jpg",
+  "name": "fassadensanierung-hamburg-20.jpg",
+  "url": "https://onecdn.io/media/2a736a1d-09ca-4661-b180-a96972d58d1b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-21.jpg",
+  "name": "fassadensanierung-hamburg-21.jpg",
+  "url": "https://onecdn.io/media/0ab5cbea-e37b-454e-a332-2aae67771d82/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-1.jpg",
+  "name": "fassadensanierung-hamburg-experten-1.jpg",
+  "url": "https://onecdn.io/media/9a8b97d5-4fb0-4bf4-9f6a-14c1cab1495a/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-2.jpg",
+  "name": "fassadensanierung-hamburg-experten-2.jpg",
+  "url": "https://onecdn.io/media/4084c87a-a886-4cca-a090-3cb6c9aaa1f4/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-3.jpg",
+  "name": "fassadensanierung-hamburg-experten-3.jpg",
+  "url": "https://onecdn.io/media/b22e779f-d533-4c0b-8470-802ec108770c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-4.jpg",
+  "name": "fassadensanierung-hamburg-experten-4.jpg",
+  "url": "https://onecdn.io/media/4259258f-6690-43c9-a50d-39828b39d7e7/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-5.jpg",
+  "name": "fassadensanierung-hamburg-experten-5.jpg",
+  "url": "https://onecdn.io/media/b70248c3-d2b7-4b4c-8d27-c080a2d6bbff/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-6.jpg",
+  "name": "fassadensanierung-hamburg-experten-6.jpg",
+  "url": "https://onecdn.io/media/91c44a9b-d8f3-4e5b-8d80-2d81c2743f95/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-balkon.jpg",
+  "name": "fassadensanierung-hamburg-experten-balkon.jpg",
+  "url": "https://onecdn.io/media/39ab6f18-6bc2-4894-b8de-5160bae495ac/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten-treppe.jpg",
+  "name": "fassadensanierung-hamburg-experten-treppe.jpg",
+  "url": "https://onecdn.io/media/cd6fc0f9-1d9c-4db3-ba50-65b28a768ba0/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg-experten.jpg",
+  "name": "fassadensanierung-hamburg-experten.jpg",
+  "url": "https://onecdn.io/media/bfdfc162-e7da-4272-9518-78084e09485b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg.jpg",
+  "name": "fassadensanierung-hamburg.jpg",
+  "url": "https://onecdn.io/media/16f0ef67-a2f1-4bc4-b596-7988ccbf4eff/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung-hamburg2.jpg",
+  "name": "fassadensanierung-hamburg2.jpg",
+  "url": "https://onecdn.io/media/4e655377-bebf-48f4-adb6-c5fd5dc52d74/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung_villa_1a_vorher.jpg",
+  "name": "fassadensanierung_villa_1a_vorher.jpg",
+  "url": "https://onecdn.io/media/7efc2bcf-2b34-4821-8881-2e830aae4c55/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung_villa_1b_nachher.jpg",
+  "name": "fassadensanierung_villa_1b_nachher.jpg",
+  "url": "https://onecdn.io/media/2676899f-a101-4c3e-87e4-d91aa8f6cf47/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung_villa_2a_vorher.jpg",
+  "name": "fassadensanierung_villa_2a_vorher.jpg",
+  "url": "https://onecdn.io/media/a6377189-f816-4b96-823a-43b8324225c6/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung_villa_2b_nachher.jpg",
+  "name": "fassadensanierung_villa_2b_nachher.jpg",
+  "url": "https://onecdn.io/media/3598b8b1-4187-4c10-ad26-8b9402623c6a/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "fassade",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/fassadensanierung/fassadensanierung_villa_3_nachher.jpg",
+  "name": "fassadensanierung_villa_3_nachher.jpg",
+  "url": "https://onecdn.io/media/70d8a142-524f-4ead-9aa1-ab32ed16c4dd/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-1-Flur.jpg",
+  "name": "Wohnungssanierung-1-Flur.jpg",
+  "url": "https://onecdn.io/media/90c58de7-b78e-4821-92b5-29c15344d1b1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-1a-vorher.jpg",
+  "name": "Wohnungssanierung-1a-vorher.jpg",
+  "url": "https://onecdn.io/media/19e13b20-9a26-44a0-8cb7-dff542bb1295/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-1b-nachher.jpg",
+  "name": "Wohnungssanierung-1b-nachher.jpg",
+  "url": "https://onecdn.io/media/9d5bf604-71ee-4100-9c60-a40bde520f15/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Badezimmer-1a-vorher.jpg",
+  "name": "Wohnungssanierung-Badezimmer-1a-vorher.jpg",
+  "url": "https://onecdn.io/media/86ed63a6-662c-44fd-984a-298465ef09e1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Badezimmer-1b-nachher.jpg",
+  "name": "Wohnungssanierung-Badezimmer-1b-nachher.jpg",
+  "url": "https://onecdn.io/media/c618f3fc-eda6-4831-b90a-db1e292855b9/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Badezimmer-1c-nachher.jpg",
+  "name": "Wohnungssanierung-Badezimmer-1c-nachher.jpg",
+  "url": "https://onecdn.io/media/1a3f8532-02a0-4094-8741-2e1074eb3a79/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Badezimmer-1d-nachher.jpg",
+  "name": "Wohnungssanierung-Badezimmer-1d-nachher.jpg",
+  "url": "https://onecdn.io/media/c69c38c2-8493-4320-bf46-60fbbe727748/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Fensterbank.jpg",
+  "name": "Wohnungssanierung-Fensterbank.jpg",
+  "url": "https://onecdn.io/media/4a2056cc-fd31-4d5a-8b4d-79f754d4477e/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Fensterbank2.jpg",
+  "name": "Wohnungssanierung-Fensterbank2.jpg",
+  "url": "https://onecdn.io/media/9b990ac8-a422-4cdf-86ba-05a59d02bbb0/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Flur-1a-vorher.jpg",
+  "name": "Wohnungssanierung-Flur-1a-vorher.jpg",
+  "url": "https://onecdn.io/media/a63c7ba1-d63d-4e33-a2e6-2a2797d0427f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Flur-1b-nachher.jpg",
+  "name": "Wohnungssanierung-Flur-1b-nachher.jpg",
+  "url": "https://onecdn.io/media/b1459b3e-a8e0-4f98-a164-5200d96b6baa/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Kueche-1a-vorher.jpg",
+  "name": "Wohnungssanierung-Kueche-1a-vorher.jpg",
+  "url": "https://onecdn.io/media/a7081361-7e37-480a-896c-a29d56c8ee2b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Kueche-1b-nacher.jpg",
+  "name": "Wohnungssanierung-Kueche-1b-nacher.jpg",
+  "url": "https://onecdn.io/media/20d02371-499e-4feb-a793-7044cf606850/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Schlafzimmer-1a-vorher.jpg",
+  "name": "Wohnungssanierung-Schlafzimmer-1a-vorher.jpg",
+  "url": "https://onecdn.io/media/19b697a0-84c7-4172-a584-4cdaf1628f87/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Schlafzimmer-1b-nachher.jpg",
+  "name": "Wohnungssanierung-Schlafzimmer-1b-nachher.jpg",
+  "url": "https://onecdn.io/media/e5950392-9bb1-47f5-aace-b95085dda624/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "wohnung",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/wohnungssanierung/Wohnungssanierung-Stuck.jpg",
+  "name": "Wohnungssanierung-Stuck.jpg",
+  "url": "https://onecdn.io/media/46efcdc0-717e-48c5-aec6-11ead1868157/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9822_1000px.jpg",
+  "name": "b_9822_1000px.jpg",
+  "url": "https://onecdn.io/media/1e75f223-56d3-4d2b-b94d-9f2190f5fd34/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9831_1000px.jpg",
+  "name": "b_9831_1000px.jpg",
+  "url": "https://onecdn.io/media/d793e1b1-c225-4649-b7cb-d905f355fd6b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9836_1000px.jpg",
+  "name": "b_9836_1000px.jpg",
+  "url": "https://onecdn.io/media/aa872b65-a771-4a98-aa0e-6a48b97aa83d/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9849_1000px.jpg",
+  "name": "b_9849_1000px.jpg",
+  "url": "https://onecdn.io/media/362bf835-5ef8-46e5-a848-f8e023fb09f3/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9857_1000px.jpg",
+  "name": "b_9857_1000px.jpg",
+  "url": "https://onecdn.io/media/d3029fbb-5312-431f-aac1-b78c5a6d492f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9863_1000px.jpg",
+  "name": "b_9863_1000px.jpg",
+  "url": "https://onecdn.io/media/6e1638ba-e07e-4265-9264-9ca3d2d509e8/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9864_1000px.jpg",
+  "name": "b_9864_1000px.jpg",
+  "url": "https://onecdn.io/media/909194c0-b043-44e8-b1b4-69803fb45071/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9866_1000px.jpg",
+  "name": "b_9866_1000px.jpg",
+  "url": "https://onecdn.io/media/e627c2ca-b25e-41b3-b084-7a2c65c085c4/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9882_1000px.jpg",
+  "name": "b_9882_1000px.jpg",
+  "url": "https://onecdn.io/media/252fc022-d517-41e5-b9c8-a4151a50836f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9887_1000px.jpg",
+  "name": "b_9887_1000px.jpg",
+  "url": "https://onecdn.io/media/e5662d82-ca03-4b03-ae55-42c5447a182d/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9903_1000px.jpg",
+  "name": "b_9903_1000px.jpg",
+  "url": "https://onecdn.io/media/762b1e64-8f9a-4e10-a98a-3f14155b99b3/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9908_1000px.jpg",
+  "name": "b_9908_1000px.jpg",
+  "url": "https://onecdn.io/media/3dfe8c21-dc3c-4b17-8d14-64242ad21157/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9916_1000px.jpg",
+  "name": "b_9916_1000px.jpg",
+  "url": "https://onecdn.io/media/9a954ddf-1cca-4a7b-93a4-8f52148256aa/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9918_1000px.jpg",
+  "name": "b_9918_1000px.jpg",
+  "url": "https://onecdn.io/media/8fb013ec-ef28-4eba-9329-133db6675882/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9932_1000px.jpg",
+  "name": "b_9932_1000px.jpg",
+  "url": "https://onecdn.io/media/707e5c85-3197-491a-9fab-fea11a729910/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/b_9982_1000px.jpg",
+  "name": "b_9982_1000px.jpg",
+  "url": "https://onecdn.io/media/b9abbd5f-227b-4b12-8ec1-8560b7d2861a/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0004_1000px.jpg",
+  "name": "c_0004_1000px.jpg",
+  "url": "https://onecdn.io/media/c978cd2e-b4b6-4e9a-bc71-90f161c0c00b/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0006_1000px.jpg",
+  "name": "c_0006_1000px.jpg",
+  "url": "https://onecdn.io/media/48ba3280-60e0-4637-9230-82e99575ea7c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0014_1000px.jpg",
+  "name": "c_0014_1000px.jpg",
+  "url": "https://onecdn.io/media/b7b9fab6-43ad-4d66-94d0-7796d607e014/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0022_1000px.jpg",
+  "name": "c_0022_1000px.jpg",
+  "url": "https://onecdn.io/media/0faefb65-1b3c-4c0f-a8d9-0067283be0f6/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0038_1000px.jpg",
+  "name": "c_0038_1000px.jpg",
+  "url": "https://onecdn.io/media/b8dac517-8f31-40d3-bded-59b0697a8069/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0044_1000px.jpg",
+  "name": "c_0044_1000px.jpg",
+  "url": "https://onecdn.io/media/6e4c792d-aba9-4fc3-92ad-3c59344ba732/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0051_1000px.jpg",
+  "name": "c_0051_1000px.jpg",
+  "url": "https://onecdn.io/media/b6b5e69b-1edf-48a3-a1b2-9bae74cc3b11/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0069_1000px.jpg",
+  "name": "c_0069_1000px.jpg",
+  "url": "https://onecdn.io/media/95a80600-c699-4932-8055-248c19344add/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0071_1000px.jpg",
+  "name": "c_0071_1000px.jpg",
+  "url": "https://onecdn.io/media/e394ce47-1d47-4976-8a25-4ddc4ce54021/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0083_1000px.jpg",
+  "name": "c_0083_1000px.jpg",
+  "url": "https://onecdn.io/media/ba64e80f-a725-4469-b527-bd27a95e7ef7/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0086_1000px.jpg",
+  "name": "c_0086_1000px.jpg",
+  "url": "https://onecdn.io/media/048eaf57-abe6-4b00-9677-201539928c06/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0099_1000px.jpg",
+  "name": "c_0099_1000px.jpg",
+  "url": "https://onecdn.io/media/1f153ddb-e562-4628-9b81-e4341c277874/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0117_1000px.jpg",
+  "name": "c_0117_1000px.jpg",
+  "url": "https://onecdn.io/media/164bf04b-b483-4616-ac7e-f7c6c939899c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0118_1000px.jpg",
+  "name": "c_0118_1000px.jpg",
+  "url": "https://onecdn.io/media/b8f373b1-fd8f-4d76-9860-ed76bc1e487f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0125_1000px.jpg",
+  "name": "c_0125_1000px.jpg",
+  "url": "https://onecdn.io/media/8d9942a4-5298-4bc9-92a1-7671849c591e/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0128_1000px.jpg",
+  "name": "c_0128_1000px.jpg",
+  "url": "https://onecdn.io/media/a8640900-0389-42e9-bf5c-d76e64629d94/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0145_1000px.jpg",
+  "name": "c_0145_1000px.jpg",
+  "url": "https://onecdn.io/media/2aa681d3-9d7b-4ddd-9e8c-f39e960dd1a9/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0147_1000px.jpg",
+  "name": "c_0147_1000px.jpg",
+  "url": "https://onecdn.io/media/0fccc873-c499-4945-a554-ae31019b009e/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0170_1000px.jpg",
+  "name": "c_0170_1000px.jpg",
+  "url": "https://onecdn.io/media/3ceb51fd-bd09-4a2e-96dd-98133a128b71/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0192_1000px.jpg",
+  "name": "c_0192_1000px.jpg",
+  "url": "https://onecdn.io/media/9c044654-af7a-4803-91df-90582b7215fb/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0212_1000px.jpg",
+  "name": "c_0212_1000px.jpg",
+  "url": "https://onecdn.io/media/3b480d3c-92bc-4ef5-9b8d-c8899bdab80d/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0234_1000px.jpg",
+  "name": "c_0234_1000px.jpg",
+  "url": "https://onecdn.io/media/76fdc357-865c-4828-9eb9-5f1cdbe15a9f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0260_1000px.jpg",
+  "name": "c_0260_1000px.jpg",
+  "url": "https://onecdn.io/media/dea93911-8438-4173-b705-f93267fedb19/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0293_1000px.jpg",
+  "name": "c_0293_1000px.jpg",
+  "url": "https://onecdn.io/media/c43c3863-401f-4dc9-b3e2-8a327abfc1df/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0297_1000px.jpg",
+  "name": "c_0297_1000px.jpg",
+  "url": "https://onecdn.io/media/85eafc0d-b9d8-4fc3-be47-848d3b63ef33/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0302_1000px.jpg",
+  "name": "c_0302_1000px.jpg",
+  "url": "https://onecdn.io/media/72c3dea9-2bb0-4fc6-aff2-87eae76e3d1c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0311_1000px.jpg",
+  "name": "c_0311_1000px.jpg",
+  "url": "https://onecdn.io/media/6044afaf-c308-4771-b0c0-08db2a563fd8/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0316_1000px.jpg",
+  "name": "c_0316_1000px.jpg",
+  "url": "https://onecdn.io/media/d52f8980-0e76-41fd-9fb9-55f0c4e9628e/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0333_1000px.jpg",
+  "name": "c_0333_1000px.jpg",
+  "url": "https://onecdn.io/media/fdf9e72f-b5bd-4cd3-a665-a881c7121078/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0338_1000px.jpg",
+  "name": "c_0338_1000px.jpg",
+  "url": "https://onecdn.io/media/02e8e012-b9b4-4802-98fb-3b13e4c6acb3/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0345_1000px.jpg",
+  "name": "c_0345_1000px.jpg",
+  "url": "https://onecdn.io/media/5084cb1b-cfb9-40d7-8c6f-e39f3a030aff/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0357_1000px.jpg",
+  "name": "c_0357_1000px.jpg",
+  "url": "https://onecdn.io/media/05332a0e-6b2b-44d3-95af-aac5ce580844/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0372_1000px.jpg",
+  "name": "c_0372_1000px.jpg",
+  "url": "https://onecdn.io/media/7a866768-6a9e-41e9-a46b-97492ab49e87/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0376_1000px.jpg",
+  "name": "c_0376_1000px.jpg",
+  "url": "https://onecdn.io/media/cc24e558-46fe-47ce-bd14-49489bae10ad/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0395_1000px.jpg",
+  "name": "c_0395_1000px.jpg",
+  "url": "https://onecdn.io/media/6ea84651-f0f7-4b5e-973c-4cc2a4d19661/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0399_1000px.jpg",
+  "name": "c_0399_1000px.jpg",
+  "url": "https://onecdn.io/media/5efdb35d-015a-41a1-ba3c-d81eca7c0b2d/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0402_1000px.jpg",
+  "name": "c_0402_1000px.jpg",
+  "url": "https://onecdn.io/media/2bce9afe-7bdf-4531-a090-ad004d2b9efb/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0408_1000px.jpg",
+  "name": "c_0408_1000px.jpg",
+  "url": "https://onecdn.io/media/0971363e-ab42-4d21-a57b-6e83ea5b5e00/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0414_1000px.jpg",
+  "name": "c_0414_1000px.jpg",
+  "url": "https://onecdn.io/media/fec98d7a-35c9-4787-bbb1-aee83426b8bb/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0418_1000px.jpg",
+  "name": "c_0418_1000px.jpg",
+  "url": "https://onecdn.io/media/ea43d985-a9dd-418a-93ba-9d010ee79743/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0431_1000px.jpg",
+  "name": "c_0431_1000px.jpg",
+  "url": "https://onecdn.io/media/ede86fb7-7322-4d7a-b7a4-c8742bb9445d/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0434_1000px.jpg",
+  "name": "c_0434_1000px.jpg",
+  "url": "https://onecdn.io/media/9aa99895-f861-403a-ae1c-fd58650eeda0/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0448_1000px.jpg",
+  "name": "c_0448_1000px.jpg",
+  "url": "https://onecdn.io/media/ea195591-5af8-49c2-a1ca-a9cb5a0523a3/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0452_1000px.jpg",
+  "name": "c_0452_1000px.jpg",
+  "url": "https://onecdn.io/media/f4e3863f-5917-41ca-b593-6eb177f07997/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0457_1000px.jpg",
+  "name": "c_0457_1000px.jpg",
+  "url": "https://onecdn.io/media/252684d7-1f02-4374-9094-02ceeadc55ab/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0459_1000px.jpg",
+  "name": "c_0459_1000px.jpg",
+  "url": "https://onecdn.io/media/85979508-6d21-4f41-8d08-3656c0ae14a5/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0464_1000px.jpg",
+  "name": "c_0464_1000px.jpg",
+  "url": "https://onecdn.io/media/9d8bc957-db4e-4c02-ae04-6425a6a1855c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0480_1000px.jpg",
+  "name": "c_0480_1000px.jpg",
+  "url": "https://onecdn.io/media/98754134-fce5-48d7-a567-b62a840b02a1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0489_1000px.jpg",
+  "name": "c_0489_1000px.jpg",
+  "url": "https://onecdn.io/media/990d4016-bd80-4750-bf95-e992d99863e1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0499_1000px.jpg",
+  "name": "c_0499_1000px.jpg",
+  "url": "https://onecdn.io/media/477c1214-3e21-48dd-89d8-585c37510524/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0518_1000px.jpg",
+  "name": "c_0518_1000px.jpg",
+  "url": "https://onecdn.io/media/b8e99742-8270-4ce4-9f6a-ba2bb0530e4f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0525_1000px.jpg",
+  "name": "c_0525_1000px.jpg",
+  "url": "https://onecdn.io/media/328c8af9-7f60-44ad-b01c-cbe96cd808a6/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0527_1000px.jpg",
+  "name": "c_0527_1000px.jpg",
+  "url": "https://onecdn.io/media/37b3daab-cb4a-488a-855e-f3b86377a1c9/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0529_1000px.jpg",
+  "name": "c_0529_1000px.jpg",
+  "url": "https://onecdn.io/media/d3559114-7830-469b-8288-f62a182fbe79/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0565_1000px.jpg",
+  "name": "c_0565_1000px.jpg",
+  "url": "https://onecdn.io/media/044382c0-b68e-4aef-b645-46eb3394e654/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0574_1000px.jpg",
+  "name": "c_0574_1000px.jpg",
+  "url": "https://onecdn.io/media/2812a5e5-c2bf-4823-acc0-b9de9e7aecdc/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0594_1000px.jpg",
+  "name": "c_0594_1000px.jpg",
+  "url": "https://onecdn.io/media/4affeb1e-8cc5-4e91-ab44-a527f5bdd9c1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0598_1000px.jpg",
+  "name": "c_0598_1000px.jpg",
+  "url": "https://onecdn.io/media/2e1dc8ae-776e-420f-8762-3b7f315d5c67/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0607_1000px.jpg",
+  "name": "c_0607_1000px.jpg",
+  "url": "https://onecdn.io/media/db81d57c-bbca-4c08-8497-e19bcc579345/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0612_1000px.jpg",
+  "name": "c_0612_1000px.jpg",
+  "url": "https://onecdn.io/media/2d0038ed-eb31-4f90-b8a9-8f597068ddab/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0622_1000px.jpg",
+  "name": "c_0622_1000px.jpg",
+  "url": "https://onecdn.io/media/863fe3cc-6418-4120-a495-97f9c55f8b25/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0723_1000px.jpg",
+  "name": "c_0723_1000px.jpg",
+  "url": "https://onecdn.io/media/c9d6ba16-5007-4ac9-b976-089e340d4622/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0726_1000px.jpg",
+  "name": "c_0726_1000px.jpg",
+  "url": "https://onecdn.io/media/d4796686-b58f-4d4f-8c96-5eca29a91f3f/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0730_1000px.jpg",
+  "name": "c_0730_1000px.jpg",
+  "url": "https://onecdn.io/media/4e94c036-824a-4531-b6dd-998f13dc46b1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0732_1000px.jpg",
+  "name": "c_0732_1000px.jpg",
+  "url": "https://onecdn.io/media/56ad4196-168e-40c8-916b-5256dae8f1da/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0748_1000px.jpg",
+  "name": "c_0748_1000px.jpg",
+  "url": "https://onecdn.io/media/59ba5e8a-b465-4035-a90e-ed7744150da9/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0750_1000px.jpg",
+  "name": "c_0750_1000px.jpg",
+  "url": "https://onecdn.io/media/48e417f4-d2ca-4c10-81ea-5ddd879cec3c/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0757_1000px.jpg",
+  "name": "c_0757_1000px.jpg",
+  "url": "https://onecdn.io/media/1db474bd-c0ba-4304-a00e-718667fd98ef/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0764_1000px.jpg",
+  "name": "c_0764_1000px.jpg",
+  "url": "https://onecdn.io/media/9dfb114c-171f-4c7d-8a33-1debe4537e94/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0771_1000px.jpg",
+  "name": "c_0771_1000px.jpg",
+  "url": "https://onecdn.io/media/68cbc338-0f28-4201-8efa-21bdedaa7432/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0778_1000px.jpg",
+  "name": "c_0778_1000px.jpg",
+  "url": "https://onecdn.io/media/0a41ed51-4dba-43e9-ac17-459cd80d7ed1/full",
+  "width": null,
+  "height": null
+ },
+ {
+  "cat": "oeffentlich",
+  "src": "https://www.werner-bau.eu/files/nk24_contao/images/oeffentliche-einrichtungen/c_0779_1000px.jpg",
+  "name": "c_0779_1000px.jpg",
+  "url": "https://onecdn.io/media/9f130d1a-2689-4ee5-9283-400d3e4c2db4/full",
+  "width": null,
+  "height": null
+ }
+]
