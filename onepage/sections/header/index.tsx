@@ -4,7 +4,7 @@ import NavLink from '@siteui/navlink';
 import Icon from '@siteui/icon';
 import styles from './styles.module.css';
 
-export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHref, contactLabel, contactHref, navItems, activeHref, menuLabel, closeLabel }: any) {
+export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHref, contactLabel, contactHref, applyLabel, applyHref, navItems, activeHref, menuLabel, closeLabel }: any) {
   const [open, setOpen] = useState(false);
   const items: any[] = Array.isArray(navItems) ? navItems : [];
   return (
@@ -24,6 +24,7 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
               <span>{phone}</span>
             </a>
             <a className={styles.contact} href={contactHref}>{contactLabel}</a>
+            {applyLabel ? <a className={styles.apply} href={applyHref}>{applyLabel}</a> : null}
           </div>
           <nav className={styles.nav} aria-label={menuLabel}>
             {items.map((it: any, i: number) => (
@@ -48,6 +49,7 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
             <NavLink key={i} href={it.href} active={it.href === activeHref} onClick={() => setOpen(false)} className={styles.mobileLink}>{it.label}</NavLink>
           ))}
           <NavLink href={contactHref} active={contactHref === activeHref} onClick={() => setOpen(false)} className={styles.mobileLink}>{contactLabel}</NavLink>
+          {applyLabel ? <a className={[styles.apply, styles.mobileApply].join(' ')} href={applyHref} onClick={() => setOpen(false)}>{applyLabel}</a> : null}
         </nav>
       </div>
     </header>

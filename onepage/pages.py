@@ -131,6 +131,13 @@ PAGES['datenschutz'] = [
     ('footer', 'Footer', footer()),
 ]
 
+PAGES['karriere'] = [
+    ('header', 'Navigation', header('/karriere')),
+    ('hero', 'Banner', hero(img(F + 'fassadensanierung-hamburg-experten-2.jpg'), 'Karriere bei Werner Bau')),
+    ('career', 'Karriere', career()),
+    ('footer', 'Footer', footer()),
+]
+
 if __name__ == '__main__':
     page = sys.argv[1]
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'out', page)
