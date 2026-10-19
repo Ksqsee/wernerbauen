@@ -294,11 +294,11 @@ def career(form_id=''):
     return pkg('career', ctl, {'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Stellen'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
 
 
-def photo(name):
+def photo(name, alt_text=None):
     u = next((x for x in UP if x['name'] == name and x.get('url')), None)
     if not u:
         raise SystemExit('missing photo: ' + name)
-    return {'image': {'src': u['url'], 'name': u['name'], 'width': u.get('width') or 1000, 'height': u.get('height') or 667}, 'alt': alt(name)}
+    return {'image': {'src': u['url'], 'name': u['name'], 'width': u.get('width') or 1000, 'height': u.get('height') or 667}, 'alt': alt_text or alt(name)}
 
 
 def project(title, names, cover=None):
@@ -314,10 +314,10 @@ def project(title, names, cover=None):
 def split(blocks, projects, heading='h1first'):
     rows = []
     for b in blocks:
-        p = photo(b['photo'])
+        p = photo(b['photo'], b.get('imageAlt'))
         rows.append({'title': b.get('title', ''), 'text': b.get('text', ''), 'bullets': b.get('bullets', ''), 'textAfter': b.get('textAfter', ''),
                      'linkLabel': b.get('linkLabel', ''), 'linkHref': b.get('linkHref', ''),
-                     'image': p['image'], 'imageAlt': p['alt']})
+                     'image': p['image'], 'imageAlt': b.get('imageAlt') or p['alt'], 'imageFit': b.get('imageFit', 'cover')})
     ctl = {
         'blocks': c('Text & Bild (abwechselnd links/rechts)', 'array', rows, 'content', 'blocks', items={
             'title': {'title': 'Überschrift', 'type': 'text'},
@@ -327,7 +327,9 @@ def split(blocks, projects, heading='h1first'):
             'linkLabel': {'title': 'Link Text (optional)', 'type': 'text'},
             'linkHref': {'title': 'Link (optional)', 'type': 'text'},
             'image': {'title': 'Bild', 'type': 'media'},
-            'imageAlt': {'title': 'Bild Alt-Text', 'type': 'text'}}),
+            'imageAlt': {'title': 'Bild Alt-Text', 'type': 'text'},
+            'imageFit': {'title': 'Bilddarstellung', 'type': 'select', 'options': [
+                {'value': 'cover', 'label': 'Foto (füllend)'}, {'value': 'contain', 'label': 'Logo (eingepasst)'}]}}),
         'headingMode': c('Erste Überschrift', 'select', heading, 'settings', 'labels', options=[
             {'value': 'h1first', 'label': 'Seitentitel (H1) mit Einleitung'}, {'value': 'h2', 'label': 'Normale Überschrift (H2)'}]),
         'projectsEyebrow': c('Überzeile', 'text', 'Referenzen', 'content', 'projects'),
@@ -344,3 +346,21 @@ def split(blocks, projects, heading='h1first'):
         'nextLabel': c('Weiter (Screenreader)', 'text', 'Nächstes Bild', 'content', 'labels'),
     }
     return pkg('split', ctl, {'blocks': {'title': 'Text & Bild'}, 'projects': {'title': 'Projektkarten'}, 'photos': {'title': 'Projektfotos'}, 'labels': {'title': 'Beschriftungen'}})
+
+
+def people(persons, eyebrow, title):
+    ctl = {
+        'eyebrow': c('Überzeile', 'text', eyebrow, 'content', 'root'),
+        'title': c('Überschrift', 'text', title, 'content', 'root'),
+        'people': c('Personen', 'array', persons, 'content', 'people', items={
+            'photo': {'title': 'Foto', 'type': 'media'},
+            'photoAlt': {'title': 'Foto Alt-Text', 'type': 'text'},
+            'name': {'title': 'Name', 'type': 'text'},
+            'role': {'title': 'Funktion', 'type': 'text'},
+            'phoneLabel': {'title': 'Telefon Bezeichnung', 'type': 'text'},
+            'phone': {'title': 'Telefon', 'type': 'text'},
+            'phoneHref': {'title': 'Telefon Link', 'type': 'text'},
+            'emailLabel': {'title': 'E-Mail Bezeichnung', 'type': 'text'},
+            'email': {'title': 'E-Mail', 'type': 'text'}}),
+    }
+    return pkg('people', ctl, {'people': {'title': 'Personen'}})

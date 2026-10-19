@@ -73,7 +73,7 @@ export default function Split({ blocks, headingMode, projectsEyebrow, projectsTi
                 {b.image && b.image.src ? <Image src={b.image.src} alt="" className={styles.img} /> : null}
               </a>
             ) : (
-              <div className={styles.media}>
+              <div className={[styles.media, b.imageFit === 'contain' ? styles.contain : ''].join(' ')}>
                 {b.image && b.image.src ? <Image src={b.image.src} alt={b.imageAlt} className={styles.img} /> : null}
               </div>
             )}

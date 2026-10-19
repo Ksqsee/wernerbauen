@@ -58,6 +58,8 @@
 }
 .img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s ease; }
 .mediaLink { display: block; }
+.contain { display: flex; align-items: center; justify-content: center; padding: 18%; }
+.contain .img { height: auto; object-fit: contain; }
 .mediaLink:hover .img { transform: scale(1.03); }
 .more { padding-top: 6px; }
 
