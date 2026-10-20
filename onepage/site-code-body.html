@@ -1,0 +1,67 @@
+<!-- Schnellkontakt unten mittig, erscheint nach dem ersten Scrollen: Anrufen / WhatsApp / Anfrage. WhatsApp-Nummer unten bei WA_NUMBER eintragen (internationales Format ohne +, z.B. 4915112345678). Solange leer, führt der WhatsApp-Button zur Kontaktseite. -->
+<style>
+.wb-fab{position:fixed;left:50%;bottom:20px;transform:translate(-50%,18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,transform .35s ease,visibility 0s linear .35s;width:max-content;white-space:nowrap;z-index:9999;display:flex;align-items:center;gap:6px;padding:5px;background:#ffffffd9;border:1px solid #1D1D1B14;border-radius:999px;box-shadow:0 10px 30px -12px #1D1D1B40;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-family:Inter,system-ui,sans-serif}
+.wb-fab.wb-show{transform:translate(-50%,0);opacity:1;visibility:visible;pointer-events:auto;transition:opacity .35s ease,transform .35s ease,visibility 0s}
+.wb-fab a{text-decoration:none}
+.wb-fab-btn{height:40px;flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;transition:background .2s ease,border-color .2s ease}
+.wb-fab-btn:focus-visible{outline:2px solid #D52625;outline-offset:2px}
+.wb-fab-icon{width:40px}
+.wb-fab-icon svg{width:17px;height:17px}
+.wb-fab-call{background:#ffffff;border:1px solid #1D1D1B1f}
+.wb-fab-call svg{stroke:#1D1D1B;fill:none}
+.wb-fab-call:hover{border-color:#1D1D1B66}
+.wb-fab-wa{background:#25D366}
+.wb-fab-wa svg{width:19px;height:19px;fill:#fff}
+.wb-fab-wa:hover{background:#1ebe5a}
+.wb-fab-cta{background:#D52625;color:#fff;padding:0 18px;font-size:13.5px;font-weight:600;letter-spacing:.01em}
+.wb-fab-cta:hover{background:#b51d1c}
+.wb-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:640px){.wb-fab{bottom:12px}}
+@media (prefers-reduced-motion:reduce){.wb-fab,.wb-fab.wb-show{transition:none}}
+</style>
+<div class="wb-fab" id="wb-fab" role="complementary" aria-label="Schnellkontakt">
+  <a class="wb-fab-btn wb-fab-icon wb-fab-call" href="tel:+494035703274" title="Anrufen: 040 / 357 032-74">
+    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+    <span class="wb-sr">Anrufen: 040 / 357 032-74</span>
+  </a>
+  <a class="wb-fab-btn wb-fab-icon wb-fab-wa" id="wb-wa" href="/kontakt" title="Per WhatsApp schreiben">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.08 3 3.43 8.64 3.43 15.6c0 2.22.58 4.39 1.69 6.3L3.33 28.5l6.78-1.77a12.55 12.55 0 0 0 5.93 1.5h.01c6.95 0 12.61-5.65 12.61-12.6C28.66 8.64 23 3 16.04 3Zm0 23.07h-.01a10.47 10.47 0 0 1-5.33-1.46l-.38-.23-4.02 1.05 1.07-3.92-.25-.4a10.43 10.43 0 0 1-1.6-5.5c0-5.78 4.71-10.48 10.5-10.48 2.8 0 5.44 1.1 7.42 3.08a10.41 10.41 0 0 1 3.07 7.41c0 5.78-4.7 10.47-10.47 10.47Zm5.74-7.84c-.31-.16-1.86-.92-2.15-1.02-.29-.11-.5-.16-.71.16-.21.31-.81 1.02-1 1.23-.18.21-.37.24-.68.08-.31-.16-1.33-.49-2.53-1.56-.93-.83-1.56-1.86-1.75-2.17-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.53-.71-.54h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63 0 1.55 1.13 3.05 1.29 3.26.16.21 2.22 3.39 5.38 4.75.75.32 1.34.52 1.8.66.75.24 1.44.21 1.98.13.6-.09 1.86-.76 2.12-1.5.26-.73.26-1.36.18-1.5-.08-.13-.29-.21-.6-.37Z"/></svg>
+    <span class="wb-sr">Per WhatsApp schreiben</span>
+  </a>
+  <a class="wb-fab-btn wb-fab-cta" id="wb-cta" href="/kontakt">Anfrage senden</a>
+</div>
+<script>
+(function(){
+  var WA_NUMBER = ""; /* <- WhatsApp-Nummer hier eintragen, z.B. "4915112345678" */
+  var WA_TEXT = "Hallo Werner Bau, ich habe eine Anfrage:";
+  var fab = document.getElementById('wb-fab');
+  var wa = document.getElementById('wb-wa');
+  if (wa && WA_NUMBER) {
+    wa.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(WA_TEXT);
+    wa.target = '_blank';
+    wa.rel = 'noopener';
+  }
+  /* Übersetzte Karriereseiten (/karriere-pl, -ru, -uk, -tr): Button-Texte in der Sprache der Seite, Button führt zum Bewerbungsformular */
+  var L = {
+    pl: ['Aplikuj teraz', 'Zadzwoń', 'Napisz na WhatsApp', 'Szybki kontakt'],
+    ru: ['Откликнуться', 'Позвонить', 'Написать в WhatsApp', 'Быстрая связь'],
+    uk: ['Подати заявку', 'Зателефонувати', 'Написати у WhatsApp', 'Швидкий зв’язок'],
+    tr: ['Hemen başvurun', 'Arayın', 'WhatsApp ile yazın', 'Hızlı iletişim']
+  };
+  var m = location.pathname.match(/^\/karriere-(pl|ru|uk|tr)\/?$/);
+  if (m && fab) {
+    var t = L[m[1]];
+    document.documentElement.lang = m[1];
+    var cta = document.getElementById('wb-cta');
+    if (cta) { cta.textContent = t[0]; cta.href = '#bewerben'; }
+    var call = fab.querySelector('.wb-fab-call');
+    if (call) { call.title = t[1] + ': 040 / 357 032-74'; call.querySelector('.wb-sr').textContent = t[1] + ': 040 / 357 032-74'; }
+    if (wa) { wa.title = t[2]; wa.querySelector('.wb-sr').textContent = t[2]; }
+    fab.setAttribute('aria-label', t[3]);
+  }
+  if (!fab) return;
+  var show = function(){ if (window.scrollY > 160) { fab.classList.add('wb-show'); window.removeEventListener('scroll', show); } };
+  window.addEventListener('scroll', show, { passive: true });
+  show();
+})();
+</script>

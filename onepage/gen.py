@@ -53,7 +53,22 @@ LINK_ITEMS = {'label': {'title': 'Label', 'type': 'text'}, 'href': {'title': 'Li
 NAV_MAIN = [n for n in NAV if n['href'] != '/kontakt']
 
 
-def header(active):
+LANGS = [('de', 'DE', 'Deutsch'), ('pl', 'PL', 'Polski'), ('ru', 'RU', 'Русский'), ('uk', 'UK', 'Українська'), ('tr', 'TR', 'Türkçe')]
+
+
+def lang_links(current, de_href):
+    # Only the career page is translated; on German pages the other languages lead to the translated career page.
+    return [{'code': code, 'short': short, 'label': label, 'href': de_href if code == 'de' else '/karriere-' + code, 'current': code == current}
+            for code, short, label in LANGS]
+
+
+def localize(p, tr):
+    for k, v in (tr or {}).items():
+        p['onepage']['control'][k]['default'] = v
+    return p
+
+
+def header(active, lang='de', de_href=None):
     ctl = {
         'logo': c('Logo', 'media', img('_themes/lightwhite/logo-wernerbau.svg'), 'content', 'brand'),
         'logoAlt': c('Logo Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'brand'),
@@ -69,8 +84,13 @@ def header(active):
         'activeHref': c('Aktive Seite (Link)', 'text', active, 'content', 'nav'),
         'menuLabel': c('Menü öffnen Label', 'text', 'Menü öffnen', 'content', 'nav'),
         'closeLabel': c('Menü schließen Label', 'text', 'Menü schließen', 'content', 'nav'),
+        'languages': c('Sprachen', 'array', lang_links(lang, de_href or active), 'content', 'lang', items={
+            'label': {'title': 'Name', 'type': 'text'}, 'short': {'title': 'Kürzel', 'type': 'text'},
+            'code': {'title': 'Sprachcode', 'type': 'text'}, 'href': {'title': 'Link', 'type': 'text'},
+            'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
+        'langLabel': c('Sprachauswahl (Screenreader)', 'text', 'Sprache wählen', 'content', 'lang'),
     }
-    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'meta': {'title': 'Kontaktzeile'}, 'nav': {'title': 'Navigation'}})
+    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'meta': {'title': 'Kontaktzeile'}, 'nav': {'title': 'Navigation'}, 'lang': {'title': 'Sprachauswahl'}})
 
 def hero(image, alt, height='md'):
     ctl = {
@@ -238,7 +258,7 @@ def footer():
     return pkg('footer', ctl, {'brand': {'title': 'Hintergrund & Logo'}, 'group': {'title': 'Gruppenwerk & Links'}})
 
 
-def career(form_id=''):
+def career(form_id='', lang='de'):
     jobs = [
         {'title': 'Maurer (m/w/d)', 'meta': 'Vollzeit · Hamburg', 'text': 'Mauerwerks-, Putz- und Fassadenarbeiten an Alt- und Denkmalbauten sowie in der Wohnungssanierung.'},
         {'title': 'Maler und Lackierer (m/w/d)', 'meta': 'Vollzeit · Hamburg', 'text': 'Maler- und Stuckarbeiten in Wohnungen, Gebäuden und öffentlichen Einrichtungen.'},
@@ -290,8 +310,12 @@ def career(form_id=''):
         'requiredError': c('Pflichtfeld-Fehler', 'text', 'Bitte füllen Sie dieses Pflichtfeld aus.', 'content', 'messages'),
         'emailError': c('E-Mail-Fehler', 'text', 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'content', 'messages'),
         'formId': c('CRM Formular-ID', 'text', form_id, 'settings', 'form'),
+        'langTitle': c('Sprachen Überschrift', 'text', 'Diese Seite in anderen Sprachen', 'content', 'lang'),
+        'langLinks': c('Sprachen', 'array', lang_links(lang, '/karriere'), 'content', 'lang', items={
+            'label': {'title': 'Name', 'type': 'text'}, 'code': {'title': 'Sprachcode', 'type': 'text'},
+            'href': {'title': 'Link', 'type': 'text'}, 'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
     }
-    return pkg('career', ctl, {'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Stellen'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
+    return pkg('career', ctl, {'lang': {'title': 'Sprachen'}, 'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Stellen'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
 
 
 def photo(name, alt_text=None):

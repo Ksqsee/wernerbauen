@@ -141,7 +141,7 @@ PAGES['datenschutz'] = [
 PAGES['karriere'] = [
     ('header', 'Navigation', header('/karriere')),
     ('hero', 'Banner', hero(img(F + 'fassadensanierung-hamburg-experten-2.jpg'), alt('fassadensanierung-hamburg-experten-2.jpg'))),
-    ('career', 'Karriere', career()),
+    ('career', 'Karriere', career('0739696d-3160-42d8-8269-ee2db280093c')),
     ('footer', 'Footer', footer()),
 ]
 

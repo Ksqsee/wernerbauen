@@ -19,6 +19,24 @@
   align-items: start;
 }
 .col { display: flex; flex-direction: column; gap: 18px; }
+.langs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 2px 0 6px; }
+.langsTitle { width: 100%; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b6b; margin-bottom: 2px; }
+.langPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #1D1D1B26;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-kit-key2, #1D1D1B);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.langPill:hover { border-color: var(--color-kit-key1, #D52625); color: var(--color-kit-key1, #D52625); }
+.langPill:focus-visible { outline: 2px solid var(--color-kit-key1, #D52625); outline-offset: 2px; }
+.langPillOn { background: var(--color-kit-key2, #1D1D1B); border-color: var(--color-kit-key2, #1D1D1B); color: #ffffff; }
+.langPillOn:hover { color: #ffffff; }
 .h1 {
   margin: 0 0 6px;
   font-family: var(--font-kit-header-font), 'Archivo', sans-serif;

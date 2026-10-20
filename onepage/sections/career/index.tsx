@@ -18,10 +18,11 @@ export default function Career({
   formAnchor, formTitle, formIntro, firstNameLabel, lastNameLabel, emailLabel, phoneLabel, positionLabel, positionPlaceholder, messageLabel,
   attachLabel, attachHint, attachButton, attachRemove, attachTooLarge, attachAccept, attachMaxFiles, attachMaxMb,
   consentPre, privacyLabel, privacyHref, consentPost, requiredNote, submitLabel, sendingLabel, successText, errorText, requiredError, emailError,
-  formId,
+  formId, langTitle, langLinks,
 }: any) {
   const jobList: any[] = Array.isArray(jobs) ? jobs : [];
   const benefitList: any[] = Array.isArray(benefits) ? benefits : [];
+  const langList: any[] = Array.isArray(langLinks) ? langLinks : [];
   const positions = [...jobList.map((j: any) => j.title), initiativeLabel];
   const [data, setData] = useState<any>(EMPTY);
   const [files, setFiles] = useState<File[]>([]);
@@ -65,6 +66,14 @@ export default function Career({
         <div className={styles.top}>
           <div className={styles.col}>
             <h1 className={styles.h1}>{title}</h1>
+            {langList.length ? (
+              <nav className={styles.langs} aria-label={langTitle}>
+                <span className={styles.langsTitle}>{langTitle}</span>
+                {langList.map((l: any, i: number) => (
+                  <a key={i} className={[styles.langPill, l.current ? styles.langPillOn : ''].join(' ')} href={l.href} hrefLang={l.code} lang={l.code} aria-current={l.current ? 'true' : undefined}>{l.label}</a>
+                ))}
+              </nav>
+            ) : null}
             {paras(intro).map((p, i) => <p key={i} className={styles.p}>{p}</p>)}
             <div>
               <Button href={'#' + formAnchor} variant="primary" size="md" arrow onClick={(e) => { e.preventDefault(); pick(data.position); }}>{applyLabel}</Button>
