@@ -1,11 +1,11 @@
 <!-- Schnellkontakt unten mittig, erscheint nach dem ersten Scrollen: Anrufen / WhatsApp / Anfrage. WhatsApp-Nummer unten bei WA_NUMBER eintragen (internationales Format ohne +, z.B. 4915112345678). Solange leer, führt der WhatsApp-Button zur Kontaktseite. -->
 <style>
-.wb-fab{position:fixed;left:50%;bottom:20px;transform:translate(-50%,18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,transform .35s ease,visibility 0s linear .35s;width:max-content;white-space:nowrap;z-index:9999;display:flex;align-items:center;gap:6px;padding:5px;background:#ffffffd9;border:1px solid #1D1D1B14;border-radius:999px;box-shadow:0 10px 30px -12px #1D1D1B40;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-family:Inter,system-ui,sans-serif}
+.wb-fab{position:fixed;left:50%;bottom:20px;transform:translate(-50%,18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,transform .35s ease,visibility 0s linear .35s;width:max-content;white-space:nowrap;z-index:9999;display:flex;align-items:center;gap:4px;padding:4px;background:#ffffffeb;border:1px solid #1D1D1B1a;border-radius:4px;box-shadow:0 12px 32px -14px #1D1D1B4d;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-family:Inter,system-ui,sans-serif}
 .wb-fab.wb-show{transform:translate(-50%,0);opacity:1;visibility:visible;pointer-events:auto;transition:opacity .35s ease,transform .35s ease,visibility 0s}
 .wb-fab a{text-decoration:none}
-.wb-fab-btn{height:40px;flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;transition:background .2s ease,border-color .2s ease}
+.wb-fab-btn{height:42px;flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;transition:background .2s ease,border-color .2s ease}
 .wb-fab-btn:focus-visible{outline:2px solid #D52625;outline-offset:2px}
-.wb-fab-icon{width:40px}
+.wb-fab-icon{width:42px}
 .wb-fab-icon svg{width:17px;height:17px}
 .wb-fab-call{background:#ffffff;border:1px solid #1D1D1B1f}
 .wb-fab-call svg{stroke:#1D1D1B;fill:none}
@@ -13,7 +13,7 @@
 .wb-fab-wa{background:#25D366}
 .wb-fab-wa svg{width:19px;height:19px;fill:#fff}
 .wb-fab-wa:hover{background:#1ebe5a}
-.wb-fab-cta{background:#D52625;color:#fff;padding:0 18px;font-size:13.5px;font-weight:600;letter-spacing:.01em}
+.wb-fab-cta{background:#D52625;color:#fff;padding:0 20px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .wb-fab-cta:hover{background:#b51d1c}
 .wb-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:640px){.wb-fab{bottom:12px}}

@@ -64,59 +64,56 @@ export default function Career({
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.top}>
-          <div className={styles.col}>
+          <div className={styles.intro}>
             <h1 className={styles.h1}>{title}</h1>
-            {langList.length ? (
+            {langList.filter((l: any) => !l.current).length ? (
               <nav className={styles.langs} aria-label={langTitle}>
                 <span className={styles.langsTitle}>{langTitle}</span>
-                {langList.map((l: any, i: number) => (
-                  <a key={i} className={[styles.langPill, l.current ? styles.langPillOn : ''].join(' ')} href={l.href} hrefLang={l.code} lang={l.code} aria-current={l.current ? 'true' : undefined}>{l.label}</a>
+                {langList.filter((l: any) => !l.current).map((l: any, i: number) => (
+                  <a key={i} className={styles.langLink} href={l.href} hrefLang={l.code} lang={l.code}>{l.label}</a>
                 ))}
               </nav>
             ) : null}
-            {paras(intro).map((p, i) => <p key={i} className={styles.p}>{p}</p>)}
-            <div>
+            {paras(intro).map((p, i) => <p key={i} className={i === 0 ? styles.lead : styles.p}>{p}</p>)}
+            <div className={styles.cta}>
               <Button href={'#' + formAnchor} variant="primary" size="md" arrow onClick={(e) => { e.preventDefault(); pick(data.position); }}>{applyLabel}</Button>
             </div>
           </div>
-          <div className={styles.col}>
-            <h2 className={styles.h1}>{benefitsTitle}</h2>
-            <ul className={styles.benefits}>
+          <div className={styles.benefitsCol}>
+            <h2 className={styles.h2}>{benefitsTitle}</h2>
+            <ol className={styles.benefits}>
               {benefitList.map((b: any, i: number) => (
                 <li key={i} className={styles.benefit}>
-                  <span className={styles.check}><Icon name="check" size={16} /></span>
+                  <span className={styles.num} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                   <span>{b.text}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
 
         <div className={styles.jobsWrap}>
-          <h2 className={styles.h1}>{jobsTitle}</h2>
+          <h2 className={styles.sectionTitle}>{jobsTitle}</h2>
           <div className={styles.jobs}>
-            {jobList.map((j: any, i: number) => (
-              <article key={i} className={styles.job}>
+            {[...jobList, { title: initiativeLabel, initiative: true }].map((j: any, i: number) => (
+              <article key={i} className={[styles.job, j.initiative ? styles.initiative : ''].join(' ')} onClick={() => pick(j.title)}>
+                <span className={styles.jobNum} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                 <div className={styles.jobMain}>
                   <h3 className={styles.jobTitle}>{j.title}</h3>
-                  <p className={styles.jobMeta}>{j.meta}</p>
-                  <p className={styles.p}>{j.text}</p>
+                  {j.meta ? <p className={styles.jobMeta}>{j.meta}</p> : null}
+                  {j.text ? <p className={styles.p}>{j.text}</p> : null}
                 </div>
-                <Button variant="dark" size="sm" arrow onClick={() => pick(j.title)}>{applyLabel}</Button>
+                <div className={styles.jobCta}>
+                  <Button variant="link" size="md" arrow onClick={(e) => { e.stopPropagation(); pick(j.title); }}>{applyLabel}</Button>
+                </div>
               </article>
             ))}
-            <article className={[styles.job, styles.initiative].join(' ')}>
-              <div className={styles.jobMain}>
-                <h3 className={styles.jobTitle}>{initiativeLabel}</h3>
-              </div>
-              <Button variant="outline" size="sm" arrow onClick={() => pick(initiativeLabel)}>{applyLabel}</Button>
-            </article>
           </div>
         </div>
 
         <div id={formAnchor} className={styles.formWrap}>
           <div className={styles.col}>
-            <h2 className={styles.h1}>{formTitle}</h2>
+            <h2 className={styles.sectionTitle}>{formTitle}</h2>
             {paras(formIntro).map((p, i) => <p key={i} className={styles.p}>{p}</p>)}
           </div>
           {status === 'ok' ? (

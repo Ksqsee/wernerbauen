@@ -310,7 +310,7 @@ def career(form_id='', lang='de'):
         'requiredError': c('Pflichtfeld-Fehler', 'text', 'Bitte füllen Sie dieses Pflichtfeld aus.', 'content', 'messages'),
         'emailError': c('E-Mail-Fehler', 'text', 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'content', 'messages'),
         'formId': c('CRM Formular-ID', 'text', form_id, 'settings', 'form'),
-        'langTitle': c('Sprachen Überschrift', 'text', 'Diese Seite in anderen Sprachen', 'content', 'lang'),
+        'langTitle': c('Sprachen Hinweis', 'text', 'Auch verfügbar auf:', 'content', 'lang'),
         'langLinks': c('Sprachen', 'array', lang_links(lang, '/karriere'), 'content', 'lang', items={
             'label': {'title': 'Name', 'type': 'text'}, 'code': {'title': 'Sprachcode', 'type': 'text'},
             'href': {'title': 'Link', 'type': 'text'}, 'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),

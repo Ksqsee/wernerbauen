@@ -49,7 +49,7 @@ T = {
             'sendingLabel': 'Wysyłanie …', 'successText': 'Dziękujemy za aplikację. Odezwiemy się najszybciej, jak to możliwe.',
             'errorText': 'Nie udało się wysłać aplikacji. Spróbuj ponownie lub zadzwoń do nas.',
             'requiredError': 'Wypełnij to pole obowiązkowe.', 'emailError': 'Podaj prawidłowy adres e-mail.',
-            'langTitle': 'Ta strona w innych językach',
+            'langTitle': 'Dostępne także w językach:',
         },
     },
     'ru': {
@@ -88,7 +88,7 @@ T = {
             'sendingLabel': 'Отправка …', 'successText': 'Спасибо за вашу заявку. Мы свяжемся с вами как можно скорее.',
             'errorText': 'Не удалось отправить заявку. Пожалуйста, попробуйте ещё раз или позвоните нам.',
             'requiredError': 'Пожалуйста, заполните это обязательное поле.', 'emailError': 'Пожалуйста, введите корректный адрес электронной почты.',
-            'langTitle': 'Эта страница на других языках',
+            'langTitle': 'Также доступно на языках:',
         },
     },
     'uk': {
@@ -127,7 +127,7 @@ T = {
             'sendingLabel': 'Надсилання …', 'successText': 'Дякуємо за вашу заявку. Ми зв’яжемося з вами якнайшвидше.',
             'errorText': 'Не вдалося надіслати заявку. Будь ласка, спробуйте ще раз або зателефонуйте нам.',
             'requiredError': 'Будь ласка, заповніть це обов’язкове поле.', 'emailError': 'Будь ласка, введіть коректну адресу електронної пошти.',
-            'langTitle': 'Ця сторінка іншими мовами',
+            'langTitle': 'Також доступно мовами:',
         },
     },
     'tr': {
@@ -166,7 +166,7 @@ T = {
             'sendingLabel': 'Gönderiliyor …', 'successText': 'Başvurunuz için teşekkür ederiz. En kısa sürede size dönüş yapacağız.',
             'errorText': 'Başvuru gönderilemedi. Lütfen tekrar deneyin veya bizi arayın.',
             'requiredError': 'Lütfen bu zorunlu alanı doldurun.', 'emailError': 'Lütfen geçerli bir e-posta adresi girin.',
-            'langTitle': 'Bu sayfa diğer dillerde',
+            'langTitle': 'Diğer dillerde:',
         },
     },
 }
