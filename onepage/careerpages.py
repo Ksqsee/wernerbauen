@@ -26,7 +26,7 @@ def career_page(lang):
 
 
 if __name__ == '__main__':
-    for lang in ['de', 'pl', 'ru', 'uk', 'tr']:
+    for lang in ['de', 'en', 'pl', 'ru', 'uk', 'tr']:
         d = 'out-lang/karriere-' + lang
         os.makedirs(d, exist_ok=True)
         for i, (c, p) in enumerate(career_page(lang), 1):

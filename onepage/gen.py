@@ -53,7 +53,7 @@ LINK_ITEMS = {'label': {'title': 'Label', 'type': 'text'}, 'href': {'title': 'Li
 NAV_MAIN = [n for n in NAV if n['href'] != '/kontakt']
 
 
-LANGS = [('de', 'DE', 'Deutsch'), ('pl', 'PL', 'Polski'), ('ru', 'RU', 'Русский'), ('uk', 'UK', 'Українська'), ('tr', 'TR', 'Türkçe')]
+LANGS = [('de', 'DE', 'Deutsch'), ('en', 'EN', 'English'), ('pl', 'PL', 'Polski'), ('ru', 'RU', 'Русский'), ('uk', 'UK', 'Українська'), ('tr', 'TR', 'Türkçe')]
 
 
 def lang_links(current, de_href):
