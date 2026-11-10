@@ -40,18 +40,18 @@ C = names('oeffentlich', lambda n: n.startswith('c_'))
 PROJECTS = {
     'fassadensanierung': [
         project('Oberfinanzdirektion Hamburg', [n for n in F_ALL if 'oberfinanzdirektion' in n], 'fassade-oberfinanzdirektion-5.jpg'),
-        project('Villa – vorher und nachher', [n for n in F_ALL if '_villa_' in n], 'fassadensanierung_villa_2b_nachher.jpg'),
+        project('Villa – vorher und nachher', [n for n in F_ALL if '_villa_' in n], ('fassadensanierung_villa_2a_vorher.jpg', 'fassadensanierung_villa_2b_nachher.jpg')),
         project('Altbaubalkone', [n for n in F_ALL if 'balkon' in n and 'experten' not in n], 'fassade-sanierung-balkon-3.jpg'),
         project('Stadtvillen und Eingänge', [n for n in F_ALL if 'experten' in n], 'fassadensanierung-hamburg-experten.jpg'),
         project('Altbaufassaden in Hamburg', [n for n in F_ALL if 'oberfinanz' not in n and 'balkon' not in n and 'experten' not in n and '_villa_' not in n],
                 'fassadensanierung-hamburg-7.jpg'),
     ],
     'wohnung': [
-        project('Altbauzimmer', [n for n in W_ALL if n.startswith('Wohnungssanierung-1a') or n.startswith('Wohnungssanierung-1b')], 'Wohnungssanierung-1b-nachher.jpg'),
-        project('Badezimmer', [n for n in W_ALL if 'Badezimmer' in n], 'Wohnungssanierung-Badezimmer-1b-nachher.jpg'),
-        project('Küche', [n for n in W_ALL if 'Kueche' in n], 'Wohnungssanierung-Kueche-1b-nacher.jpg'),
-        project('Schlafzimmer', [n for n in W_ALL if 'Schlafzimmer' in n], 'Wohnungssanierung-Schlafzimmer-1b-nachher.jpg'),
-        project('Flur', [n for n in W_ALL if 'Flur' in n], 'Wohnungssanierung-Flur-1b-nachher.jpg'),
+        project('Altbauzimmer', [n for n in W_ALL if n.startswith('Wohnungssanierung-1a') or n.startswith('Wohnungssanierung-1b')], ('Wohnungssanierung-1a-vorher.jpg', 'Wohnungssanierung-1b-nachher.jpg')),
+        project('Badezimmer', [n for n in W_ALL if 'Badezimmer' in n], ('Wohnungssanierung-Badezimmer-1a-vorher.jpg', 'Wohnungssanierung-Badezimmer-1b-nachher.jpg')),
+        project('Küche', [n for n in W_ALL if 'Kueche' in n], ('Wohnungssanierung-Kueche-1a-vorher.jpg', 'Wohnungssanierung-Kueche-1b-nacher.jpg')),
+        project('Schlafzimmer', [n for n in W_ALL if 'Schlafzimmer' in n], ('Wohnungssanierung-Schlafzimmer-1a-vorher.jpg', 'Wohnungssanierung-Schlafzimmer-1b-nachher.jpg')),
+        project('Flur', [n for n in W_ALL if 'Flur' in n], ('Wohnungssanierung-Flur-1a-vorher.jpg', 'Wohnungssanierung-Flur-1b-nachher.jpg')),
         project('Details', [n for n in W_ALL if 'Fensterbank' in n or 'Stuck' in n], 'Wohnungssanierung-Fensterbank.jpg'),
     ],
     'oeffentlich': [
@@ -75,6 +75,6 @@ if __name__ == '__main__':
         cat = {'fassadensanierung': 'fassade', 'wohnung': 'wohnung', 'oeffentlich': 'oeffentlich'}[key]
         assert total == len(names(cat)), (key, total, len(names(cat)))
         for g in PROJECTS[key]:
-            assert sum(1 for p in g if p['cover']) == 1, (key, g[0]['project'])
+            assert sum(1 for p in g if p['cover']) in (1, 2), (key, g[0]['project'])
         json.dump(pk, open('out-split/%s.json' % key, 'w'), indent=2, ensure_ascii=False)
         print(key, [(g[0]['project'], len(g)) for g in PROJECTS[key]])

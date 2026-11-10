@@ -89,12 +89,22 @@ export default function Split({ blocks, headingMode, projectsEyebrow, projectsTi
             <div className={styles.cards}>
               {cards.map((p: any, k: number) => {
                 const list = valid(p.images);
-                const cover = list.find((x: any) => x.cover) || list[0];
+                const covers = list.filter((x: any) => x.cover);
+                const pair = covers.length >= 2 ? covers.slice(0, 2) : null;
+                const cover = covers[0] || list[0];
                 return (
                   <button type="button" key={k} className={[styles.card, cards.length % 2 === 1 && k === 0 ? styles.wide : ''].join(' ')} onClick={() => setBox({ p: k, i: 0 })} aria-label={openLabel + ': ' + p.title}>
-                    <span className={styles.cardMedia}>
-                      <Image src={cover.image.src} alt={cover.alt} className={styles.img} />
-                    </span>
+                    {pair ? (
+                      <span className={[styles.cardMedia, styles.pair].join(' ')}>
+                        {pair.map((ph: any, n: number) => (
+                          <span key={n} className={styles.half}><Image src={ph.image.src} alt={ph.alt} className={styles.img} /></span>
+                        ))}
+                      </span>
+                    ) : (
+                      <span className={styles.cardMedia}>
+                        <Image src={cover.image.src} alt={cover.alt} className={styles.img} />
+                      </span>
+                    )}
                     <span className={styles.cardBody}>
                       <span className={styles.cardTitle}>{p.title}</span>
                       <span className={styles.cardMeta}>{list.length} {photosLabel}<Icon name="arrow" size={16} /></span>

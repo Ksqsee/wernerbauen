@@ -96,6 +96,9 @@
 }
 .cardMedia { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--color-kit-light, #F3F0EB); }
 .wide { grid-column: 1 / -1; }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px; background: #ffffff; }
+.half { display: block; overflow: hidden; }
+.half .img { object-position: left center; }
 .wide .cardMedia { aspect-ratio: 21 / 9; }
 .card:hover .img { transform: scale(1.04); }
 .card:focus-visible { outline: 3px solid var(--color-kit-key1, #D52625); outline-offset: 6px; }

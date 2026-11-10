@@ -74,13 +74,16 @@ def header(active, lang='de', de_href=None):
         'logoAlt': c('Logo Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'brand'),
         'logoHref': c('Logo Link', 'text', '/', 'content', 'brand'),
         'email': c('E-Mail', 'text', EMAIL, 'content', 'meta'),
+        'emailLabel': c('E-Mail Button Text', 'text', 'E-Mail', 'content', 'meta'),
         'phone': c('Telefon', 'text', PHONE, 'content', 'meta'),
         'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'meta'),
         'contactLabel': c('Anfrage Button Text', 'text', 'Anfrage senden', 'content', 'meta'),
         'contactHref': c('Kontakt Link', 'text', '/kontakt', 'content', 'meta'),
         'applyLabel': c('Bewerben Button Text', 'text', 'Jetzt bewerben', 'content', 'meta'),
         'applyHref': c('Bewerben Button Link', 'text', '/karriere#bewerben', 'content', 'meta'),
-        'navItems': c('Menüpunkte', 'array', NAV_MAIN, 'content', 'nav', items=LINK_ITEMS),
+        'navItems': c('Menüpunkte (der erste steht vor „Leistungen“)', 'array', [n for n in NAV_MAIN if n['href'] in ('/', '/ueber-uns', '/karriere')], 'content', 'nav', items=LINK_ITEMS),
+        'servicesLabel': c('Leistungen Menüpunkt', 'text', 'Leistungen', 'content', 'nav'),
+        'serviceItems': c('Leistungen Untermenü', 'array', [n for n in NAV_MAIN if n['href'] not in ('/', '/ueber-uns', '/karriere')], 'content', 'nav', items=LINK_ITEMS),
         'activeHref': c('Aktive Seite (Link)', 'text', active, 'content', 'nav'),
         'menuLabel': c('Menü öffnen Label', 'text', 'Menü öffnen', 'content', 'nav'),
         'closeLabel': c('Menü schließen Label', 'text', 'Menü schließen', 'content', 'nav'),
@@ -92,6 +95,7 @@ def header(active, lang='de', de_href=None):
         'navLang': c('Sprache der Menüpunkte (Code)', 'text', 'de', 'content', 'nav'),
         'whatsappNumber': c('WhatsApp-Nummer (international ohne +, z. B. 4915112345678)', 'text', '', 'content', 'whatsapp'),
         'whatsappText': c('WhatsApp Begrüßungstext', 'text', 'Hallo Werner Bau, ich habe eine Anfrage:', 'content', 'whatsapp'),
+        'whatsappButton': c('WhatsApp Button Text', 'text', 'WhatsApp', 'content', 'whatsapp'),
         'whatsappLabel': c('WhatsApp Button (Screenreader)', 'text', 'Per WhatsApp schreiben', 'content', 'whatsapp'),
         'whatsappFallback': c('Link solange keine Nummer eingetragen ist', 'text', '/kontakt', 'content', 'whatsapp'),
     }
@@ -335,7 +339,7 @@ def project(title, names, cover=None):
     for n in names:
         ph = photo(n)
         ph['project'] = title
-        ph['cover'] = n == cover
+        ph['cover'] = n in cover if isinstance(cover, (list, tuple)) else n == cover
         out.append(ph)
     return out
 
