@@ -76,7 +76,7 @@ def header(active, lang='de', de_href=None):
         'email': c('E-Mail', 'text', EMAIL, 'content', 'meta'),
         'phone': c('Telefon', 'text', PHONE, 'content', 'meta'),
         'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'meta'),
-        'contactLabel': c('Kontakt Text', 'text', 'Kontakt', 'content', 'meta'),
+        'contactLabel': c('Anfrage Button Text', 'text', 'Anfrage senden', 'content', 'meta'),
         'contactHref': c('Kontakt Link', 'text', '/kontakt', 'content', 'meta'),
         'applyLabel': c('Bewerben Button Text', 'text', 'Jetzt bewerben', 'content', 'meta'),
         'applyHref': c('Bewerben Button Link', 'text', '/karriere#bewerben', 'content', 'meta'),
@@ -89,8 +89,12 @@ def header(active, lang='de', de_href=None):
             'code': {'title': 'Sprachcode', 'type': 'text'}, 'href': {'title': 'Link', 'type': 'text'},
             'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
         'langLabel': c('Sprachauswahl (Screenreader)', 'text', 'Sprache wählen', 'content', 'lang'),
+        'whatsappNumber': c('WhatsApp-Nummer (international ohne +, z. B. 4915112345678)', 'text', '', 'content', 'whatsapp'),
+        'whatsappText': c('WhatsApp Begrüßungstext', 'text', 'Hallo Werner Bau, ich habe eine Anfrage:', 'content', 'whatsapp'),
+        'whatsappLabel': c('WhatsApp Button (Screenreader)', 'text', 'Per WhatsApp schreiben', 'content', 'whatsapp'),
+        'whatsappFallback': c('Link solange keine Nummer eingetragen ist', 'text', '/kontakt', 'content', 'whatsapp'),
     }
-    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'meta': {'title': 'Kontaktzeile'}, 'nav': {'title': 'Navigation'}, 'lang': {'title': 'Sprachauswahl'}})
+    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'meta': {'title': 'Kontaktzeile'}, 'nav': {'title': 'Navigation'}, 'lang': {'title': 'Sprachauswahl'}, 'whatsapp': {'title': 'WhatsApp'}})
 
 def hero(image, alt, height='md'):
     ctl = {

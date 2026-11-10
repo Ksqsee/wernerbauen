@@ -4,13 +4,16 @@ import NavLink from '@siteui/navlink';
 import Icon from '@siteui/icon';
 import styles from './styles.module.css';
 
-export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHref, contactLabel, contactHref, applyLabel, applyHref, navItems, activeHref, menuLabel, closeLabel, languages, langLabel }: any) {
+export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHref, contactLabel, contactHref, applyLabel, applyHref, navItems, activeHref, menuLabel, closeLabel, languages, langLabel, whatsappNumber, whatsappText, whatsappLabel, whatsappFallback }: any) {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const items: any[] = Array.isArray(navItems) ? navItems : [];
   const langs: any[] = Array.isArray(languages) ? languages : [];
   const current = langs.find((l: any) => l.current) || langs[0];
+  const waNumber = String(whatsappNumber || '').replace(/[^0-9]/g, '');
+  const waHref = waNumber ? 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(whatsappText) : whatsappFallback;
+  const waProps = waNumber ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 
   useEffect(() => {
     if (!langOpen) return;
@@ -76,9 +79,14 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
                 <NavLink key={i} href={it.href} size="sm" active={it.href === activeHref} className={styles.navLink}>{it.label}</NavLink>
               ))}
             </nav>
-            <a className={[styles.contact, contactHref === activeHref ? styles.contactActive : ''].join(' ')} href={contactHref}>{contactLabel}</a>
+            <div className={styles.actions}>
+              <a className={styles.wa} href={waHref} {...waProps} aria-label={whatsappLabel} title={whatsappLabel}><Icon name="whatsapp" size={20} /></a>
+              <a className={[styles.contact, contactHref === activeHref ? styles.contactActive : ''].join(' ')} href={contactHref}>{contactLabel}</a>
+            </div>
           </div>
         </div>
+        <div className={styles.mobileBar}>
+          <a className={styles.wa} href={waHref} {...waProps} aria-label={whatsappLabel} title={whatsappLabel}><Icon name="whatsapp" size={20} /></a>
         <button
           type="button"
           className={styles.burger}
@@ -89,6 +97,7 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
         >
           <Icon name={open ? 'close' : 'menu'} size={24} />
         </button>
+        </div>
       </div>
       <div id="wb-mobile-nav" className={[styles.mobile, open ? styles.mobileOpen : ''].join(' ')}>
         <nav className={styles.mobileNav} aria-label={menuLabel}>

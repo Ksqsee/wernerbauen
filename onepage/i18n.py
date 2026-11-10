@@ -18,7 +18,7 @@ T = {
         'seo_title': 'Careers at Werner Bau – jobs in Hamburg',
         'seo_description': 'Work at Werner Bau in Hamburg: bricklayer, painter, site manager. Apply online and attach your CV.',
         'hero_alt': 'Entrance of a white town villa with steps',
-        'header': {'applyLabel': 'Apply now', 'contactLabel': 'Contact', 'menuLabel': 'Open menu',
+        'header': {'applyLabel': 'Apply now', 'contactLabel': 'Send enquiry', 'whatsappLabel': 'Message on WhatsApp', 'whatsappText': 'Hello Werner Bau, I have a question:', 'menuLabel': 'Open menu',
                    'closeLabel': 'Close menu', 'langLabel': 'Choose language'},
         'career': {
             'title': 'Careers',
@@ -57,7 +57,7 @@ T = {
         'seo_title': 'Kariera w Werner Bau – praca w Hamburgu',
         'seo_description': 'Pracuj w Werner Bau w Hamburgu: murarz, malarz, kierownik budowy. Aplikuj online i dołącz CV.',
         'hero_alt': 'Wejście do białej willi miejskiej ze schodami',
-        'header': {'applyLabel': 'Aplikuj teraz', 'contactLabel': 'Kontakt', 'menuLabel': 'Otwórz menu',
+        'header': {'applyLabel': 'Aplikuj teraz', 'contactLabel': 'Wyślij zapytanie', 'whatsappLabel': 'Napisz na WhatsApp', 'whatsappText': 'Dzień dobry, mam pytanie:', 'menuLabel': 'Otwórz menu',
                    'closeLabel': 'Zamknij menu', 'langLabel': 'Wybierz język'},
         'career': {
             'title': 'Kariera',
@@ -96,7 +96,7 @@ T = {
         'seo_title': 'Карьера в Werner Bau – работа в Гамбурге',
         'seo_description': 'Работа в Werner Bau в Гамбурге: каменщик, маляр, прораб. Отправьте заявку онлайн и прикрепите резюме.',
         'hero_alt': 'Вход в белую городскую виллу с лестницей',
-        'header': {'applyLabel': 'Откликнуться', 'contactLabel': 'Контакты', 'menuLabel': 'Открыть меню',
+        'header': {'applyLabel': 'Откликнуться', 'contactLabel': 'Отправить запрос', 'whatsappLabel': 'Написать в WhatsApp', 'whatsappText': 'Здравствуйте, у меня вопрос:', 'menuLabel': 'Открыть меню',
                    'closeLabel': 'Закрыть меню', 'langLabel': 'Выбрать язык'},
         'career': {
             'title': 'Карьера',
@@ -135,7 +135,7 @@ T = {
         'seo_title': 'Кар’єра в Werner Bau – робота в Гамбурзі',
         'seo_description': 'Робота в Werner Bau у Гамбурзі: муляр, маляр, виконроб. Подайте заявку онлайн і додайте резюме.',
         'hero_alt': 'Вхід до білої міської вілли зі сходами',
-        'header': {'applyLabel': 'Подати заявку', 'contactLabel': 'Контакти', 'menuLabel': 'Відкрити меню',
+        'header': {'applyLabel': 'Подати заявку', 'contactLabel': 'Надіслати запит', 'whatsappLabel': 'Написати у WhatsApp', 'whatsappText': 'Добрий день, у мене питання:', 'menuLabel': 'Відкрити меню',
                    'closeLabel': 'Закрити меню', 'langLabel': 'Обрати мову'},
         'career': {
             'title': 'Кар’єра',
@@ -174,7 +174,7 @@ T = {
         'seo_title': 'Werner Bau’da kariyer – Hamburg’da iş',
         'seo_description': 'Hamburg’da Werner Bau’da çalışın: duvarcı, boyacı, şantiye şefi. Online başvurun ve özgeçmişinizi ekleyin.',
         'hero_alt': 'Merdivenli beyaz bir şehir villasının girişi',
-        'header': {'applyLabel': 'Hemen başvurun', 'contactLabel': 'İletişim', 'menuLabel': 'Menüyü aç',
+        'header': {'applyLabel': 'Hemen başvurun', 'contactLabel': 'Talep gönder', 'whatsappLabel': 'WhatsApp ile yazın', 'whatsappText': 'Merhaba, bir sorum var:', 'menuLabel': 'Menüyü aç',
                    'closeLabel': 'Menüyü kapat', 'langLabel': 'Dil seçin'},
         'career': {
             'title': 'Kariyer',
