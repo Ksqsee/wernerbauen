@@ -89,6 +89,7 @@ def header(active, lang='de', de_href=None):
             'code': {'title': 'Sprachcode', 'type': 'text'}, 'href': {'title': 'Link', 'type': 'text'},
             'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
         'langLabel': c('Sprachauswahl (Screenreader)', 'text', 'Sprache wählen', 'content', 'lang'),
+        'navLang': c('Sprache der Menüpunkte (Code)', 'text', 'de', 'content', 'nav'),
         'whatsappNumber': c('WhatsApp-Nummer (international ohne +, z. B. 4915112345678)', 'text', '', 'content', 'whatsapp'),
         'whatsappText': c('WhatsApp Begrüßungstext', 'text', 'Hallo Werner Bau, ich habe eine Anfrage:', 'content', 'whatsapp'),
         'whatsappLabel': c('WhatsApp Button (Screenreader)', 'text', 'Per WhatsApp schreiben', 'content', 'whatsapp'),

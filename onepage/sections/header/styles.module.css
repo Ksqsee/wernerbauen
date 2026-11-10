@@ -52,8 +52,9 @@
 }
 .apply svg { transition: transform 0.2s ease; }
 .apply:hover svg { transform: translateX(3px); }
-.navRow { display: flex; align-items: center; gap: 24px; }
-.nav { display: flex; align-items: center; gap: 20px; }
+.navRow { display: flex; align-items: center; gap: 20px; }
+.nav { display: flex; align-items: center; gap: 18px; }
+.navGroup { display: contents; }
 .navLink {
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -80,7 +81,7 @@
   display: inline-flex;
   align-items: center;
   height: 42px;
-  padding: 0 18px;
+  padding: 0 16px;
   border-radius: 2px;
   background: var(--color-kit-key1, #D52625);
   color: #ffffff;

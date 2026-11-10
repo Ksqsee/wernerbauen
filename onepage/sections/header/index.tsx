@@ -4,7 +4,7 @@ import NavLink from '@siteui/navlink';
 import Icon from '@siteui/icon';
 import styles from './styles.module.css';
 
-export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHref, contactLabel, contactHref, applyLabel, applyHref, navItems, activeHref, menuLabel, closeLabel, languages, langLabel, whatsappNumber, whatsappText, whatsappLabel, whatsappFallback }: any) {
+export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHref, contactLabel, contactHref, applyLabel, applyHref, navItems, activeHref, menuLabel, closeLabel, languages, langLabel, whatsappNumber, whatsappText, whatsappLabel, whatsappFallback, navLang }: any) {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
@@ -74,7 +74,7 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
             ) : null}
           </div>
           <div className={styles.navRow}>
-            <nav className={styles.nav} aria-label={menuLabel}>
+            <nav className={styles.nav} aria-label={menuLabel} lang={navLang}>
               {items.map((it: any, i: number) => (
                 <NavLink key={i} href={it.href} size="sm" active={it.href === activeHref} className={styles.navLink}>{it.label}</NavLink>
               ))}
@@ -101,9 +101,11 @@ export default function Header({ logo, logoAlt, logoHref, email, phone, phoneHre
       </div>
       <div id="wb-mobile-nav" className={[styles.mobile, open ? styles.mobileOpen : ''].join(' ')}>
         <nav className={styles.mobileNav} aria-label={menuLabel}>
-          {items.map((it: any, i: number) => (
-            <NavLink key={i} href={it.href} active={it.href === activeHref} onClick={() => setOpen(false)} className={styles.mobileLink}>{it.label}</NavLink>
-          ))}
+          <div className={styles.navGroup} lang={navLang}>
+            {items.map((it: any, i: number) => (
+              <NavLink key={i} href={it.href} active={it.href === activeHref} onClick={() => setOpen(false)} className={styles.mobileLink}>{it.label}</NavLink>
+            ))}
+          </div>
           <div className={styles.mobileActions}>
             <a className={styles.contact} href={contactHref} onClick={() => setOpen(false)}>{contactLabel}</a>
             {applyLabel ? <a className={styles.apply} href={applyHref} onClick={() => setOpen(false)}><span>{applyLabel}</span><Icon name="arrow" size={14} /></a> : null}
