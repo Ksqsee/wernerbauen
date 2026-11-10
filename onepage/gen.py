@@ -75,6 +75,19 @@ def header(active, lang='de', de_href=None):
         'logoHref': c('Logo Link', 'text', '/', 'content', 'brand'),
         'email': c('E-Mail', 'text', EMAIL, 'content', 'meta'),
         'emailLabel': c('E-Mail Button Text', 'text', 'E-Mail', 'content', 'meta'),
+        'mailSubject': c('Betreff', 'text', 'Anfrage über die Website', 'content', 'mail'),
+        'mailApps': c('Mail-Programme', 'array', [
+            {'label': 'Mail-App', 'url': 'mailto:{to}?subject={subject}', 'copy': False},
+            {'label': 'Gmail', 'url': 'https://mail.google.com/mail/?view=cm&fs=1&to={to}&su={subject}', 'copy': False},
+            {'label': 'Outlook', 'url': 'https://outlook.live.com/mail/0/deeplink/compose?to={to}&subject={subject}', 'copy': False},
+            {'label': 'GMX', 'url': 'https://www.gmx.net/', 'copy': True},
+            {'label': 'WEB.DE', 'url': 'https://web.de/', 'copy': True}], 'content', 'mail', items={
+            'label': {'title': 'Name', 'type': 'text'}, 'url': {'title': 'Link ({to} = Adresse, {subject} = Betreff)', 'type': 'text'},
+            'copy': {'title': 'Adresse vorher kopieren', 'type': 'checkbox'}}),
+        'mailCopyLabel': c('Kopieren Text', 'text', 'Adresse kopieren', 'content', 'mail'),
+        'mailCopiedLabel': c('Kopiert Text', 'text', 'Kopiert', 'content', 'mail'),
+        'mailCopyHint': c('Hinweis bei Kopieren', 'text', 'Adresse wird kopiert', 'content', 'mail'),
+        'mailNoApp': c('Hinweis ohne Mailprogramm', 'text', 'Auf diesem Gerät ist kein Mailprogramm eingerichtet. Die Adresse wurde kopiert – fügen Sie sie einfach in Ihrem E-Mail-Postfach ein.', 'content', 'mail'),
         'phone': c('Telefon', 'text', PHONE, 'content', 'meta'),
         'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'meta'),
         'contactLabel': c('Anfrage Button Text', 'text', 'Anfrage senden', 'content', 'meta'),
@@ -99,7 +112,7 @@ def header(active, lang='de', de_href=None):
         'whatsappLabel': c('WhatsApp Button (Screenreader)', 'text', 'Per WhatsApp schreiben', 'content', 'whatsapp'),
         'whatsappFallback': c('Link solange keine Nummer eingetragen ist', 'text', '/kontakt', 'content', 'whatsapp'),
     }
-    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'meta': {'title': 'Kontaktzeile'}, 'nav': {'title': 'Navigation'}, 'lang': {'title': 'Sprachauswahl'}, 'whatsapp': {'title': 'WhatsApp'}})
+    return pkg('header', ctl, {'brand': {'title': 'Logo'}, 'meta': {'title': 'Kontaktzeile'}, 'nav': {'title': 'Navigation'}, 'lang': {'title': 'Sprachauswahl'}, 'whatsapp': {'title': 'WhatsApp'}, 'mail': {'title': 'E-Mail-Menü'}})
 
 def hero(image, alt, height='md'):
     ctl = {
