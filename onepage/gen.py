@@ -410,3 +410,35 @@ def people(persons, eyebrow, title):
             'email': {'title': 'E-Mail', 'type': 'text'}}),
     }
     return pkg('people', ctl, {'people': {'title': 'Personen'}})
+
+
+def header_lux(active, lang='de', de_href=None):
+    p = header(active, lang, de_href)
+    ctl = p['onepage']['control']
+    for k in [k for k in ctl if k.startswith('whatsapp')]:
+        del ctl[k]
+    del p['onepage']['group']['whatsapp']
+    return p
+
+
+def hook(slides, links):
+    S = []
+    for name, caption in slides:
+        ph = photo(name)
+        S.append({'image': ph['image'], 'alt': ph['alt'], 'caption': caption})
+    ctl = {
+        'eyebrow': c('Überzeile', 'text', 'Werner Bau · Hamburg · seit fast 100 Jahren', 'content', 'copy'),
+        'headline': c('Überschrift', 'text', 'Wir erhalten,', 'content', 'copy'),
+        'accent': c('Überschrift zweite Zeile (grau)', 'text', 'was Hamburg ausmacht.', 'content', 'copy'),
+        'sub': c('Text', 'text', 'Fassaden, Denkmäler und Wohnräume – saniert mit der Erfahrung aus fast 100 Jahren Hamburger Baugeschichte.', 'content', 'copy'),
+        'primaryLabel': c('Button Text', 'text', 'Projekt anfragen', 'content', 'buttons'),
+        'primaryHref': c('Button Link', 'text', '/kontakt', 'content', 'buttons'),
+        'secondaryLabel': c('Zweiter Button Text', 'text', 'Referenzen ansehen', 'content', 'buttons'),
+        'secondaryHref': c('Zweiter Button Link', 'text', '/fassadensanierung', 'content', 'buttons'),
+        'slides': c('Fotos (wechseln automatisch)', 'array', S, 'content', 'slides', items={
+            'image': {'title': 'Foto', 'type': 'media'}, 'alt': {'title': 'Alt-Text', 'type': 'text'},
+            'caption': {'title': 'Bildunterschrift', 'type': 'text'}}),
+        'interval': c('Sekunden pro Foto', 'number', 6, 'content', 'slides'),
+        'links': c('Leistungen unten', 'array', links, 'content', 'links', items=LINK_ITEMS),
+    }
+    return pkg('hook', ctl, {'copy': {'title': 'Text'}, 'buttons': {'title': 'Buttons'}, 'slides': {'title': 'Fotos'}, 'links': {'title': 'Leistungen'}})
