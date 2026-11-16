@@ -3,7 +3,7 @@ Writes out-lang/<page>/<n>-<comp>.json and out-lang/headers/<pagekey>.json"""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pages  # noqa
-from gen import header, hero, career, footer, img, alt, localize  # noqa
+from gen import header_lux as header, hero, career, footer, img, alt, localize  # noqa
 from i18n import T, career_tr  # noqa
 
 FORM = '0739696d-3160-42d8-8269-ee2db280093c'
@@ -19,7 +19,7 @@ def career_page(lang):
                 ('career', career(FORM)), ('footer', footer())]
     t = T[lang]
     slug = '/karriere-' + lang
-    h = localize(header(slug, lang, '/karriere'), dict(t['header'], applyHref=slug + '#bewerben'))
+    h = localize(header(slug, lang, '/karriere'), dict({k: v for k, v in t['header'].items() if not k.startswith('whatsapp')}, applyHref=slug + '#bewerben'))
     h['onepage']['control']['navItems']['default'] = [dict(n, href=slug) if n['href'] == '/karriere' else n
                                                       for n in h['onepage']['control']['navItems']['default']]
     return [('header', h), ('hero', hero(HERO_IMG, t['hero_alt'])), ('career', localize(career(FORM, lang), career_tr(lang))), ('footer', footer())]

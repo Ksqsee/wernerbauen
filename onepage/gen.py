@@ -377,7 +377,7 @@ def split(blocks, projects, heading='h1first'):
             'imageFit': {'title': 'Bilddarstellung', 'type': 'select', 'options': [
                 {'value': 'cover', 'label': 'Foto (füllend)'}, {'value': 'contain', 'label': 'Logo (eingepasst)'}]}}),
         'headingMode': c('Erste Überschrift', 'select', heading, 'settings', 'labels', options=[
-            {'value': 'h1first', 'label': 'Seitentitel (H1) mit Einleitung'}, {'value': 'h2', 'label': 'Normale Überschrift (H2)'}]),
+            {'value': 'h1first', 'label': 'Seitentitel (H1) mit Einleitung'}, {'value': 'lead', 'label': 'Einleitung ohne Überschrift (Titel steht im Banner)'}, {'value': 'h2', 'label': 'Normale Überschrift (H2)'}]),
         'projectsEyebrow': c('Überzeile', 'text', 'Referenzen', 'content', 'projects'),
         'projectsTitle': c('Überschrift', 'text', 'Projekte & Einblicke', 'content', 'projects'),
         'photos': c('Fotos (gleicher Projektname = eine Karte)', 'array', [ph for grp in projects for ph in grp], 'content', 'photos', items={
@@ -442,3 +442,50 @@ def hook(slides, links):
         'links': c('Leistungen unten', 'array', links, 'content', 'links', items=LINK_ITEMS),
     }
     return pkg('hook', ctl, {'copy': {'title': 'Text'}, 'buttons': {'title': 'Buttons'}, 'slides': {'title': 'Fotos'}, 'links': {'title': 'Leistungen'}})
+
+
+def pagehero(image, alt, eyebrow, title, height='md'):
+    ctl = {
+        'image': c('Bild', 'media', image, 'content', 'root'),
+        'imageAlt': c('Bild Alt-Text', 'text', alt, 'content', 'root'),
+        'eyebrow': c('Überzeile', 'text', eyebrow, 'content', 'root'),
+        'title': c('Seitentitel', 'text', title, 'content', 'root'),
+        'height': c('Höhe', 'select', height, 'content', 'root', options=[{'value': 'lg', 'label': 'Groß'}, {'value': 'md', 'label': 'Mittel'}, {'value': 'sm', 'label': 'Klein'}]),
+    }
+    return pkg('pagehero', ctl, {})
+
+
+def footer_lux():
+    ctl = {
+        'logo': c('Logo', 'media', {'src': 'https://onecdn.io/media/7d0e1be6-3b43-400d-bec2-fb30c4090b17/full', 'name': 'logo-wernerbau-negative.svg', 'width': 1000, 'height': 667}, 'content', 'brand'),
+        'logoAlt': c('Logo Alt-Text', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'brand'),
+        'claim': c('Satz neben dem Logo', 'text', 'Wir erhalten, was Hamburg ausmacht.', 'content', 'brand'),
+        'ctaLabel': c('Button Text', 'text', 'Projekt anfragen', 'content', 'brand'),
+        'ctaHref': c('Button Link', 'text', '/kontakt', 'content', 'brand'),
+        'contactTitle': c('Überschrift', 'text', 'Kontakt', 'content', 'contact'),
+        'company': c('Firma', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'contact'),
+        'address': c('Anschrift (eine Zeile pro Umbruch)', 'text', 'Heselstücken 10\n22453 Hamburg', 'content', 'contact'),
+        'phone': c('Telefon', 'text', '(040) 357 032-74', 'content', 'contact'),
+        'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'contact'),
+        'email': c('E-Mail', 'text', EMAIL, 'content', 'contact'),
+        'servicesTitle': c('Überschrift', 'text', 'Leistungen', 'content', 'services'),
+        'serviceItems': c('Links', 'array', [n for n in NAV_MAIN if n['href'] not in ('/', '/ueber-uns', '/karriere')], 'content', 'services', items=LINK_ITEMS),
+        'companyTitle': c('Überschrift', 'text', 'Unternehmen', 'content', 'company'),
+        'companyItems': c('Links', 'array', [{'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Karriere', 'href': '/karriere'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'company', items=LINK_ITEMS),
+        'groupTitle': c('Gruppe Überschrift', 'text', '', 'content', 'group'),
+        'groupLogo': c('Gruppe Logo', 'media', {'src': 'https://onecdn.io/media/a137175d-3d7e-4481-87a3-7b05950f5eeb/full', 'name': 'Gruppenwerk_Unternehmen_weiss.png', 'width': 1000, 'height': 667}, 'content', 'group'),
+        'groupAlt': c('Gruppe Alt-Text', 'text', 'Zur Gruppenwerk Website', 'content', 'group'),
+        'groupHref': c('Gruppe Link', 'text', 'https://www.gruppenwerk.de', 'content', 'group'),
+        'legalItems': c('Rechtliche Links', 'array', [{'label': 'Impressum', 'href': '/impressum'}, {'label': 'Datenschutz', 'href': '/datenschutz'}], 'content', 'legal', items=LINK_ITEMS),
+        'copyright': c('Copyright Name', 'text', 'WERNER GMBH Bauunternehmung', 'content', 'legal'),
+    }
+    return pkg('footer', ctl, {'brand': {'title': 'Logo & Button'}, 'contact': {'title': 'Kontakt'}, 'services': {'title': 'Leistungen'}, 'company': {'title': 'Unternehmen'}, 'group': {'title': 'Gruppenwerk'}, 'legal': {'title': 'Rechtliches'}})
+
+
+def certs_lux(base):
+    p = json.loads(json.dumps(base))
+    ctl = {'eyebrow': c('Überzeile', 'text', 'Qualifikationen', 'content', 'root'),
+           'title': c('Überschrift', 'text', 'Fachkunde, die wir nachweisen.', 'content', 'root')}
+    ctl.update(p['onepage']['control'])
+    p['onepage']['control'] = ctl
+    return p

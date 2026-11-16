@@ -65,7 +65,7 @@ export default function Career({
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.intro}>
-            <h1 className={styles.h1}>{title}</h1>
+            {title ? <h1 className={styles.h1}>{title}</h1> : null}
             {langList.filter((l: any) => !l.current).length ? (
               <nav className={styles.langs} aria-label={langTitle}>
                 <span className={styles.langsTitle}>{langTitle}</span>

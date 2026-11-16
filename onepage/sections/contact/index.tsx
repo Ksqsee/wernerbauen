@@ -52,7 +52,7 @@ export default function Contact({
     <section className={styles.section}>
       <div className={styles.container}>
         <aside className={styles.info}>
-          <h1 className={styles.h1}>{infoTitle}</h1>
+          <h2 className={styles.h1}>{infoTitle}</h2>
           <div className={styles.lines}>
             {lines.map((l, i) => <p key={i} className={styles.line}>{l}</p>)}
           </div>

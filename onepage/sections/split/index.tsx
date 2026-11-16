@@ -59,7 +59,7 @@ export default function Split({ blocks, headingMode, projectsEyebrow, projectsTi
           <div key={i} className={[styles.row, i % 2 === 1 ? styles.flip : ''].join(' ')}>
             <div className={styles.text}>
               {b.title ? (i === 0 && headingMode === 'h1first' ? <h1 className={styles.h1}>{b.title}</h1> : <h2 className={styles.h2}>{b.title}</h2>) : null}
-              {paras(b.text).map((p, k) => <p key={k} className={i === 0 && k === 0 && headingMode === 'h1first' ? styles.lead : styles.p}>{rich(p)}</p>)}
+              {paras(b.text).map((p, k) => <p key={k} className={i === 0 && k === 0 && (headingMode === 'h1first' || headingMode === 'lead') ? styles.lead : styles.p}>{rich(p)}</p>)}
               {lines(b.bullets).length ? (
                 <ul className={styles.list}>
                   {lines(b.bullets).map((li, k) => <li key={k} className={styles.li}>{li}</li>)}
