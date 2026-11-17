@@ -53,3 +53,58 @@ if __name__ == '__main__':
     for n, p in OUT.items():
         json.dump(p, open(os.path.join(D, 'out-hv', n), 'w'), indent=2, ensure_ascii=False)
     print(sorted(OUT))
+
+
+def process_section():
+    from gen import pkg, c
+    st = STEPS['onepage']['control']
+    steps = [dict(x) for x in st['steps']['default']]
+    ph = lambda n: photo(n)['image']
+    extra = [
+        {'panelTitle': 'Neue Schadensmeldung', 'status': 'Eingegangen',
+         'panelRows': 'Objekt | Beispielstraße 12, Hamburg\nWohnung | 1. OG links\nSchaden | Feuchtigkeit im Bad\nDringlichkeit | Zeitnah',
+         'photo1': ph('Wohnungssanierung-Badezimmer-1a-vorher.jpg'), 'photo2': ph('Wohnungssanierung-Flur-1a-vorher.jpg'), 'photo3': ph('Wohnungssanierung-Kueche-1a-vorher.jpg'),
+         'footer': 'Meldung bestätigt – Rückruf am selben Werktag'},
+        {'panelTitle': 'Termin mit den Mietern', 'status': 'Abgestimmt',
+         'panelDays': 'Mo | 12\nDi | 13\nMi | 14 | 10:00 Besichtigung\nDo | 15\nFr | 16',
+         'panelRows': 'Mieter | informiert\nZugang | über den Mieter',
+         'footer': 'Termin direkt mit den Mietern vereinbart'},
+        {'panelTitle': 'Instandsetzung', 'status': 'In Arbeit',
+         'panelBars': 'Maurerarbeiten | 100\nPutz | 100\nSanitär | 80\nMalerarbeiten | 45\nBöden | 0',
+         'footer': 'Ein Ansprechpartner koordiniert alle Gewerke'},
+        {'panelTitle': 'Rückmeldung an Sie', 'status': 'Abgeschlossen',
+         'panelRows': 'Arbeiten | abgeschlossen\nRückmeldung | was gemacht wurde\nRechnung | an Sie oder Ihre Hausverwaltung',
+         'photo1': ph('Wohnungssanierung-Badezimmer-1c-nachher.jpg'), 'photo2': ph('Wohnungssanierung-Badezimmer-1d-nachher.jpg'),
+         'footer': 'Abschluss an die Hausverwaltung gemeldet'},
+    ]
+    keys = ['panelTitle', 'status', 'panelRows', 'panelDays', 'panelBars', 'photo1', 'photo2', 'photo3', 'photo1Label', 'photo2Label', 'photo3Label', 'footer']
+    for s, e in zip(steps, extra):
+        for k in keys:
+            s[k] = e.get(k, '' if 'photo' not in k or 'Label' in k else None)
+        for k in ('photo1', 'photo2', 'photo3'):
+            if s[k] is None:
+                s[k] = {'src': '', 'name': '', 'width': 0, 'height': 0}
+    T = lambda t, ty='text': {'title': t, 'type': ty}
+    items = {'who': T('Wer (Sie/Wir)'), 'title': T('Titel'), 'text': T('Text'),
+             'panelTitle': T('Fenster: Titel'), 'status': T('Fenster: Status'),
+             'panelRows': T('Fenster: Zeilen (Bezeichnung | Wert)'), 'panelDays': T('Fenster: Kalender (Tag | Datum | Termin)'),
+             'panelBars': T('Fenster: Balken (Gewerk | Prozent)'),
+             'photo1': T('Foto 1', 'media'), 'photo2': T('Foto 2', 'media'), 'photo3': T('Foto 3', 'media'),
+             'photo1Label': T('Foto 1 Beschriftung'), 'photo2Label': T('Foto 2 Beschriftung'), 'photo3Label': T('Foto 3 Beschriftung'),
+             'footer': T('Fenster: Fußzeile')}
+    ctl = {
+        'eyebrow': c('Überzeile', 'text', st['eyebrow']['default'], 'content', 'head'),
+        'title': c('Überschrift', 'text', st['title']['default'], 'content', 'head'),
+        'intro': c('Text', 'text', st['intro']['default'], 'content', 'head'),
+        'panelLabel': c('Fenster: Bezeichnung oben', 'text', 'Werner Bau · Auftrag', 'content', 'head'),
+        'exampleLabel': c('Fenster: Hinweis „Beispiel“', 'text', 'Beispiel', 'content', 'head'),
+        'seconds': c('Sekunden pro Schritt', 'number', 6, 'content', 'head'),
+        'steps': c('Schritte', 'array', steps, 'content', 'steps', items=items),
+        'benefits': c('Vorteile', 'array', st['benefits']['default'], 'content', 'benefits', items={'title': T('Titel'), 'text': T('Text')}),
+    }
+    return pkg('process', ctl, {'head': {'title': 'Überschrift & Fenster'}, 'steps': {'title': 'Schritte'}, 'benefits': {'title': 'Vorteile'}})
+
+
+if __name__ == '__main__':
+    json.dump(process_section(), open(os.path.join(D, 'out-hv', 'hv-3-process.json'), 'w'), indent=2, ensure_ascii=False)
+    print('process ok')
