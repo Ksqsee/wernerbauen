@@ -50,7 +50,7 @@
 .link { font-size: 15.5px; color: #e0e0e0; text-decoration: none; transition: color 0.2s ease; }
 .link:hover { color: #ffffff; }
 .group { display: inline-flex; }
-.groupLogo { width: 170px; height: auto; display: block; opacity: 0.85; transition: opacity 0.2s ease; }
+.groupLogo { width: 190px; height: auto; display: block; opacity: 0.9; transition: opacity 0.2s ease; }
 .group:hover .groupLogo { opacity: 1; }
 .bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; border-top: 1px solid #ffffff17; }
 .copy { margin: 0; font-size: 13px; color: #8a8a8a; }

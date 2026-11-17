@@ -472,8 +472,8 @@ def footer_lux():
         'serviceItems': c('Links', 'array', [n for n in NAV_MAIN if n['href'] not in ('/', '/ueber-uns', '/karriere')], 'content', 'services', items=LINK_ITEMS),
         'companyTitle': c('Überschrift', 'text', 'Unternehmen', 'content', 'company'),
         'companyItems': c('Links', 'array', [{'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Karriere', 'href': '/karriere'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'company', items=LINK_ITEMS),
-        'groupTitle': c('Gruppe Überschrift', 'text', '', 'content', 'group'),
-        'groupLogo': c('Gruppe Logo', 'media', {'src': 'https://onecdn.io/media/a137175d-3d7e-4481-87a3-7b05950f5eeb/full', 'name': 'Gruppenwerk_Unternehmen_weiss.png', 'width': 1000, 'height': 667}, 'content', 'group'),
+        'groupTitle': c('Gruppe Überschrift', 'text', 'Ein Unternehmen der', 'content', 'group'),
+        'groupLogo': c('Gruppe Logo', 'media', {'src': 'https://onecdn.io/media/3077348b-2423-4dca-a394-955347bc2d58/full', 'name': 'gruppenwerk-logo-weiss.svg', 'width': 439, 'height': 72}, 'content', 'group'),
         'groupAlt': c('Gruppe Alt-Text', 'text', 'Zur Gruppenwerk Website', 'content', 'group'),
         'groupHref': c('Gruppe Link', 'text', 'https://www.gruppenwerk.de', 'content', 'group'),
         'legalItems': c('Rechtliche Links', 'array', [{'label': 'Impressum', 'href': '/impressum'}, {'label': 'Datenschutz', 'href': '/datenschutz'}], 'content', 'legal', items=LINK_ITEMS),
@@ -489,3 +489,103 @@ def certs_lux(base):
     ctl.update(p['onepage']['control'])
     p['onepage']['control'] = ctl
     return p
+
+
+def steps_section(eyebrow, title, intro, steps, benefits):
+    ctl = {
+        'eyebrow': c('Überzeile', 'text', eyebrow, 'content', 'root'),
+        'title': c('Überschrift', 'text', title, 'content', 'root'),
+        'intro': c('Einleitung', 'text', intro, 'content', 'root'),
+        'steps': c('Schritte', 'array', steps, 'content', 'steps', items={
+            'who': {'title': 'Wer (z. B. SIE / WIR)', 'type': 'text'}, 'title': {'title': 'Titel', 'type': 'text'}, 'text': {'title': 'Text', 'type': 'text'}}),
+        'benefits': c('Vorteile', 'array', benefits, 'content', 'benefits', items={
+            'title': {'title': 'Titel', 'type': 'text'}, 'text': {'title': 'Text', 'type': 'text'}}),
+    }
+    return pkg('steps', ctl, {'steps': {'title': 'Schritte'}, 'benefits': {'title': 'Vorteile'}})
+
+
+def _o(*labels):
+    return [{'label': l} for l in labels]
+
+
+def wizard(mode, form_id, left, person):
+    """mode 'project' (Projektanfrage) or 'damage' (Schaden melden)."""
+    damage = mode == 'damage'
+    O = {'label': {'title': 'Text', 'type': 'text'}}
+    T = {'big': {'title': 'Groß', 'type': 'text'}, 'label': {'title': 'Titel', 'type': 'text'}, 'sub': {'title': 'Zusatz', 'type': 'text'}}
+    ctl = {
+        'mode': c('Variante', 'select', mode, 'settings', 'form', options=[{'value': 'project', 'label': 'Projektanfrage'}, {'value': 'damage', 'label': 'Schaden melden (Hausverwaltung)'}]),
+        'formId': c('CRM Formular-ID', 'text', form_id, 'settings', 'form'),
+        'eyebrow': c('Überzeile', 'text', left['eyebrow'], 'content', 'left'),
+        'title': c('Überschrift', 'text', left['title'], 'content', 'left'),
+        'text': c('Text', 'text', left['text'], 'content', 'left'),
+        'timeline': c('Ablauf (links)', 'array', left.get('timeline', []), 'content', 'left', items=T),
+        'checks': c('Haken-Liste (links)', 'array', _o(*left.get('checks', [])), 'content', 'left', items=O),
+        'personPhoto': c('Ansprechpartner Foto', 'media', person['photo'], 'content', 'person'),
+        'personName': c('Ansprechpartner Name', 'text', person['name'], 'content', 'person'),
+        'personRole': c('Ansprechpartner Funktion', 'text', person['role'], 'content', 'person'),
+        'personLabel': c('Ansprechpartner Überzeile', 'text', 'Ihr Ansprechpartner', 'content', 'person'),
+        'phone': c('Telefon', 'text', '(040) 357 032-74', 'content', 'person'),
+        'phoneHref': c('Telefon Link', 'text', PHONE_HREF, 'content', 'person'),
+        'email': c('E-Mail', 'text', EMAIL, 'content', 'person'),
+        'tabQuickTitle': c('Reiter 1 Titel', 'text', 'Rückruf anfordern' if damage else 'Schnell-Anfrage', 'content', 'tabs'),
+        'tabQuickSub': c('Reiter 1 Zusatz', 'text', 'Wenige Klicks, Rückruf am selben Werktag', 'content', 'tabs'),
+        'tabFullTitle': c('Reiter 2 Titel', 'text', 'Schaden melden' if damage else 'Ausführlich', 'content', 'tabs'),
+        'tabFullSub': c('Reiter 2 Zusatz', 'text', 'Adresse, Wohnungen, Fotos' if damage else 'Alle Details, mit Fotos', 'content', 'tabs'),
+        'stepOf': c('Schritt-Trenner', 'text', '/', 'content', 'tabs'),
+        'qCount': c('Frage: Anzahl Wohnungen', 'text', 'Wie viele Wohnungen?', 'content', 'questions'),
+        'qCountUnit': c('Einheit Wohnungen', 'text', 'Wohnungen', 'content', 'questions'),
+        'qCountHint': c('Hinweis Anzahl', 'text', 'Schätzung reicht', 'content', 'questions'),
+        'qUrgency': c('Frage: Dringlichkeit', 'text', 'Wie dringend ist es?', 'content', 'questions'),
+        'qServices': c('Frage: Leistung', 'text', 'Worum geht es?', 'content', 'questions2'),
+        'qTime': c('Frage: Zeitraum', 'text', 'Wann soll es losgehen?', 'content', 'questions2'),
+        'qObject': c('Frage: Projekt', 'text', 'Ihr Projekt', 'content', 'questions2'),
+        'qPlace': c('Frage: Objekt', 'text', 'Objekt & Details', 'content', 'questions2'),
+        'qUnits': c('Frage: Objekt & Wohnungen', 'text', 'Objekt & Wohnungen', 'content', 'questions'),
+        'qDamage': c('Frage: Schaden', 'text', 'Was ist passiert?', 'content', 'questions'),
+        'qContact': c('Frage: Kontakt', 'text', 'Ihre Kontaktdaten', 'content', 'questions2'),
+        'serviceOptions': c('Auswahl Leistungen', 'array', _o('Fassadensanierung', 'Denkmalschutz', 'Balkonsanierung', 'Wohnungssanierung', 'Gebäudesanierung', 'Schule / öffentliches Gebäude'), 'content', 'options', items=O),
+        'timeOptions': c('Auswahl Zeitraum', 'array', _o('So bald wie möglich', 'In 1–3 Monaten', 'In diesem Jahr', 'Noch offen'), 'content', 'options', items=O),
+        'objectOptions': c('Auswahl Objektart', 'array', _o('Mehrfamilienhaus', 'Ein- oder Zweifamilienhaus', 'Gewerbeimmobilie', 'Öffentliches Gebäude'), 'content', 'options', items=O),
+        'urgencyOptions': c('Auswahl Dringlichkeit', 'array', _o('Dringend', 'In den nächsten Wochen', 'Planbar', 'Leerwohnung vor Neuvermietung'), 'content', 'options', items=O),
+        'damageOptions': c('Auswahl Schadensart', 'array', _o('Wasserschaden', 'Feuchtigkeit & Schimmel', 'Putz & Fassade', 'Balkon', 'Fenster & Türen', 'Sanitär', 'Elektro', 'Sonstiges'), 'content', 'options', items=O),
+        'lCompany': c('Feld Firma', 'text', 'Hausverwaltung / Firma' if damage else 'Firma (optional)', 'content', 'fields'),
+        'lName': c('Feld Name', 'text', 'Ihr Name', 'content', 'fields'),
+        'lPhone': c('Feld Telefon', 'text', 'Telefon', 'content', 'fields'),
+        'lEmail': c('Feld E-Mail', 'text', 'E-Mail', 'content', 'fields'),
+        'lAddress': c('Feld Adresse', 'text', 'Adresse des Objekts', 'content', 'object'),
+        'lAddressPh': c('Platzhalter Adresse', 'text', 'Straße, Hausnummer, Stadtteil', 'content', 'object'),
+        'lPlace': c('Feld Ort', 'text', 'Ort / Stadtteil', 'content', 'fields'),
+        'lPlacePh': c('Platzhalter Ort', 'text', 'z. B. Hamburg-Eppendorf', 'content', 'fields'),
+        'lDescription': c('Feld Beschreibung', 'text', 'Kurze Beschreibung', 'content', 'fields'),
+        'lDescriptionPh': c('Platzhalter Beschreibung', 'text', 'Was ist zu tun? Je genauer, desto besser.', 'content', 'fields'),
+        'lUnit': c('Wohnung Titel', 'text', 'Wohnung', 'content', 'units'),
+        'lUnitLocation': c('Feld Lage', 'text', 'Lage (optional)', 'content', 'units'),
+        'lUnitLocationPh': c('Platzhalter Lage', 'text', 'z. B. 2. OG links', 'content', 'units'),
+        'lTenantName': c('Feld Mieter', 'text', 'Mieter (optional)', 'content', 'units'),
+        'lTenantContact': c('Feld Mieter-Kontakt', 'text', 'Telefon oder E-Mail des Mieters (optional)', 'content', 'units'),
+        'lAddUnit': c('Weitere Wohnung', 'text', 'Weitere Wohnung hinzufügen', 'content', 'units'),
+        'lRemoveUnit': c('Entfernen', 'text', 'Entfernen', 'content', 'units'),
+        'lTenantConsent': c('Hinweis Mieter', 'text', 'Die Mieter wissen Bescheid und sind einverstanden, dass Werner Bau sie zur Terminabsprache kontaktiert.', 'content', 'units'),
+        'lPhotos': c('Feld Fotos', 'text', 'Fotos (optional)', 'content', 'upload'),
+        'lPhotosButton': c('Fotos Button', 'text', 'Fotos auswählen', 'content', 'upload'),
+        'lPhotosHint': c('Fotos Hinweis', 'text', 'Bilder oder PDF, bis zu 8 Dateien', 'content', 'upload'),
+        'contactHint': c('Hinweis Rückruf', 'text', 'Wir rufen Sie noch am selben Werktag zurück und klären alles Weitere persönlich.', 'content', 'legal'),
+        'consentPre': c('Datenschutz vor Link', 'text', 'Mit dem Absenden nehmen Sie unsere', 'content', 'legal'),
+        'privacyLabel': c('Datenschutz Link Text', 'text', 'Datenschutzerklärung', 'content', 'legal'),
+        'privacyHref': c('Datenschutz Link', 'text', '/datenschutz', 'content', 'legal'),
+        'consentPost': c('Datenschutz nach Link', 'text', 'zur Kenntnis.', 'content', 'legal'),
+        'nextLabel': c('Weiter', 'text', 'Weiter', 'content', 'buttons'),
+        'backLabel': c('Zurück', 'text', 'Zurück', 'content', 'buttons'),
+        'submitLabel': c('Absenden', 'text', 'Schaden melden' if damage else 'Anfrage senden', 'content', 'buttons'),
+        'sendingLabel': c('Wird gesendet', 'text', 'Wird gesendet …', 'content', 'buttons'),
+        'successTitle': c('Erfolg Titel', 'text', 'Vielen Dank!', 'content', 'messages'),
+        'successText': c('Erfolg Text', 'text', 'Ihre Meldung ist bei uns angekommen. Wir melden uns noch am selben Werktag bei Ihnen.' if damage else 'Ihre Anfrage ist bei uns angekommen. Wir melden uns noch am selben Werktag bei Ihnen.', 'content', 'messages'),
+        'errorText': c('Fehler Text', 'text', 'Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder rufen Sie uns an.', 'content', 'messages'),
+        'requiredError': c('Pflichtfeld Hinweis', 'text', 'Bitte füllen Sie die markierten Pflichtfelder aus.', 'content', 'messages'),
+        'emailError': c('E-Mail Hinweis', 'text', 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'content', 'messages'),
+    }
+    groups = {k: {'title': t} for k, t in [('form', 'Formular'), ('left', 'Linke Seite'), ('person', 'Ansprechpartner'), ('tabs', 'Reiter'), ('questions', 'Fragen Hausverwaltung'), ('questions2', 'Fragen Projekt'), ('object', 'Objekt'),
+                                           ('options', 'Auswahlmöglichkeiten'), ('fields', 'Felder'), ('units', 'Wohnungen'), ('upload', 'Fotos'), ('legal', 'Hinweise'),
+                                           ('buttons', 'Buttons'), ('messages', 'Meldungen')]}
+    return pkg('wizard', ctl, groups)

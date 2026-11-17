@@ -18,7 +18,7 @@ function BrandMark({ name }: { name: string }) {
     outlook: (<><rect x="8" y="3" width="15" height="18" rx="2.2" fill="#0A2767" /><path d="M8 5.2C8 4 9 3 10.2 3h10.6C22 3 23 4 23 5.2V10H8z" fill="#0078D4" /><path d="M15.5 3H23v7h-7.5z" fill="#28A8EA" /><path d="M8 10.2l7.5 5.2 7.5-5.2v8.6c0 1.2-1 2.2-2.2 2.2H10.2C9 21 8 20 8 18.8z" fill="#28A8EA" /><rect x="1" y="6.2" width="12.6" height="11.6" rx="2" fill="#0F6CBD" /><ellipse cx="7.3" cy="12" rx="2.9" ry="3.4" fill="none" stroke="#ffffff" strokeWidth="1.9" /></>),
     gmx: (<><rect x="1" y="1" width="22" height="22" rx="5" fill="#1C449B" /><text x="12" y="15" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="700" fill="#ffffff">GMX</text></>),
     webde: (<><rect x="1" y="1" width="22" height="22" rx="5" fill="#FFD800" /><text x="12" y="14.2" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="5.6" fontWeight="700" fill="#333333">WEB.DE</text></>),
-    mail: (<><rect x="1" y="1" width="22" height="22" rx="5" fill="#D52625" /><rect x="5" y="7.5" width="14" height="9.5" rx="1.5" fill="#ffffff" /><path d="M5.6 8.3L12 13l6.4-4.7" fill="none" stroke="#D52625" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></>),
+    mail: (<><defs><linearGradient id="wb-mail-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#3EB0FF" /><stop offset="1" stopColor="#1A6DFF" /></linearGradient></defs><rect x="1" y="1" width="22" height="22" rx="5.2" fill="url(#wb-mail-tile)" /><rect x="5" y="7.5" width="14" height="9.5" rx="1.5" fill="#ffffff" /><path d="M5.6 8.3L12 13l6.4-4.7" fill="none" stroke="#1A6DFF" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></>),
   };
   return <svg width={30} height={30} viewBox="0 0 24 24" aria-hidden="true" focusable="false" className={styles.brand}>{m[name] || m.mail}</svg>;
 }
@@ -207,7 +207,7 @@ export default function Header({
           ) : null}
           <div className={styles.mailWrap} ref={mailRef}>
             <button type="button" className={[styles.mail, mailOpen ? styles.mailOn : ''].join(' ')} aria-label={emailLabel} aria-expanded={mailOpen} aria-haspopup="true" onClick={() => setMailOpen(!mailOpen)}>
-              <span className={styles.mailIcon}><Icon name="mail" size={16} /></span>
+              <span className={[styles.tile, styles.tileMail].join(' ')}><Icon name="mail" size={17} /></span>
               <span className={styles.pillLabel}>{emailLabel}</span>
             </button>
             {mailOpen ? (
@@ -217,7 +217,7 @@ export default function Header({
             ) : null}
           </div>
           <a className={styles.phone} href={phoneHref} aria-label={phone}>
-            <Icon name="phone" size={16} />
+            <span className={[styles.tile, styles.tilePhone].join(' ')}><Icon name="phone" size={16} /></span>
             <span className={styles.pillLabel}>{phone}</span>
           </a>
           <a className={[styles.cta, contactHref === activeHref ? styles.ctaOn : ''].join(' ')} href={contactHref}>{contactLabel}</a>
@@ -237,8 +237,8 @@ export default function Header({
             </nav>
             <div className={styles.overlayActions}>
               <a className={styles.overlayCta} href={contactHref} onClick={() => setOpen(false)}>{contactLabel}</a>
-              <a className={styles.overlayGhost} href={phoneHref}><Icon name="phone" size={16} />{phone}</a>
-              <button type="button" className={styles.overlayGhost} aria-expanded={overlayMail} onClick={() => setOverlayMail(!overlayMail)}><Icon name="mail" size={16} />{emailLabel}</button>
+              <a className={styles.overlayGhost} href={phoneHref}><span className={[styles.tile, styles.tilePhone].join(' ')}><Icon name="phone" size={16} /></span>{phone}</a>
+              <button type="button" className={styles.overlayGhost} aria-expanded={overlayMail} onClick={() => setOverlayMail(!overlayMail)}><span className={[styles.tile, styles.tileMail].join(' ')}><Icon name="mail" size={17} /></span>{emailLabel}</button>
               {overlayMail ? <div className={styles.overlayMail}><MailOptions {...mailProps} /></div> : null}
               {applyLabel ? <a className={styles.overlayApply} href={applyHref} onClick={() => setOpen(false)}>{applyLabel}<Icon name="arrow" size={14} /></a> : null}
             </div>
