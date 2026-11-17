@@ -6,18 +6,18 @@ import refspage  # noqa
 
 D = os.path.dirname(os.path.abspath(__file__))
 SLIDES = [
-    ('fassade-oberfinanzdirektion-5.jpg', 'Oberfinanzdirektion Hamburg'),
-    ('fassadensanierung-hamburg-experten.jpg', 'Stadtvilla'),
-    ('fassade-sanierung-balkon-1.jpg', 'Altbaubalkone'),
-    ('c_0006_1000px.jpg', 'Hamburger Schule'),
+    ('banner-1.jpg', 'Historisches Schulgebäude', 'Saniertes historisches Schulgebäude mit heller Fassade und Schulhof'),
+    ('banner-2.jpg', 'Altbauwohnung', 'Sanierte Altbauwohnung mit Dielenboden und Stuckleisten'),
+    ('banner-4.jpg', 'Backsteinschule', 'Hamburger Backsteinschule mit verglastem Treppenturm und Schulhof'),
 ]
 
 
 def hero2():
     S = []
-    for n, cap in SLIDES:
-        ph = photo(n)
-        S.append({'image': ph['image'], 'alt': ph['alt'], 'caption': cap})
+    for n, cap, alt_text in SLIDES:
+        ph = photo(n, alt_text)
+        ph['image'].update({'width': 2000, 'height': 720})
+        S.append({'image': ph['image'], 'alt': alt_text, 'caption': cap})
     ctl = {
         'eyebrow': c('Überzeile', 'text', 'Werner Bau · Hamburg', 'content', 'copy'),
         'headline': c('Überschrift', 'text', 'Was Hamburg schön macht,', 'content', 'copy'),

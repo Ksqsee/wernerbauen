@@ -5,10 +5,10 @@
 .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-kit-key1, #D52625); }
 .title { margin: 0; font-family: var(--font-kit-header-font), 'Archivo', sans-serif; font-size: clamp(32px, 3.6vw, 56px); line-height: 1.08; font-weight: 700; letter-spacing: -0.02em; color: var(--color-kit-black, #121212); }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; color: #ffffff; text-decoration: none; background: #1a1a1a; }
+.tile { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; color: #ffffff; text-decoration: none; background: #1a1a1a; }
 .media { position: absolute; inset: 0; }
 .img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
-.tile:hover .img { transform: scale(1.06); }
+.tile:hover .img { transform: scale(1.03); }
 .shade { position: absolute; inset: 0; background: linear-gradient(180deg, #00000000 35%, #000000b8 100%); transition: background 0.4s ease; }
 .tile:hover .shade { background: linear-gradient(180deg, #00000033 10%, #000000d0 100%); }
 .body { position: absolute; left: 0; right: 0; bottom: 0; padding: 32px; display: flex; flex-direction: column; gap: 10px; }
@@ -25,6 +25,6 @@
 @media (max-width: 860px) {
   .section { padding: 80px 0 72px; }
   .container { padding: 0 20px; gap: 36px; }
-  .tile { aspect-ratio: 4 / 5; }
+  .tile { aspect-ratio: 1 / 1; }
   .body { padding: 24px; }
 }
