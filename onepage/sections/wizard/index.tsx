@@ -45,7 +45,7 @@ export default function Wizard(props: any) {
   const {
     mode, formId, eyebrow, title, text, checks, timeline, personPhoto, personName, personRole, personLabel, phone, phoneHref, email,
     tabQuickTitle, tabQuickSub, tabFullTitle, tabFullSub,
-    qCount, qCountUnit, qCountHint, qUrgency, qServices, qTime, qObject, qPlace, qDescription, qPhotos, qContact, qDamage, qUnits,
+    qCount, qCountUnit, qCountHint, qWho, whoOptions, qScope, scopeOptions, qUrgency, qServices, qTime, qObject, qPlace, qDescription, qPhotos, qContact, qDamage, qUnits,
     serviceOptions, timeOptions, objectOptions, urgencyOptions, damageOptions,
     lCompany, lName, lPhone, lEmail, lAddress, lAddressPh, lPlace, lPlacePh, lDescription, lDescriptionPh, lUnitLocation, lUnitLocationPh, lTenantName, lTenantContact, lAddUnit, lRemoveUnit, lUnit,
     lPhotos, lPhotosButton, lPhotosHint, lTenantConsent, consentPre, privacyLabel, privacyHref, consentPost,
@@ -61,11 +61,11 @@ export default function Wizard(props: any) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
   const set = (k: string, v: any) => { setD((x: any) => ({ ...x, [k]: v })); setErr(''); };
 
-  const stepsQuick = damage ? ['count', 'urgency', 'contactQuick'] : ['services', 'time', 'contactQuick'];
+  const stepsQuick = damage ? ['who', 'scope', 'contactQuick'] : ['services', 'time', 'contactQuick'];
   const stepsFull = damage ? ['units', 'damage', 'contactFull'] : ['project', 'place', 'contactFull'];
   const steps = tab === 'quick' ? stepsQuick : stepsFull;
   const cur = steps[step];
-  const titles: any = { count: qCount, urgency: qUrgency, services: qServices, time: qTime, contactQuick: qContact, units: qUnits, damage: qDamage, project: qObject, place: qPlace, contactFull: qContact };
+  const titles: any = { who: qWho, scope: qScope, count: qCount, urgency: qUrgency, services: qServices, time: qTime, contactQuick: qContact, units: qUnits, damage: qDamage, project: qObject, place: qPlace, contactFull: qContact };
 
   const switchTab = (t: 'quick' | 'full') => { setTab(t); setStep(0); setErr(''); setStatus('idle'); };
   const validEmail = (v: string) => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
@@ -80,6 +80,8 @@ export default function Wizard(props: any) {
       if (!validEmail(d.email || '')) return emailError;
       if (damage && !d.tenantConsent) return requiredError;
     }
+    if (cur === 'who' && !d.who) return requiredError;
+    if (cur === 'scope' && !(d.scope || []).length) return requiredError;
     if (cur === 'units' && !String(d.address || '').trim()) return requiredError;
     if (cur === 'services' && !(d.services || []).length) return requiredError;
     if (cur === 'project' && !(d.services || []).length) return requiredError;
@@ -107,7 +109,9 @@ export default function Wizard(props: any) {
       };
       if (damage) {
         Object.assign(data, {
-          unitCount: tab === 'quick' ? String(d.count) : String((d.units || []).length),
+          unitCount: tab === 'quick' ? '' : String((d.units || []).length),
+          reporterRole: d.who || '',
+          scope: (d.scope || []).join(', '),
           urgency: d.urgency || '',
           address: d.address || '',
           units: unitsText,
@@ -229,6 +233,14 @@ export default function Wizard(props: any) {
                   <div className={styles.rangeScale}><span>1</span><span>{qCountHint}</span><span>20+</span></div>
                 </div>
               ) : null}
+              {cur === 'who' ? <Chips options={opts(whoOptions)} value={d.who} onChange={(v: any) => set('who', v)} /> : null}
+              {cur === 'scope' ? (
+                <>
+                  <Chips options={opts(scopeOptions)} value={d.scope} multi onChange={(v: any) => set('scope', v)} />
+                  <div className={styles.sub}>{qUrgency}</div>
+                  <Chips options={opts(urgencyOptions)} value={d.urgency} onChange={(v: any) => set('urgency', v)} />
+                </>
+              ) : null}
               {cur === 'urgency' ? <Chips options={opts(urgencyOptions)} value={d.urgency} onChange={(v: any) => set('urgency', v)} /> : null}
               {cur === 'services' ? <Chips options={opts(serviceOptions)} value={d.services} multi onChange={(v: any) => set('services', v)} /> : null}
               {cur === 'time' ? <Chips options={opts(timeOptions)} value={d.time} onChange={(v: any) => set('time', v)} /> : null}
@@ -251,6 +263,8 @@ export default function Wizard(props: any) {
 
               {cur === 'units' ? (
                 <>
+                  <div className={styles.subFirst}>{qWho}</div>
+                  <Chips options={opts(whoOptions)} value={d.who} onChange={(v: any) => set('who', v)} />
                   <Field id="wz-address" label={lAddress} required><input id="wz-address" className={styles.input} value={d.address || ''} placeholder={lAddressPh} onChange={(e) => set('address', e.target.value)} /></Field>
                   {(d.units || []).map((u: any, i: number) => (
                     <div key={i} className={styles.unit}>

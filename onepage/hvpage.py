@@ -8,10 +8,10 @@ TEAM = {p['name']: p for p in json.load(open(os.path.join(D, 'out-about/4-people
 def person(name): p = TEAM[name]; return {'photo': p['photo'], 'name': p['name'], 'role': p['role']}
 
 HV_LEFT = {
-    'eyebrow': 'Für Hausverwaltungen & Vermieter',
+    'eyebrow': 'Für Hausverwaltungen, Hausmeister & Vermieter',
     'title': 'Schaden melden. Wir kümmern uns.',
     'text': 'Adresse, Wohnung und gern ein paar Fotos – mehr brauchen wir nicht. Den Rest klären wir direkt mit Ihren Mietern.',
-    'checks': ['Adresse und Wohnung genügen', 'Mehrere Wohnungen in einem Formular', 'Rückruf am selben Werktag'],
+    'checks': ['Adresse und Bereich genügen', 'Mehrere Wohnungen in einem Formular', 'Rückruf am selben Werktag'],
 }
 PROJECT_LEFT = {
     'eyebrow': 'Projekt anfragen',
@@ -42,7 +42,7 @@ STEPS = steps_section(
 hero_img = photo('fassade-sanierung-balkon-5.jpg')
 OUT = {
     'hv-1-header.json': header_lux('/hausverwaltungen'),
-    'hv-2-hero.json': pagehero(hero_img['image'], hero_img['alt'], 'Für Hausverwaltungen & Vermieter', 'Sie melden den Schaden. Wir erledigen den Rest.', 'lg'),
+    'hv-2-hero.json': pagehero(hero_img['image'], hero_img['alt'], 'Für Hausverwaltungen, Hausmeister & Vermieter', 'Sie melden den Schaden. Wir erledigen den Rest.', 'lg'),
     'hv-3-steps.json': STEPS,
     'hv-4-wizard.json': wizard('damage', 'd45ddd4b-26db-45c8-8198-4bc1e78ec413', HV_LEFT, person('Christoph Kapust')),
     'hv-5-footer.json': footer_lux(),

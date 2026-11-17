@@ -11,10 +11,10 @@
 .viewport:hover .track { animation-play-state: paused; }
 .row { list-style: none; margin: 0; padding: 0; display: flex; }
 .item { flex: none; padding: 0 44px; border-left: 1px solid #1D1D1B14; }
-.link { display: flex; align-items: center; gap: 18px; color: #6b6b6b; text-decoration: none; }
-.logo { width: 64px; height: 64px; object-fit: contain; display: block; filter: grayscale(1) contrast(1.05); opacity: 0.75; transition: filter 0.4s ease, opacity 0.4s ease; }
+.link { display: flex; align-items: center; gap: 18px; color: #3a3a3a; text-decoration: none; }
+.logo { width: 64px; height: 64px; object-fit: contain; display: block; transition: transform 0.4s ease; }
 .name { font-size: 15px; font-weight: 600; line-height: 1.35; white-space: nowrap; transition: color 0.3s ease; }
-.link:hover .logo { filter: none; opacity: 1; }
+.link:hover .logo { transform: scale(1.06); }
 .link:hover .name { color: #121212; }
 .link:focus-visible { outline: 2px solid var(--color-kit-key1, #D52625); outline-offset: 4px; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }

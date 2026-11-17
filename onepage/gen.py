@@ -576,6 +576,10 @@ def wizard(mode, form_id, left, person):
         'tabFullTitle': c('Reiter 2 Titel', 'text', 'Schaden melden' if damage else 'Ausführlich', 'content', 'tabs'),
         'tabFullSub': c('Reiter 2 Zusatz', 'text', 'Adresse, Wohnungen, Fotos' if damage else 'Alle Details, mit Fotos', 'content', 'tabs'),
         'stepOf': c('Schritt-Trenner', 'text', '/', 'content', 'tabs'),
+        'qWho': c('Frage: Wer meldet', 'text', 'Wer meldet?', 'content', 'reporter'),
+        'whoOptions': c('Auswahl Wer meldet', 'array', _o('Hausverwaltung', 'Hausmeister', 'Vermieter / Eigentümer', 'Mieter'), 'content', 'reporter', items=O),
+        'qScope': c('Frage: Was ist betroffen', 'text', 'Was ist betroffen?', 'content', 'reporter'),
+        'scopeOptions': c('Auswahl Was ist betroffen', 'array', _o('Eine Wohnung', 'Mehrere Wohnungen', 'Treppenhaus & Gemeinschaftsflächen', 'Keller', 'Fassade & Dach', 'Außenanlagen'), 'content', 'reporter', items=O),
         'qCount': c('Frage: Anzahl Wohnungen', 'text', 'Wie viele Wohnungen?', 'content', 'questions'),
         'qCountUnit': c('Einheit Wohnungen', 'text', 'Wohnungen', 'content', 'questions'),
         'qCountHint': c('Hinweis Anzahl', 'text', 'Schätzung reicht', 'content', 'questions'),
@@ -602,9 +606,9 @@ def wizard(mode, form_id, left, person):
         'lPlacePh': c('Platzhalter Ort', 'text', 'z. B. Hamburg-Eppendorf', 'content', 'fields'),
         'lDescription': c('Feld Beschreibung', 'text', 'Kurze Beschreibung', 'content', 'fields'),
         'lDescriptionPh': c('Platzhalter Beschreibung', 'text', 'Was ist zu tun? Je genauer, desto besser.', 'content', 'fields'),
-        'lUnit': c('Wohnung Titel', 'text', 'Wohnung', 'content', 'units'),
+        'lUnit': c('Wohnung Titel', 'text', 'Wohnung / Bereich', 'content', 'units'),
         'lUnitLocation': c('Feld Lage', 'text', 'Lage (optional)', 'content', 'units'),
-        'lUnitLocationPh': c('Platzhalter Lage', 'text', 'z. B. 2. OG links', 'content', 'units'),
+        'lUnitLocationPh': c('Platzhalter Lage', 'text', 'z. B. 2. OG links oder Treppenhaus', 'content', 'units'),
         'lTenantName': c('Feld Mieter', 'text', 'Mieter (optional)', 'content', 'units'),
         'lTenantContact': c('Feld Mieter-Kontakt', 'text', 'Telefon oder E-Mail des Mieters (optional)', 'content', 'units'),
         'lAddUnit': c('Weitere Wohnung', 'text', 'Weitere Wohnung hinzufügen', 'content', 'units'),
@@ -628,7 +632,7 @@ def wizard(mode, form_id, left, person):
         'requiredError': c('Pflichtfeld Hinweis', 'text', 'Bitte füllen Sie die markierten Pflichtfelder aus.', 'content', 'messages'),
         'emailError': c('E-Mail Hinweis', 'text', 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'content', 'messages'),
     }
-    groups = {k: {'title': t} for k, t in [('form', 'Formular'), ('left', 'Linke Seite'), ('person', 'Ansprechpartner'), ('tabs', 'Reiter'), ('questions', 'Fragen Hausverwaltung'), ('questions2', 'Fragen Projekt'), ('object', 'Objekt'),
+    groups = {k: {'title': t} for k, t in [('form', 'Formular'), ('left', 'Linke Seite'), ('person', 'Ansprechpartner'), ('tabs', 'Reiter'), ('reporter', 'Wer & Was'), ('questions', 'Fragen Hausverwaltung'), ('questions2', 'Fragen Projekt'), ('object', 'Objekt'),
                                            ('options', 'Auswahlmöglichkeiten'), ('fields', 'Felder'), ('units', 'Wohnungen'), ('upload', 'Fotos'), ('legal', 'Hinweise'),
                                            ('buttons', 'Buttons'), ('messages', 'Meldungen')]}
     return pkg('wizard', ctl, groups)
