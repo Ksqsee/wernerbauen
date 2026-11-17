@@ -231,24 +231,44 @@ export default function Header({
         <div id="wb-overlay" className={styles.overlay} role="dialog" aria-modal="true" aria-label={menuLabel}>
           <div className={styles.overlayInner}>
             <nav className={styles.overlayNav} lang={navLang} aria-label={menuLabel}>
-              {first.map((it: any, i: number) => <a key={'f' + i} href={it.href} className={styles.overlayLink} onClick={() => setOpen(false)}>{it.label}</a>)}
-              {services.map((s: any, i: number) => <a key={'s' + i} href={s.href} className={[styles.overlayLink, styles.overlaySub].join(' ')} onClick={() => setOpen(false)}>{s.label}</a>)}
-              {rest.map((it: any, i: number) => <a key={'r' + i} href={it.href} className={styles.overlayLink} onClick={() => setOpen(false)}>{it.label}</a>)}
-            </nav>
-            <div className={styles.overlayActions}>
-              <a className={styles.overlayCta} href={contactHref} onClick={() => setOpen(false)}>{contactLabel}</a>
-              <a className={styles.overlayGhost} href={phoneHref}><span className={[styles.tile, styles.tilePhone].join(' ')}><Icon name="phone" size={16} /></span>{phone}</a>
-              <button type="button" className={styles.overlayGhost} aria-expanded={overlayMail} onClick={() => setOverlayMail(!overlayMail)}><span className={[styles.tile, styles.tileMail].join(' ')}><Icon name="mail" size={17} /></span>{emailLabel}</button>
-              {overlayMail ? <div className={styles.overlayMail}><MailOptions {...mailProps} /></div> : null}
-              {applyLabel ? <a className={styles.overlayApply} href={applyHref} onClick={() => setOpen(false)}>{applyLabel}<Icon name="arrow" size={14} /></a> : null}
-            </div>
-            {langs.length > 1 ? (
-              <div className={styles.overlayLangs} aria-label={langLabel}>
-                {langs.map((l: any, i: number) => (
-                  <a key={i} href={l.href} hrefLang={l.code} lang={l.code} className={[styles.overlayLang, l.current ? styles.overlayLangOn : ''].join(' ')} aria-current={l.current ? 'true' : undefined}>{l.label}</a>
+              {services.length ? (
+                <div className={styles.ovGroup}>
+                  <p className={styles.ovLabel}>{servicesLabel}</p>
+                  {services.map((s: any, i: number) => (
+                    <a key={'s' + i} href={s.href} className={[styles.ovLink, s.href === activeHref ? styles.ovLinkOn : ''].join(' ')} onClick={() => setOpen(false)}>
+                      <span className={styles.ovNum}>{String(i + 1).padStart(2, '0')}</span>
+                      <span className={styles.ovText}>{s.label}</span>
+                      <span className={styles.ovArrow}><Icon name="arrow" size={18} /></span>
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+              <div className={styles.ovGroup}>
+                {[...first, ...rest].map((it: any, i: number) => (
+                  <a key={'r' + i} href={it.href} className={[styles.ovLink, it.href === activeHref ? styles.ovLinkOn : ''].join(' ')} onClick={() => setOpen(false)}>
+                    <span className={styles.ovNum}>{String(services.length + i + 1).padStart(2, '0')}</span>
+                    <span className={styles.ovText}>{it.label}</span>
+                    <span className={styles.ovArrow}><Icon name="arrow" size={18} /></span>
+                  </a>
                 ))}
               </div>
-            ) : null}
+            </nav>
+            <aside className={styles.ovSide}>
+              <a className={styles.ovCta} href={contactHref} onClick={() => setOpen(false)}>{contactLabel}<Icon name="arrow" size={16} /></a>
+              <div className={styles.ovContact}>
+                <a className={styles.ovRow} href={phoneHref}><span className={[styles.tile, styles.tilePhone].join(' ')}><Icon name="phone" size={16} /></span>{phone}</a>
+                <button type="button" className={styles.ovRow} aria-expanded={overlayMail} onClick={() => setOverlayMail(!overlayMail)}><span className={[styles.tile, styles.tileMail].join(' ')}><Icon name="mail" size={17} /></span>{email || emailLabel}</button>
+                {overlayMail ? <div className={styles.overlayMail}><MailOptions {...mailProps} /></div> : null}
+              </div>
+              {applyLabel ? <a className={styles.ovApply} href={applyHref} onClick={() => setOpen(false)}>{applyLabel}<Icon name="arrow" size={14} /></a> : null}
+              {langs.length > 1 ? (
+                <div className={styles.ovLangs} aria-label={langLabel}>
+                  {langs.map((l: any, i: number) => (
+                    <a key={i} href={l.href} hrefLang={l.code} lang={l.code} className={[styles.ovLang, l.current ? styles.ovLangOn : ''].join(' ')} aria-current={l.current ? 'true' : undefined}>{l.short || l.label}</a>
+                  ))}
+                </div>
+              ) : null}
+            </aside>
           </div>
         </div>
       ) : null}
