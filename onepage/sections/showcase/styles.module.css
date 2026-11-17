@@ -1,0 +1,58 @@
+.section { position: relative; background: #0f0f0f; color: #ffffff; font-family: var(--font-kit-text-font), 'Inter', sans-serif; }
+.section * { box-sizing: border-box; }
+.outer { position: relative; }
+.sticky { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 44px; overflow: hidden; padding: 96px 0 48px; }
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; max-width: 1520px; width: 100%; margin: 0 auto; padding: 0 32px; }
+.headLeft { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-kit-key1, #D52625); }
+.title { margin: 0; font-family: var(--font-kit-header-font), 'Archivo', sans-serif; font-size: clamp(34px, 4.2vw, 72px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; }
+.headRight { display: flex; align-items: center; gap: 40px; }
+.counter { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 15px; letter-spacing: 0.06em; color: #ffffff80; font-variant-numeric: tabular-nums; }
+.counter b { color: #ffffff; font-weight: 600; }
+.link { display: inline-flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; text-decoration: none; border-bottom: 1px solid var(--color-kit-key1, #D52625); transition: gap 0.25s ease; }
+.link:hover { gap: 16px; }
+.link:focus-visible, .card:focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; }
+
+.track { display: flex; gap: 20px; padding: 0 32px 0 max(32px, calc((100vw - 1520px) / 2 + 32px)); will-change: transform; }
+.card { flex: none; display: flex; flex-direction: column; gap: 18px; width: min(42vw, 640px); color: #ffffff; text-decoration: none; cursor: none; }
+.cardWide { width: min(60vw, 900px); }
+.media { display: block; height: min(56vh, 560px); overflow: hidden; background: #1c1c1c; }
+.img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.02); transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.92); }
+.card:hover .img { transform: scale(1.06); filter: saturate(1.05); }
+.meta { display: flex; align-items: baseline; gap: 18px; }
+.code { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 13px; color: var(--color-kit-key1, #D52625); letter-spacing: 0.04em; }
+.cardTitle { font-family: var(--font-kit-header-font), 'Archivo', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.cat { margin-left: auto; font-size: 13px; color: #ffffff80; white-space: nowrap; }
+.progress { max-width: 1520px; width: calc(100% - 64px); margin: 0 auto; height: 1px; background: #ffffff26; position: relative; }
+.progressFill { position: absolute; left: 0; top: 0; bottom: 0; background: #ffffff; }
+
+.cursor { position: fixed; left: 0; top: 0; z-index: 50; pointer-events: none; }
+.cursorDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  margin: -48px 0 0 -48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #121212;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: scale(0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cursorOn .cursorDot { transform: scale(1); }
+
+.mobile { padding: 80px 0 72px; display: flex; flex-direction: column; gap: 32px; }
+.mobile .head { padding: 0 20px; flex-direction: column; align-items: flex-start; }
+.mobile .headRight { width: 100%; justify-content: space-between; }
+.swipe { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; padding: 0 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.swipe::-webkit-scrollbar { display: none; }
+.swipe .card, .swipe .cardWide { width: 82vw; scroll-snap-align: start; cursor: pointer; }
+.swipe .media { height: auto; aspect-ratio: 4 / 3; }
+.swipe .cardTitle { font-size: 19px; }
+.swipe .meta { flex-wrap: wrap; gap: 6px 14px; }
+.swipe .cat { margin-left: 0; width: 100%; }

@@ -72,8 +72,41 @@ def compare():
     return p
 
 
+
+SHOW = [
+    ('fassade-oberfinanzdirektion-5.jpg', 'Oberfinanzdirektion Hamburg', 'Fassade & Denkmalschutz', True),
+    ('fassadensanierung-hamburg-1.jpg', 'Hauseingang mit Karyatiden', 'Fassade & Denkmalschutz', False),
+    ('Wohnungssanierung-Fensterbank.jpg', 'Altbaudetails', 'Wohnungssanierung', False),
+    ('b_9908_1000px.jpg', 'Schulgebäude mit heller Fassade', 'Öffentliche Einrichtungen', True),
+    ('fassade-sanierung-balkon-1.jpg', 'Altbaubalkone', 'Fassadensanierung', False),
+    ('Wohnungssanierung-Badezimmer-1c-nachher.jpg', 'Badezimmer', 'Wohnungssanierung', False),
+    ('c_0006_1000px.jpg', 'Historische Backsteinschule', 'Öffentliche Einrichtungen', True),
+    ('fassadensanierung-hamburg-experten.jpg', 'Stadtvilla', 'Fassadensanierung', False),
+    ('c_0757_1000px.jpg', 'Schulmensa', 'Öffentliche Einrichtungen', False),
+    ('fassadensanierung-hamburg-16.jpg', 'Altbaufassaden', 'Fassadensanierung', True),
+]
+
+
+def showcase():
+    items = []
+    for n, t, cat, wide in SHOW:
+        ph = photo(n)
+        items.append({'image': ph['image'], 'alt': ph['alt'], 'title': t, 'category': cat, 'href': '/referenzen', 'wide': wide})
+    ctl = {
+        'eyebrow': c('Überzeile', 'text', 'Referenzen', 'content', 'root'),
+        'title': c('Überschrift', 'text', 'Unsere Arbeit.', 'content', 'root'),
+        'linkLabel': c('Link Text', 'text', 'Alle Referenzen', 'content', 'root'),
+        'linkHref': c('Link', 'text', '/referenzen', 'content', 'root'),
+        'cursorLabel': c('Text im Maus-Cursor', 'text', 'Ansehen', 'content', 'root'),
+        'items': c('Projekte', 'array', items, 'content', 'items', items={
+            'image': {'title': 'Foto', 'type': 'media'}, 'alt': {'title': 'Alt-Text', 'type': 'text'}, 'title': {'title': 'Titel', 'type': 'text'},
+            'category': {'title': 'Kategorie', 'type': 'text'}, 'href': {'title': 'Link', 'type': 'text'}, 'wide': {'title': 'Breites Bild', 'type': 'checkbox'}}),
+    }
+    return pkg('showcase', ctl, {'root': {'title': 'Text'}, 'items': {'title': 'Projekte'}})
+
+
 if __name__ == '__main__':
     out = os.path.join(D, 'out-home2'); os.makedirs(out, exist_ok=True)
-    for n, p in {'hero2.json': hero2(), 'tiles.json': tiles(), 'compare.json': compare()}.items():
+    for n, p in {'hero2.json': hero2(), 'tiles.json': tiles(), 'compare.json': compare(), 'showcase.json': showcase()}.items():
         json.dump(p, open(os.path.join(out, n), 'w'), indent=2, ensure_ascii=False)
     print(sorted(os.listdir(out)))
