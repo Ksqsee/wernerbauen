@@ -1,4 +1,4 @@
-.section { background: #ffffff; padding: 140px 0 120px; font-family: var(--font-kit-text-font), 'Inter', sans-serif; }
+.section { background: #ffffff; padding: 96px 0 120px; font-family: var(--font-kit-text-font), 'Inter', sans-serif; }
 .section * { box-sizing: border-box; }
 .container { max-width: 1520px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 56px; }
 .head { display: flex; flex-direction: column; gap: 16px; max-width: 860px; }

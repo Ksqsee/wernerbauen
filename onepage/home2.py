@@ -105,8 +105,30 @@ def showcase():
     return pkg('showcase', ctl, {'root': {'title': 'Text'}, 'items': {'title': 'Projekte'}})
 
 
+
+LOGOS = [
+    ('logo-sivv.png', 'SIVV-Befähigungsnachweis', 'SIVV'),
+    ('logo-trgs.png', 'Asbestsanierung nach TRGS 519', 'TRGS 519'),
+    ('logo-pq-vob.png', 'Präqualifiziert nach PQ VOB', 'PQ VOB'),
+    ('logo-handwerk.png', 'Norddeutscher Baugewerbeverband e.V.', 'Norddeutscher Baugewerbeverband'),
+]
+
+
+def logos():
+    import json as _j
+    up = {x['name']: x for x in _j.load(open(os.path.join(D, 'uploaded.json')))}
+    items = [{'logo': {'src': up[n]['url'], 'name': n, 'width': 100, 'height': 100}, 'name': name, 'alt': alt, 'href': ''} for n, name, alt in LOGOS]
+    ctl = {
+        'label': c('Bezeichnung links', 'text', 'Qualifiziert & geprüft', 'content', 'root'),
+        'items': c('Logos', 'array', items, 'content', 'root', items={
+            'logo': {'title': 'Logo', 'type': 'media'}, 'name': {'title': 'Bezeichnung', 'type': 'text'}, 'alt': {'title': 'Alt-Text', 'type': 'text'}, 'href': {'title': 'Link (optional)', 'type': 'text'}}),
+        'seconds': c('Sekunden pro Durchlauf', 'number', 36, 'content', 'root'),
+    }
+    return pkg('logos', ctl, {})
+
+
 if __name__ == '__main__':
     out = os.path.join(D, 'out-home2'); os.makedirs(out, exist_ok=True)
-    for n, p in {'hero2.json': hero2(), 'tiles.json': tiles(), 'compare.json': compare(), 'showcase.json': showcase()}.items():
+    for n, p in {'hero2.json': hero2(), 'tiles.json': tiles(), 'compare.json': compare(), 'showcase.json': showcase(), 'logos.json': logos()}.items():
         json.dump(p, open(os.path.join(out, n), 'w'), indent=2, ensure_ascii=False)
     print(sorted(os.listdir(out)))
