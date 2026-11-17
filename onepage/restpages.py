@@ -37,9 +37,8 @@ if __name__ == '__main__':
         p['onepage']['control']['headingMode']['default'] = 'lead'
         p['onepage']['control']['headingMode']['options'] = [{'value': 'h1first', 'label': 'Seitentitel (H1) mit Einleitung'}, {'value': 'lead', 'label': 'Einleitung ohne Überschrift (Titel steht im Banner)'}, {'value': 'h2', 'label': 'Normale Überschrift (H2)'}]
         p['onepage']['control']['blocks']['default'][0]['title'] = ''
-        for blk in p['onepage']['control']['blocks']['default']:
-            if blk.get('imageFit') == 'contain':  # official Gruppenwerk vector logo (white) on the dark panel
-                blk['image'] = {'src': 'https://onecdn.io/media/3077348b-2423-4dca-a394-955347bc2d58/full', 'name': 'gruppenwerk-logo-weiss.svg', 'width': 439, 'height': 72}
+        # no GRUPPENWERK block on the about page (removed on request)
+        p['onepage']['control']['blocks']['default'] = [b for b in p['onepage']['control']['blocks']['default'] if b.get('imageFit') != 'contain']
         json.dump(p, open(os.path.join(out, page, 'split.json'), 'w'), indent=2, ensure_ascii=False)
     for page in CERTS:
         json.dump(certs_lux(load('out/%s/4-certs.json' % page)), open(os.path.join(out, page, 'certs.json'), 'w'), indent=2, ensure_ascii=False)
