@@ -40,6 +40,8 @@ def refs():
         'compareEyebrow': c('Überzeile', 'text', 'Vorher / Nachher', 'content', 'compare'),
         'compareTitle': c('Überschrift', 'text', 'Der Unterschied liegt im Detail.', 'content', 'compare'),
         'compareText': c('Text', 'text', 'Ziehen Sie den Regler, um den Zustand vor und nach unserer Arbeit zu vergleichen.', 'content', 'compare'),
+        'compareLinkLabel': c('Link Text (optional)', 'text', '', 'content', 'compare'),
+        'compareLinkHref': c('Link (optional)', 'text', '', 'content', 'compare'),
         'pairs': c('Vorher-Nachher-Paare', 'array', pairs, 'content', 'compare', items={
             'title': {'title': 'Titel', 'type': 'text'}, 'before': {'title': 'Vorher', 'type': 'media'}, 'beforeAlt': {'title': 'Vorher Alt-Text', 'type': 'text'},
             'after': {'title': 'Nachher', 'type': 'media'}, 'afterAlt': {'title': 'Nachher Alt-Text', 'type': 'text'}}),

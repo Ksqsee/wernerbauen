@@ -44,7 +44,7 @@ function Compare({ pair, beforeLabel, afterLabel, sliderLabel }: any) {
 
 export default function Refs({
   eyebrow, title, intro, allLabel, categories,
-  compareEyebrow, compareTitle, compareText, pairs, beforeLabel, afterLabel,
+  compareEyebrow, compareTitle, compareText, compareLinkLabel, compareLinkHref, pairs, beforeLabel, afterLabel,
   photos, photosLabel, openLabel, closeLabel, prevLabel, nextLabel, sliderLabel,
 }: any) {
   const cats: any[] = (Array.isArray(categories) ? categories : []).filter((c: any) => c && c.key);
@@ -93,11 +93,13 @@ export default function Refs({
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <header className={styles.head}>
-          {eyebrow ? <span className={styles.eyebrow}>{eyebrow}</span> : null}
-          {title ? <h2 className={styles.title}>{title}</h2> : null}
-          <div className={styles.intro}>{paras(intro).map((p, i) => <p key={i} className={styles.lead}>{p}</p>)}</div>
-        </header>
+        {eyebrow || title || intro ? (
+          <header className={styles.head}>
+            {eyebrow ? <span className={styles.eyebrow}>{eyebrow}</span> : null}
+            {title ? <h2 className={styles.title}>{title}</h2> : null}
+            <div className={styles.intro}>{paras(intro).map((p, i) => <p key={i} className={styles.lead}>{p}</p>)}</div>
+          </header>
+        ) : null}
 
         {pair ? (
           <div className={styles.compareWrap}>
@@ -105,6 +107,7 @@ export default function Refs({
               {compareEyebrow ? <span className={styles.eyebrow}>{compareEyebrow}</span> : null}
               {compareTitle ? <h2 className={styles.h2}>{compareTitle}</h2> : null}
               {paras(compareText).map((p, i) => <p key={i} className={styles.p}>{p}</p>)}
+              {compareLinkLabel && compareLinkHref ? <a className={styles.link} href={compareLinkHref}>{compareLinkLabel}<Icon name="arrow" size={16} /></a> : null}
               {pairList.length > 1 ? (
                 <ol className={styles.pairList}>
                   {pairList.map((p: any, i: number) => (
