@@ -154,6 +154,16 @@
   background: var(--color-kit-light, #F3F0EB);
   scroll-margin-top: 110px;
 }
+.formLangs { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; padding: 22px; background: #ffffff; border: 1px solid #1D1D1B1f; }
+.formLangsTitle { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: #121212; }
+.formLangGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.formLang { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 10px 14px; border: 1.5px solid #1D1D1B26; color: #121212; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color 0.2s ease, background-color 0.2s ease; }
+.formLang:hover { border-color: #121212; }
+.formLangOn { background: #121212; border-color: #121212; color: #ffffff; }
+.formLangOn:hover { border-color: #121212; }
+.formLang:focus-visible { outline: 2px solid var(--color-kit-key1, #D52625); outline-offset: 2px; }
+.formLangCode { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 12px; letter-spacing: 0.06em; color: #9a9a9a; }
+.formLangOn .formLangCode { color: #ffffffb3; }
 .form { display: flex; flex-direction: column; gap: 20px; }
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .note { margin: 0; font-size: 14px; line-height: 1.6; color: #6b6b6b; }

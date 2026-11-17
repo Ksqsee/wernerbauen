@@ -28,8 +28,7 @@ T = {
             'benefits': ['A Hamburg family business with tradition and almost 100 years of experience',
                          'A permanent, qualified workforce and a collegial atmosphere',
                          'Varied projects – from listed historic buildings to Hamburg schools',
-                         'Regular training on new products and techniques',
-                         'Part of the GRUPPENWERK group of companies'],
+                         'Regular training on new products and techniques'],
             'initiativeTitle': 'Speculative applications welcome',
             'initiativeText': "We don't advertise fixed positions. Craft, site management or a career change: what matters to us is what you can do and who you are – not whether you fit a job title.\n\nThink you belong with us? Then you're on board. Just get in touch.",
             'formTitle': 'Apply now',
@@ -63,8 +62,7 @@ T = {
             'benefits': ['Hamburska firma rodzinna z tradycjami i prawie 100-letnim doświadczeniem',
                          'Stała, wykwalifikowana załoga i koleżeńska atmosfera',
                          'Różnorodne projekty – od zabytkowych kamienic po hamburskie szkoły',
-                         'Regularne szkolenia z nowych produktów i technik',
-                         'Część grupy firm GRUPPENWERK'],
+                         'Regularne szkolenia z nowych produktów i technik'],
             'initiativeTitle': 'Czekamy na aplikacje z własnej inicjatywy',
             'initiativeText': 'Nie ogłaszamy sztywnych stanowisk. Rzemiosło, kierowanie budową czy zmiana zawodu: liczy się dla nas to, co potrafisz i kim jesteś – a nie to, czy pasujesz do nazwy stanowiska.\n\nMyślisz, że do nas pasujesz? W takim razie jesteś na pokładzie. Po prostu się odezwij.',
             'formTitle': 'Aplikuj teraz',
@@ -98,8 +96,7 @@ T = {
             'benefits': ['Семейное гамбургское предприятие с традициями и почти 100-летним опытом',
                          'Постоянный квалифицированный коллектив и дружеская атмосфера',
                          'Разнообразные проекты – от исторических зданий под охраной до гамбургских школ',
-                         'Регулярное обучение новым материалам и технологиям',
-                         'Мы входим в группу компаний GRUPPENWERK'],
+                         'Регулярное обучение новым материалам и технологиям'],
             'initiativeTitle': 'Ждём инициативные заявки',
             'initiativeText': 'Мы не публикуем жёстко заданных вакансий. Ремесло, руководство стройкой или смена профессии: для нас важно, что вы умеете и какой вы человек, а не то, подходите ли вы под название должности.\n\nДумаете, что вы — наш человек? Тогда вы в команде. Просто напишите нам.',
             'formTitle': 'Откликнуться',
@@ -133,8 +130,7 @@ T = {
             'benefits': ['Гамбурзьке сімейне підприємство з традиціями та майже 100-річним досвідом',
                          'Постійний кваліфікований колектив і дружня атмосфера',
                          'Різноманітні проєкти – від історичних будівель під охороною до гамбурзьких шкіл',
-                         'Регулярне навчання новим матеріалам і технологіям',
-                         'Ми входимо до групи компаній GRUPPENWERK'],
+                         'Регулярне навчання новим матеріалам і технологіям'],
             'initiativeTitle': 'Чекаємо на ініціативні заявки',
             'initiativeText': 'Ми не публікуємо жорстко визначених вакансій. Ремесло, керівництво будівництвом чи зміна професії: для нас важливо, що ви вмієте і яка ви людина, а не те, чи підходите ви під назву посади.\n\nВважаєте, що ви — наша людина? Тоді ви в команді. Просто напишіть нам.',
             'formTitle': 'Подати заявку',
@@ -168,8 +164,7 @@ T = {
             'benefits': ['Yaklaşık 100 yıllık deneyime sahip, köklü bir Hamburg aile şirketi',
                          'Sabit, nitelikli bir kadro ve dostane bir çalışma ortamı',
                          'Çeşitli projeler – koruma altındaki tarihi binalardan Hamburg okullarına kadar',
-                         'Yeni ürün ve teknikler hakkında düzenli eğitimler',
-                         'GRUPPENWERK şirketler grubunun bir parçası'],
+                         'Yeni ürün ve teknikler hakkında düzenli eğitimler'],
             'initiativeTitle': 'Açık başvurularınızı bekliyoruz',
             'initiativeText': 'Belirli pozisyonlar için ilan vermiyoruz. Zanaat, şantiye yönetimi ya da meslek değişikliği: Bizim için önemli olan ne yapabildiğiniz ve nasıl biri olduğunuz – bir pozisyon unvanına uyup uymadığınız değil.\n\nBize ait olduğunuzu mu düşünüyorsunuz? O halde ekibimizdesiniz. Bize yazmanız yeterli.',
             'formTitle': 'Hemen başvurun',
@@ -196,9 +191,12 @@ KEYS = ['voiceLabel', 'voiceHint', 'voiceRecord', 'voiceStop', 'voiceRecording',
 
 FILEHINT = {'en': 'On a phone, the voice recorder or your voice memos open; on a computer, choose an audio file. It will be sent to us with the form.', 'pl': 'Na telefonie otworzy się dyktafon lub notatki głosowe, na komputerze wybierz plik audio. Zostanie wysłany do nas razem z formularzem.', 'ru': 'На телефоне откроется диктофон или голосовые заметки, на компьютере выберите аудиофайл. Он будет отправлен нам вместе с формой.', 'uk': 'На телефоні відкриється диктофон або голосові нотатки, на комп’ютері виберіть аудіофайл. Він буде надісланий нам разом із формою.', 'tr': 'Telefonda ses kaydedici veya sesli notlarınız açılır, bilgisayarda bir ses dosyası seçin. Formla birlikte bize gönderilir.'}
 
+FORMLANG = {'en': 'Form in your language', 'pl': 'Formularz w Twoim języku', 'ru': 'Форма на вашем языке', 'uk': 'Форма вашою мовою', 'tr': 'Kendi dilinizde form'}
+
 
 def career_tr(lang):
     t = dict(T[lang]['career'])
     t['jobTitle'] = ''
+    t['formLangLabel'] = FORMLANG[lang]
     t['benefits'] = [{'text': b} for b in t['benefits']]
     return t

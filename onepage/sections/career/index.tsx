@@ -21,7 +21,7 @@ export default function Career({
   formAnchor, formTitle, formIntro, firstNameLabel, lastNameLabel, emailLabel, phoneLabel, positionLabel, messageLabel,
   attachLabel, attachHint, attachButton, attachRemove, attachTooLarge, attachAccept, attachMaxFiles, attachMaxMb,
   consentPre, privacyLabel, privacyHref, consentPost, requiredNote, submitLabel, sendingLabel, successText, errorText, requiredError, emailError,
-  formId, langTitle, langLinks,
+  formId, langTitle, langLinks, formLangLabel,
   jobEyebrow, jobTitle, jobMeta, jobHook, jobIntro, jobMoreLabel, jobLessLabel,
   jobTasksTitle, jobTasks, jobProfileTitle, jobProfile, jobOfferTitle, jobOffer, jobNote,
   jobContactTitle, jobContactName, jobContactPhone, jobContactPhoneHref, jobContactEmail, jobApplyLabel,
@@ -153,6 +153,19 @@ export default function Career({
           <div className={styles.col}>
             <h2 className={styles.sectionTitle}>{formTitle}</h2>
             {paras(formIntro).map((p, i) => <p key={i} className={styles.p}>{p}</p>)}
+            {langList.length > 1 ? (
+              <nav className={styles.formLangs} aria-label={formLangLabel}>
+                <span className={styles.formLangsTitle}><Icon name="globe" size={16} />{formLangLabel}</span>
+                <div className={styles.formLangGrid}>
+                  {langList.map((l: any, i: number) => (
+                    <a key={i} className={[styles.formLang, l.current ? styles.formLangOn : ''].join(' ')} href={l.current ? '#' + formAnchor : l.href + '#' + formAnchor} hrefLang={l.code} lang={l.code} aria-current={l.current ? 'true' : undefined}>
+                      <span className={styles.formLangCode}>{String(l.code || '').toUpperCase()}</span>
+                      <span>{l.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </nav>
+            ) : null}
           </div>
           {status === 'ok' ? (
             <div className={styles.success} role="status">

@@ -308,7 +308,7 @@ JOB_DE = {
     'jobProfileTitle': 'Was Sie mitbringen sollten',
     'jobProfile': 'Eine abgeschlossene kaufmännische oder bautechnische Ausbildung, idealerweise mit Bezug zum Baugewerbe\nErste Berufserfahrung in einem Bau- oder Handwerksunternehmen wäre wünschenswert\nEin gutes organisatorisches Verständnis und Freude daran, unterschiedliche Aufgaben miteinander zu verbinden\nSicheres Deutsch in Wort und Schrift sowie einen routinierten Umgang mit digitalen Anwendungen\nEine selbstständige, strukturierte und zuverlässige Arbeitsweise\nNeugier, Eigeninitiative und die Bereitschaft, Verantwortung zu übernehmen',
     'jobOfferTitle': 'Was wir Ihnen bieten',
-    'jobOffer': 'Einen erfahrenen Kollegen an Ihrer Seite, der sein Wissen gerne weitergibt\nEine gründliche Einarbeitung und die Möglichkeit, sich fachlich und persönlich weiterzuentwickeln\nAbwechslungsreiche Aufgaben zwischen Büro und Baustelle\nKurze Entscheidungswege und ein Umfeld, in dem Ihre Meinung zählt\nDie Möglichkeit, eigene Ideen einzubringen und Veränderungen aktiv mitzugestalten\nDurch unsere Zugehörigkeit zu Gruppenwerk Einblicke in weitere Handwerksunternehmen und unterschiedliche Gewerke\nEin kollegiales Team, das sich gegenseitig unterstützt',
+    'jobOffer': 'Einen erfahrenen Kollegen an Ihrer Seite, der sein Wissen gerne weitergibt\nEine gründliche Einarbeitung und die Möglichkeit, sich fachlich und persönlich weiterzuentwickeln\nAbwechslungsreiche Aufgaben zwischen Büro und Baustelle\nKurze Entscheidungswege und ein Umfeld, in dem Ihre Meinung zählt\nDie Möglichkeit, eigene Ideen einzubringen und Veränderungen aktiv mitzugestalten\nEin kollegiales Team, das sich gegenseitig unterstützt',
     'jobNote': 'Sie müssen nicht alles können. Aber Sie sollten Lust haben, dazuzulernen und Ihr Wissen einzubringen.',
     'jobContactTitle': 'Ihre Ansprechpartnerin',
     'jobContactName': 'Susan Khallaf',
@@ -331,7 +331,6 @@ def career(form_id='', lang='de'):
         'Ein fester, qualifizierter Mitarbeiterstamm und ein kollegiales Miteinander',
         'Abwechslungsreiche Projekte – vom denkmalgeschützten Altbau bis zur Hamburger Schule',
         'Regelmäßige Schulungen zu neuen Produkten und Techniken',
-        'Teil der Unternehmensgruppe GRUPPENWERK',
     ]]
     ctl = {
         'title': c('Überschrift', 'text', 'Karriere', 'content', 'intro'),
@@ -372,6 +371,7 @@ def career(form_id='', lang='de'):
         'emailError': c('E-Mail-Fehler', 'text', 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'content', 'messages'),
         'formId': c('CRM Formular-ID', 'text', form_id, 'settings', 'form'),
         'langTitle': c('Sprachen Hinweis', 'text', 'Auch verfügbar auf:', 'content', 'lang'),
+        'formLangLabel': c('Sprachwahl am Formular', 'text', 'Formular in Ihrer Sprache', 'content', 'lang'),
         'langLinks': c('Sprachen', 'array', lang_links(lang, '/karriere'), 'content', 'lang', items={
             'label': {'title': 'Name', 'type': 'text'}, 'code': {'title': 'Sprachcode', 'type': 'text'},
             'href': {'title': 'Link', 'type': 'text'}, 'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
@@ -515,6 +515,7 @@ def footer_lux():
         'companyItems': c('Links', 'array', [{'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Referenzen', 'href': '/referenzen'}, {'label': 'Für Hausverwaltungen', 'href': '/hausverwaltungen'}, {'label': 'Karriere', 'href': '/karriere'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'company', items=LINK_ITEMS),
         'groupTitle': c('Gruppe Überschrift', 'text', 'Ein Unternehmen der', 'content', 'group'),
         'groupLogo': c('Gruppe Logo', 'media', {'src': 'https://onecdn.io/media/3077348b-2423-4dca-a394-955347bc2d58/full', 'name': 'gruppenwerk-logo-weiss.svg', 'width': 439, 'height': 72}, 'content', 'group'),
+        'showGroup': c('GRUPPENWERK anzeigen', 'checkbox', False, 'content', 'group'),
         'groupAlt': c('Gruppe Alt-Text', 'text', 'Zur Gruppenwerk Website', 'content', 'group'),
         'groupHref': c('Gruppe Link', 'text', 'https://www.gruppenwerk.de', 'content', 'group'),
         'legalItems': c('Rechtliche Links', 'array', [{'label': 'Impressum', 'href': '/impressum'}, {'label': 'Datenschutz', 'href': '/datenschutz'}], 'content', 'legal', items=LINK_ITEMS),
