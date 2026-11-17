@@ -13,7 +13,7 @@
 .media { position: absolute; inset: 0; }
 .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease; }
 .slideOn { opacity: 1; }
-.img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.04); }
+.img { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; transform: scale(1.04); }
 .slideOn .img { animation: kenburns calc(var(--secs) + 2s) linear forwards; }
 .still .img, .still.slideOn .img { animation: none; transform: none; }
 @keyframes kenburns { from { transform: scale(1.04); } to { transform: scale(1.0); } }

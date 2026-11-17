@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from '@siteui/image';
+import { mediaUrl } from '@siteui/image';
 import Icon from '@siteui/icon';
 import styles from './styles.module.css';
 
@@ -36,7 +36,7 @@ export default function Hero2({ eyebrow, headline, accent, sub, primaryLabel, pr
       <div className={styles.media}>
         {list.map((s: any, i: number) => (
           <div key={i} className={[styles.slide, i === active ? styles.slideOn : '', still ? styles.still : ''].join(' ')} aria-hidden={i === active ? undefined : true}>
-            <Image src={s.image.src} alt={s.alt} className={styles.img} />
+            <div className={styles.img} role="img" aria-label={s.alt} style={{ backgroundImage: 'url(' + mediaUrl(s.image.src, i === 0 || i === active || i === (active + 1) % list.length ? 'xlg2x' : 'preview') + ')' }} />
           </div>
         ))}
         <div className={styles.shade} aria-hidden="true" />
