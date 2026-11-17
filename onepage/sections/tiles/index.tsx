@@ -31,10 +31,11 @@ export default function Tiles({ eyebrow, title, items, moreLabel }: any) {
                 <span className={styles.shade} aria-hidden="true" />
               </span>
               <span className={styles.body}>
-                <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
-                <span className={styles.tileTitle}>{t.title}</span>
+                <span className={styles.row}>
+                  <span className={styles.tileTitle}>{t.title}</span>
+                  <span className={styles.more} aria-hidden={moreLabel ? undefined : true}>{moreLabel}<Icon name="arrow" size={20} /></span>
+                </span>
                 {t.text ? <span className={styles.text}>{t.text}</span> : null}
-                <span className={styles.more}>{moreLabel}<Icon name="arrow" size={16} /></span>
               </span>
             </motion.a>
           ))}

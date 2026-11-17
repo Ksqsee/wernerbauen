@@ -68,9 +68,9 @@ export default function Hero2({ eyebrow, headline, accent, sub, primaryLabel, pr
         {list.length > 1 ? (
           <div className={styles.bar}>
             {list.map((s: any, i: number) => (
-              <button key={i} type="button" className={[styles.tab, i === active ? styles.tabOn : ''].join(' ')} onClick={() => setActive(i)} aria-pressed={i === active}>
+              <button key={i} type="button" className={[styles.tab, i === active ? styles.tabOn : ''].join(' ')} onClick={() => setActive(i)} aria-pressed={i === active} aria-label={s.caption || s.alt}>
                 <span className={styles.track}><span key={i === active ? 'on' + active : 'off'} className={styles.fill} /></span>
-                <span className={styles.tabText}>{s.caption || s.alt}</span>
+                {s.caption ? <span className={styles.tabText}>{s.caption}</span> : null}
               </button>
             ))}
           </div>

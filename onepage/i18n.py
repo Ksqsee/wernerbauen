@@ -199,8 +199,6 @@ FILEHINT = {'en': 'On a phone, the voice recorder or your voice memos open; on a
 
 def career_tr(lang):
     t = dict(T[lang]['career'])
-    t.update(dict(zip(KEYS, VOICE[lang])))
-    t['voiceFileHint'] = FILEHINT[lang]
     t['jobTitle'] = ''
     t['benefits'] = [{'text': b} for b in t['benefits']]
     return t

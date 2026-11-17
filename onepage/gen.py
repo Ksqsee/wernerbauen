@@ -94,7 +94,7 @@ def header(active, lang='de', de_href=None):
         'contactHref': c('Kontakt Link', 'text', '/kontakt', 'content', 'meta'),
         'applyLabel': c('Bewerben Button Text', 'text', 'Jetzt bewerben', 'content', 'meta'),
         'applyHref': c('Bewerben Button Link', 'text', '/karriere#bewerben', 'content', 'meta'),
-        'navItems': c('Menüpunkte (stehen hinter „Leistungen“; ein Link zur Startseite steht davor)', 'array', [{'label': 'Referenzen', 'href': '/referenzen'}, {'label': 'Hausverwaltungen', 'href': '/hausverwaltungen'}, {'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Karriere', 'href': '/karriere'}], 'content', 'nav', items=LINK_ITEMS),
+        'navItems': c('Menüpunkte (stehen hinter „Leistungen“; ein Link zur Startseite steht davor)', 'array', [{'label': 'Referenzen', 'href': '/referenzen'}, {'label': 'Für Hausverwaltungen', 'href': '/hausverwaltungen'}, {'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Karriere', 'href': '/karriere'}], 'content', 'nav', items=LINK_ITEMS),
         'servicesLabel': c('Leistungen Menüpunkt', 'text', 'Leistungen', 'content', 'nav'),
         'serviceItems': c('Leistungen Untermenü', 'array', [n for n in NAV_MAIN if n['href'] not in ('/', '/ueber-uns', '/karriere')], 'content', 'nav', items=LINK_ITEMS),
         'activeHref': c('Aktive Seite (Link)', 'text', active, 'content', 'nav'),
@@ -342,7 +342,6 @@ def career(form_id='', lang='de'):
         'initiativeTitle': c('Initiativbewerbung Überschrift', 'text', 'Initiativbewerbungen erwünscht', 'content', 'jobs'),
         'initiativeText': c('Initiativbewerbung Text (Absätze mit Leerzeile trennen)', 'text', 'Darüber hinaus schreiben wir keine festen Stellen aus. Ob Handwerk, Bauleitung oder Quereinstieg: Uns interessiert, was Sie können und wer Sie sind – nicht, ob Sie in eine Stellenbezeichnung passen.\n\nSie denken, Sie gehören dazu? Dann sind Sie bei uns an Bord. Schreiben Sie uns einfach.', 'content', 'jobs'),
         **{k: c(JOB_TITLES.get(k, k.replace('job', 'Stelle: ')), 'text', v, 'content', JOB_GROUP[k]) for k, v in JOB_DE.items()},
-        **voice_controls(),
         'formAnchor': c('Anker-ID Formular', 'text', 'bewerben', 'settings', 'form'),
         'formTitle': c('Formular Überschrift', 'text', 'Jetzt bewerben', 'content', 'form'),
         'formIntro': c('Formular Text', 'text', 'Senden Sie uns Ihre Initiativbewerbung bequem über das Formular – Lebenslauf und Zeugnisse können Sie direkt anhängen. Wir melden uns zeitnah bei Ihnen.', 'content', 'form'),
@@ -377,7 +376,7 @@ def career(form_id='', lang='de'):
             'label': {'title': 'Name', 'type': 'text'}, 'code': {'title': 'Sprachcode', 'type': 'text'},
             'href': {'title': 'Link', 'type': 'text'}, 'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
     }
-    return pkg('career', ctl, {'lang': {'title': 'Sprachen'}, 'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Initiativbewerbung'}, 'job': {'title': 'Stelle'}, 'jobDetails': {'title': 'Stelle: Details'}, 'jobContact': {'title': 'Stelle: Kontakt'}, 'voice': {'title': 'Sprachnachricht'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
+    return pkg('career', ctl, {'lang': {'title': 'Sprachen'}, 'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Initiativbewerbung'}, 'job': {'title': 'Stelle'}, 'jobDetails': {'title': 'Stelle: Details'}, 'jobContact': {'title': 'Stelle: Kontakt'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
 
 
 def photo(name, alt_text=None):
@@ -513,7 +512,7 @@ def footer_lux():
         'servicesTitle': c('Überschrift', 'text', 'Leistungen', 'content', 'services'),
         'serviceItems': c('Links', 'array', [n for n in NAV_MAIN if n['href'] not in ('/', '/ueber-uns', '/karriere')], 'content', 'services', items=LINK_ITEMS),
         'companyTitle': c('Überschrift', 'text', 'Unternehmen', 'content', 'company'),
-        'companyItems': c('Links', 'array', [{'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Referenzen', 'href': '/referenzen'}, {'label': 'Hausverwaltungen', 'href': '/hausverwaltungen'}, {'label': 'Karriere', 'href': '/karriere'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'company', items=LINK_ITEMS),
+        'companyItems': c('Links', 'array', [{'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Referenzen', 'href': '/referenzen'}, {'label': 'Für Hausverwaltungen', 'href': '/hausverwaltungen'}, {'label': 'Karriere', 'href': '/karriere'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'company', items=LINK_ITEMS),
         'groupTitle': c('Gruppe Überschrift', 'text', 'Ein Unternehmen der', 'content', 'group'),
         'groupLogo': c('Gruppe Logo', 'media', {'src': 'https://onecdn.io/media/3077348b-2423-4dca-a394-955347bc2d58/full', 'name': 'gruppenwerk-logo-weiss.svg', 'width': 439, 'height': 72}, 'content', 'group'),
         'groupAlt': c('Gruppe Alt-Text', 'text', 'Zur Gruppenwerk Website', 'content', 'group'),
@@ -556,7 +555,7 @@ def wizard(mode, form_id, left, person):
     O = {'label': {'title': 'Text', 'type': 'text'}}
     T = {'big': {'title': 'Groß', 'type': 'text'}, 'label': {'title': 'Titel', 'type': 'text'}, 'sub': {'title': 'Zusatz', 'type': 'text'}}
     ctl = {
-        **voice_controls({'voiceHint': 'Statt zu tippen: Sprachnachricht aufnehmen (bis 3 Minuten). Sie wird mit der Anfrage gesendet.'}),
+
         'mode': c('Variante', 'select', mode, 'settings', 'form', options=[{'value': 'project', 'label': 'Projektanfrage'}, {'value': 'damage', 'label': 'Schaden melden (Hausverwaltung)'}]),
         'formId': c('CRM Formular-ID', 'text', form_id, 'settings', 'form'),
         'eyebrow': c('Überzeile', 'text', left['eyebrow'], 'content', 'left'),
@@ -630,5 +629,5 @@ def wizard(mode, form_id, left, person):
     }
     groups = {k: {'title': t} for k, t in [('form', 'Formular'), ('left', 'Linke Seite'), ('person', 'Ansprechpartner'), ('tabs', 'Reiter'), ('questions', 'Fragen Hausverwaltung'), ('questions2', 'Fragen Projekt'), ('object', 'Objekt'),
                                            ('options', 'Auswahlmöglichkeiten'), ('fields', 'Felder'), ('units', 'Wohnungen'), ('upload', 'Fotos'), ('legal', 'Hinweise'),
-                                           ('buttons', 'Buttons'), ('messages', 'Meldungen'), ('voice', 'Sprachnachricht')]}
+                                           ('buttons', 'Buttons'), ('messages', 'Meldungen')]}
     return pkg('wizard', ctl, groups)

@@ -5,7 +5,6 @@ import Button from '@siteui/button';
 import Icon from '@siteui/icon';
 import FormField from '@siteui/form-field';
 import FileUpload from '@siteui/file-upload';
-import VoiceNote from './voice';
 import styles from './styles.module.css';
 
 const EMPTY = { firstName: '', lastName: '', email: '', phone: '', position: '', message: '' };
@@ -26,13 +25,11 @@ export default function Career({
   jobEyebrow, jobTitle, jobMeta, jobHook, jobIntro, jobMoreLabel, jobLessLabel,
   jobTasksTitle, jobTasks, jobProfileTitle, jobProfile, jobOfferTitle, jobOffer, jobNote,
   jobContactTitle, jobContactName, jobContactPhone, jobContactPhoneHref, jobContactEmail, jobApplyLabel,
-  voiceLabel, voiceHint, voiceRecord, voiceStop, voiceRecording, voiceDelete, voiceDenied, voiceFileHint,
 }: any) {
   const benefitList: any[] = Array.isArray(benefits) ? benefits : [];
   const langList: any[] = Array.isArray(langLinks) ? langLinks : [];
   const [data, setData] = useState<any>(EMPTY);
   const [files, setFiles] = useState<File[]>([]);
-  const [voice, setVoice] = useState<File | null>(null);
   const [jobOpen, setJobOpen] = useState(false);
   const [errors, setErrors] = useState<any>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
@@ -59,12 +56,10 @@ export default function Career({
     try {
       const attachments = [];
       for (const f of files) attachments.push(await crm.uploadFormFile(f));
-      if (voice) attachments.push(await crm.uploadFormFile(voice));
       await crm.submitForm({ formId, data: { ...data, attachments } });
       setStatus('ok');
       setData(EMPTY);
       setFiles([]);
-      setVoice(null);
     } catch (err) {
       setStatus('error');
     }
@@ -176,7 +171,6 @@ export default function Career({
               </div>
               <FormField id="position" label={positionLabel} value={data.position} onChange={set('position')} />
               <FormField id="message" label={messageLabel} value={data.message} onChange={set('message')} multiline />
-              <VoiceNote value={voice} onChange={setVoice} label={voiceLabel} hint={voiceHint} recordLabel={voiceRecord} stopLabel={voiceStop} recordingLabel={voiceRecording} deleteLabel={voiceDelete} deniedText={voiceDenied} fileHint={voiceFileHint} filePrefix="bewerbung-sprachnachricht" />
               <FileUpload id="attachments" label={attachLabel} hint={attachHint} buttonLabel={attachButton} removeLabel={attachRemove} tooLargeText={attachTooLarge} accept={attachAccept} maxFiles={Number(attachMaxFiles)} maxSizeMb={Number(attachMaxMb)} files={files} onChange={setFiles} />
               <p className={styles.note}>{consentPre} <a className={styles.red} href={privacyHref}>{privacyLabel}</a> {consentPost}</p>
               <p className={styles.note}>{requiredNote}</p>

@@ -5,7 +5,6 @@ import Button from '@siteui/button';
 import Icon from '@siteui/icon';
 import FormField from '@siteui/form-field';
 import FileUpload from '@siteui/file-upload';
-import VoiceNote from './voice';
 import styles from './styles.module.css';
 
 const EMPTY = { firstName: '', lastName: '', company: '', phone: '', email: '', message: '' };
@@ -16,11 +15,9 @@ export default function Contact({
   consentPre, consentPost, privacyLabel, privacyHref, requiredNote, submitLabel, sendingLabel, successText, errorText, requiredError, emailError,
   attachLabel, attachHint, attachButton, attachRemove, attachTooLarge, attachAccept, attachMaxFiles, attachMaxMb,
   formId,
-  voiceLabel, voiceHint, voiceRecord, voiceStop, voiceRecording, voiceDelete, voiceDenied, voiceFileHint,
 }: any) {
   const [data, setData] = useState<any>(EMPTY);
   const [errors, setErrors] = useState<any>({});
-  const [voice, setVoice] = useState<File | null>(null);
   const [files, setFiles] = useState<File[]>([]);
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
   const lines = String(companyLines).split(/\n/).filter((l) => l.trim());
@@ -42,12 +39,10 @@ export default function Contact({
     try {
       const attachments = [];
       for (const f of files) attachments.push(await crm.uploadFormFile(f));
-      if (voice) attachments.push(await crm.uploadFormFile(voice));
       await crm.submitForm({ formId, data: { ...data, attachments } });
       setStatus('ok');
       setData(EMPTY);
       setFiles([]);
-      setVoice(null);
     } catch (err) {
       setStatus('error');
     }
@@ -87,7 +82,6 @@ export default function Contact({
               </div>
               <FormField id="email" label={emailFieldLabel} type="email" value={data.email} onChange={set('email')} required error={errors.email} autoComplete="email" />
               <FormField id="message" label={messageLabel} value={data.message} onChange={set('message')} required multiline error={errors.message} />
-              <VoiceNote value={voice} onChange={setVoice} label={voiceLabel} hint={voiceHint} recordLabel={voiceRecord} stopLabel={voiceStop} recordingLabel={voiceRecording} deleteLabel={voiceDelete} deniedText={voiceDenied} fileHint={voiceFileHint} filePrefix="kontakt-sprachnachricht" />
               <FileUpload id="attachments" label={attachLabel} hint={attachHint} buttonLabel={attachButton} removeLabel={attachRemove} tooLargeText={attachTooLarge} accept={attachAccept} maxFiles={Number(attachMaxFiles)} maxSizeMb={Number(attachMaxMb)} files={files} onChange={setFiles} />
               <p className={styles.note}>{consentPre} <a className={styles.red} href={privacyHref}>{privacyLabel}</a> {consentPost}</p>
               <p className={styles.note}>{requiredNote}</p>

@@ -17,13 +17,13 @@ def hero2():
     for n, cap, alt_text in SLIDES:
         ph = photo(n, alt_text)
         ph['image'].update({'width': 2000, 'height': 720})
-        S.append({'image': ph['image'], 'alt': alt_text, 'caption': cap})
+        S.append({'image': ph['image'], 'alt': alt_text, 'caption': ''})
     ctl = {
-        'eyebrow': c('Überzeile', 'text', 'Werner Bau · Hamburg', 'content', 'copy'),
-        'headline': c('Überschrift', 'text', 'Was Hamburg schön macht,', 'content', 'copy'),
-        'accent': c('Überschrift zweite Zeile (hell)', 'text', 'machen wir wieder schön.', 'content', 'copy'),
-        'sub': c('Text', 'text', 'Fassaden, Denkmäler, Wohnungen und Schulen – saniert von einem Hamburger Familienunternehmen mit fast 100 Jahren Erfahrung.', 'content', 'copy'),
-        'trust': c('Vertrauenszeile (eine Zeile pro Punkt)', 'text', 'Familienunternehmen seit fast 100 Jahren\nPräqualifiziert für öffentliche Aufträge\nEin Unternehmen der GRUPPENWERK', 'content', 'copy'),
+        'eyebrow': c('Überzeile', 'text', '', 'content', 'copy'),
+        'headline': c('Überschrift', 'text', 'Hamburg bleibt schön.', 'content', 'copy'),
+        'accent': c('Überschrift zweite Zeile (hell)', 'text', 'Dafür sorgen wir.', 'content', 'copy'),
+        'sub': c('Text', 'text', '', 'content', 'copy'),
+        'trust': c('Vertrauenszeile (eine Zeile pro Punkt)', 'text', '', 'content', 'copy'),
         'primaryLabel': c('Button Text', 'text', 'Projekt anfragen', 'content', 'buttons'),
         'primaryHref': c('Button Link', 'text', '#anfrage', 'content', 'buttons'),
         'secondaryLabel': c('Zweiter Button Text', 'text', 'Referenzen ansehen', 'content', 'buttons'),
@@ -44,14 +44,14 @@ def tiles():
     items = []
     for n, t, x, h in T:
         ph = photo(n)
-        items.append({'image': ph['image'], 'alt': ph['alt'], 'title': t, 'text': x, 'href': h})
+        items.append({'image': ph['image'], 'alt': ph['alt'], 'title': t, 'text': '', 'href': h})
     ctl = {
-        'eyebrow': c('Überzeile', 'text', 'Leistungen', 'content', 'root'),
-        'title': c('Überschrift', 'text', 'Drei Leistungen. Ein Anspruch: Qualität, die bleibt.', 'content', 'root'),
+        'eyebrow': c('Überzeile', 'text', '', 'content', 'root'),
+        'title': c('Überschrift', 'text', 'Was wir machen.', 'content', 'root'),
         'items': c('Kacheln', 'array', items, 'content', 'root', items={
             'image': {'title': 'Foto', 'type': 'media'}, 'alt': {'title': 'Alt-Text', 'type': 'text'}, 'title': {'title': 'Titel', 'type': 'text'},
             'text': {'title': 'Ein Satz', 'type': 'text'}, 'href': {'title': 'Link', 'type': 'text'}}),
-        'moreLabel': c('Link Text', 'text', 'Mehr erfahren', 'content', 'root'),
+        'moreLabel': c('Link Text', 'text', '', 'content', 'root'),
     }
     return pkg('tiles', ctl, {})
 
@@ -65,7 +65,9 @@ def compare():
     ctl['compareTitle']['default'] = 'Vorher. Nachher. Sehen Sie selbst.'
     ctl['compareLinkLabel']['default'] = 'Alle Referenzen ansehen'
     ctl['compareLinkHref']['default'] = '/referenzen'
-    keep = {'Villa – Fassade', 'Altbauzimmer', 'Badezimmer', 'Küche'}
+    keep = {'Villa – Fassade'}
+    ctl['compareEyebrow']['default'] = ''
+    ctl['compareText']['default'] = ''
     ctl['pairs']['default'] = [x for x in ctl['pairs']['default'] if x['title'] in keep]
     return p
 
