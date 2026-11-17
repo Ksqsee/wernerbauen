@@ -46,7 +46,7 @@ OUT = {
     'hv-3-steps.json': STEPS,
     'hv-4-wizard.json': wizard('damage', 'd45ddd4b-26db-45c8-8198-4bc1e78ec413', HV_LEFT, person('Christoph Kapust')),
     'hv-5-footer.json': footer_lux(),
-    'project-wizard.json': wizard('project', '', PROJECT_LEFT, person('Meik Thie')),
+    'project-wizard.json': wizard('project', 'd0866296-4379-4bce-9327-0da2d5a726cf', PROJECT_LEFT, person('Meik Thie')),
 }
 if __name__ == '__main__':
     os.makedirs(os.path.join(D, 'out-hv'), exist_ok=True)

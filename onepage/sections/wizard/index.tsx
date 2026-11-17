@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { crm } from 'onepage-kit';
 import Image from '@siteui/image';
 import Icon from '@siteui/icon';
+import VoiceNote from './voice';
 import styles from './styles.module.css';
 
 function opts(list: any): string[] {
@@ -49,6 +50,7 @@ export default function Wizard(props: any) {
     serviceOptions, timeOptions, objectOptions, urgencyOptions, damageOptions,
     lCompany, lName, lPhone, lEmail, lAddress, lAddressPh, lPlace, lPlacePh, lDescription, lDescriptionPh, lUnitLocation, lUnitLocationPh, lTenantName, lTenantContact, lAddUnit, lRemoveUnit, lUnit,
     lPhotos, lPhotosButton, lPhotosHint, lTenantConsent, consentPre, privacyLabel, privacyHref, consentPost,
+    voiceLabel, voiceHint, voiceRecord, voiceStop, voiceRecording, voiceDelete, voiceDenied, voiceFileHint,
     nextLabel, backLabel, submitLabel, sendingLabel, successTitle, successText, errorText, requiredError, emailError, contactHint, stepOf,
   } = props;
 
@@ -57,6 +59,7 @@ export default function Wizard(props: any) {
   const [step, setStep] = useState(0);
   const [d, setD] = useState<any>({ count: 3, units: [{ location: '', tenant: '', contact: '' }] });
   const [files, setFiles] = useState<File[]>([]);
+  const [voice, setVoice] = useState<File | null>(null);
   const [err, setErr] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
   const set = (k: string, v: any) => { setD((x: any) => ({ ...x, [k]: v })); setErr(''); };
@@ -96,6 +99,7 @@ export default function Wizard(props: any) {
     try {
       const attachments: any[] = [];
       for (const f of files) attachments.push(await crm.uploadFormFile(f));
+      if (voice) attachments.push(await crm.uploadFormFile(voice));
       const data: any = {
         requestType: tab === 'quick' ? tabQuickTitle : tabFullTitle,
         company: d.company || '',
@@ -245,6 +249,7 @@ export default function Wizard(props: any) {
                   <Chips options={opts(objectOptions)} value={d.objectType} onChange={(v: any) => set('objectType', v)} />
                   <Field id="wz-place" label={lPlace}><input id="wz-place" className={styles.input} value={d.place || ''} placeholder={lPlacePh} onChange={(e) => set('place', e.target.value)} /></Field>
                   <Field id="wz-desc" label={lDescription}><textarea id="wz-desc" className={styles.input} rows={4} value={d.description || ''} placeholder={lDescriptionPh} onChange={(e) => set('description', e.target.value)} /></Field>
+                  <VoiceNote dark value={voice} onChange={setVoice} label={voiceLabel} hint={voiceHint} recordLabel={voiceRecord} stopLabel={voiceStop} recordingLabel={voiceRecording} deleteLabel={voiceDelete} deniedText={voiceDenied} fileHint={voiceFileHint} filePrefix={damage ? 'schaden-sprachnachricht' : 'projekt-sprachnachricht'} />
                   {photosField}
                 </>
               ) : null}
@@ -274,6 +279,7 @@ export default function Wizard(props: any) {
                   <div className={styles.sub}>{qUrgency}</div>
                   <Chips options={opts(urgencyOptions)} value={d.urgency} onChange={(v: any) => set('urgency', v)} />
                   <Field id="wz-desc2" label={lDescription}><textarea id="wz-desc2" className={styles.input} rows={4} value={d.description || ''} placeholder={lDescriptionPh} onChange={(e) => set('description', e.target.value)} /></Field>
+                  <VoiceNote dark value={voice} onChange={setVoice} label={voiceLabel} hint={voiceHint} recordLabel={voiceRecord} stopLabel={voiceStop} recordingLabel={voiceRecording} deleteLabel={voiceDelete} deniedText={voiceDenied} fileHint={voiceFileHint} filePrefix={damage ? 'schaden-sprachnachricht' : 'projekt-sprachnachricht'} />
                   {photosField}
                 </>
               ) : null}
@@ -287,6 +293,7 @@ export default function Wizard(props: any) {
                     <Field id="wz-email" label={lEmail} required={cur === 'contactFull'}><input id="wz-email" type="email" className={styles.input} value={d.email || ''} onChange={(e) => set('email', e.target.value)} autoComplete="email" /></Field>
                   </div>
                   {cur === 'contactQuick' ? <p className={styles.hint}>{contactHint}</p> : null}
+                  {cur === 'contactQuick' ? <VoiceNote dark value={voice} onChange={setVoice} label={voiceLabel} hint={voiceHint} recordLabel={voiceRecord} stopLabel={voiceStop} recordingLabel={voiceRecording} deleteLabel={voiceDelete} deniedText={voiceDenied} fileHint={voiceFileHint} filePrefix={damage ? 'schaden-sprachnachricht' : 'projekt-sprachnachricht'} /> : null}
                   {cur === 'contactFull' && damage ? (
                     <label className={styles.consent}>
                       <input type="checkbox" checked={!!d.tenantConsent} onChange={(e) => set('tenantConsent', e.target.checked)} />

@@ -280,6 +280,51 @@ def footer():
     return pkg('footer', ctl, {'brand': {'title': 'Hintergrund & Logo'}, 'group': {'title': 'Gruppenwerk & Links'}})
 
 
+VOICE_DE = {
+    'voiceLabel': 'Lieber erzählen statt schreiben?', 'voiceHint': 'Nehmen Sie eine Sprachnachricht auf (bis 3 Minuten). Sie wird mit dem Formular an uns gesendet.',
+    'voiceRecord': 'Sprachnachricht aufnehmen', 'voiceStop': 'Aufnahme beenden', 'voiceRecording': 'Aufnahme läuft', 'voiceDelete': 'Löschen',
+    'voiceDenied': 'Kein Zugriff auf das Mikrofon. Bitte erlauben Sie den Zugriff in Ihrem Browser oder schreiben Sie uns einfach.',
+    'voiceFileHint': 'Auf dem Handy öffnet sich die Sprachaufnahme oder Ihre Sprachmemos, am Computer wählen Sie eine Audiodatei aus. Sie wird mit dem Formular an uns gesendet.',
+}
+
+
+def voice_controls(defaults=None, group='voice'):
+    d = dict(VOICE_DE, **(defaults or {}))
+    t = {'voiceLabel': 'Überschrift', 'voiceHint': 'Hinweis', 'voiceRecord': 'Button Aufnehmen', 'voiceStop': 'Button Stopp',
+         'voiceRecording': 'Text während der Aufnahme', 'voiceDelete': 'Button Löschen', 'voiceDenied': 'Meldung ohne Mikrofon-Zugriff', 'voiceFileHint': 'Hinweis, wenn als Datei aufgenommen wird'}
+    return {k: c(t[k], 'text', d[k], 'content', group) for k in t}
+
+
+JOB_DE = {
+    'jobEyebrow': 'Aktuell gesucht',
+    'jobTitle': 'Projektassistenz Bau (m/w/d)',
+    'jobMeta': 'Hamburg · Büro und Baustelle',
+    'jobHook': 'Sie denken mit. Sie packen an. Sie wollen etwas bewegen.',
+    'jobIntro': 'Sie haben bereits erste Erfahrungen im Berufsleben gesammelt, interessieren sich für das Baugewerbe und möchten mehr als nur Aufgaben abarbeiten? Dann sollten wir uns kennenlernen.\n\nBei uns arbeiten Sie eng mit einem erfahrenen Kollegen zusammen, der sowohl im Büro als auch auf unseren Baustellen unterwegs ist. Sie unterstützen ihn bei der Organisation und Abwicklung unserer Bauprojekte, behalten Termine und Abläufe im Blick und übernehmen Schritt für Schritt eigene Verantwortung. Dabei wünschen wir uns jemanden, der nicht nur mitarbeitet, sondern mitdenkt: der Fragen stellt, Zusammenhänge erkennt und eigene Ideen einbringt.',
+    'jobMoreLabel': 'Stellenbeschreibung anzeigen',
+    'jobLessLabel': 'Stellenbeschreibung ausblenden',
+    'jobTasksTitle': 'Was Sie bei uns erwartet',
+    'jobTasks': 'Sie unterstützen die Projektleitung bei der Organisation und Koordination unserer Bauprojekte.\nSie sind eine wichtige Verbindung zwischen Büro, Baustelle und unseren Projektbeteiligten.\nSie erstellen Bautagesberichte, Protokolle und den projektbezogenen Schriftverkehr.\nSie unterstützen bei der Vorbereitung von Angeboten, Aufträgen und Abrechnungen.\nSie behalten Termine, Unterlagen und organisatorische Abläufe im Blick.\nSie begleiten bei Bedarf auch Termine auf unseren Baustellen.\nSie bringen eigene Ideen ein, wie wir Abläufe einfacher, digitaler und effizienter gestalten können.',
+    'jobProfileTitle': 'Was Sie mitbringen sollten',
+    'jobProfile': 'Eine abgeschlossene kaufmännische oder bautechnische Ausbildung, idealerweise mit Bezug zum Baugewerbe\nErste Berufserfahrung in einem Bau- oder Handwerksunternehmen wäre wünschenswert\nEin gutes organisatorisches Verständnis und Freude daran, unterschiedliche Aufgaben miteinander zu verbinden\nSicheres Deutsch in Wort und Schrift sowie einen routinierten Umgang mit digitalen Anwendungen\nEine selbstständige, strukturierte und zuverlässige Arbeitsweise\nNeugier, Eigeninitiative und die Bereitschaft, Verantwortung zu übernehmen',
+    'jobOfferTitle': 'Was wir Ihnen bieten',
+    'jobOffer': 'Einen erfahrenen Kollegen an Ihrer Seite, der sein Wissen gerne weitergibt\nEine gründliche Einarbeitung und die Möglichkeit, sich fachlich und persönlich weiterzuentwickeln\nAbwechslungsreiche Aufgaben zwischen Büro und Baustelle\nKurze Entscheidungswege und ein Umfeld, in dem Ihre Meinung zählt\nDie Möglichkeit, eigene Ideen einzubringen und Veränderungen aktiv mitzugestalten\nDurch unsere Zugehörigkeit zu Gruppenwerk Einblicke in weitere Handwerksunternehmen und unterschiedliche Gewerke\nEin kollegiales Team, das sich gegenseitig unterstützt',
+    'jobNote': 'Sie müssen nicht alles können. Aber Sie sollten Lust haben, dazuzulernen und Ihr Wissen einzubringen.',
+    'jobContactTitle': 'Ihre Ansprechpartnerin',
+    'jobContactName': 'Susan Khallaf',
+    'jobContactPhone': '0178 35 70 021',
+    'jobContactPhoneHref': 'tel:+4917835700' + '21',
+    'jobContactEmail': 's.khallaf@gruppenwerk.de',
+    'jobApplyLabel': 'Auf diese Stelle bewerben',
+}
+JOB_GROUP = {k: g for g, ks in {
+    'job': ['jobEyebrow', 'jobTitle', 'jobMeta', 'jobHook', 'jobIntro', 'jobMoreLabel', 'jobLessLabel'],
+    'jobDetails': ['jobTasksTitle', 'jobTasks', 'jobProfileTitle', 'jobProfile', 'jobOfferTitle', 'jobOffer', 'jobNote'],
+    'jobContact': ['jobContactTitle', 'jobContactName', 'jobContactPhone', 'jobContactPhoneHref', 'jobContactEmail', 'jobApplyLabel']}.items() for k in ks}
+JOB_TITLES = {'jobTitle': 'Stellentitel (leer = keine Stelle anzeigen)', 'jobTasks': 'Aufgaben (eine Zeile pro Punkt)', 'jobProfile': 'Profil (eine Zeile pro Punkt)', 'jobOffer': 'Angebot (eine Zeile pro Punkt)', 'jobIntro': 'Text (Absätze mit Leerzeile trennen)'}
+
+
+
 def career(form_id='', lang='de'):
     benefits = [{'text': t} for t in [
         'Ein traditionsreiches Hamburger Familienunternehmen mit fast 100 Jahren Erfahrung',
@@ -295,7 +340,9 @@ def career(form_id='', lang='de'):
         'benefitsTitle': c('Vorteile Überschrift', 'text', 'Was Sie bei uns erwartet', 'content', 'benefits'),
         'benefits': c('Vorteile', 'array', benefits, 'content', 'benefits', items={'text': {'title': 'Text', 'type': 'text'}}),
         'initiativeTitle': c('Initiativbewerbung Überschrift', 'text', 'Initiativbewerbungen erwünscht', 'content', 'jobs'),
-        'initiativeText': c('Initiativbewerbung Text (Absätze mit Leerzeile trennen)', 'text', 'Wir schreiben keine festen Stellen aus. Ob Handwerk, Bauleitung oder Quereinstieg: Uns interessiert, was Sie können und wer Sie sind – nicht, ob Sie in eine Stellenbezeichnung passen.\n\nSie denken, Sie gehören dazu? Dann sind Sie bei uns an Bord. Schreiben Sie uns einfach.', 'content', 'jobs'),
+        'initiativeText': c('Initiativbewerbung Text (Absätze mit Leerzeile trennen)', 'text', 'Darüber hinaus schreiben wir keine festen Stellen aus. Ob Handwerk, Bauleitung oder Quereinstieg: Uns interessiert, was Sie können und wer Sie sind – nicht, ob Sie in eine Stellenbezeichnung passen.\n\nSie denken, Sie gehören dazu? Dann sind Sie bei uns an Bord. Schreiben Sie uns einfach.', 'content', 'jobs'),
+        **{k: c(JOB_TITLES.get(k, k.replace('job', 'Stelle: ')), 'text', v, 'content', JOB_GROUP[k]) for k, v in JOB_DE.items()},
+        **voice_controls(),
         'formAnchor': c('Anker-ID Formular', 'text', 'bewerben', 'settings', 'form'),
         'formTitle': c('Formular Überschrift', 'text', 'Jetzt bewerben', 'content', 'form'),
         'formIntro': c('Formular Text', 'text', 'Senden Sie uns Ihre Initiativbewerbung bequem über das Formular – Lebenslauf und Zeugnisse können Sie direkt anhängen. Wir melden uns zeitnah bei Ihnen.', 'content', 'form'),
@@ -330,7 +377,7 @@ def career(form_id='', lang='de'):
             'label': {'title': 'Name', 'type': 'text'}, 'code': {'title': 'Sprachcode', 'type': 'text'},
             'href': {'title': 'Link', 'type': 'text'}, 'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
     }
-    return pkg('career', ctl, {'lang': {'title': 'Sprachen'}, 'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Initiativbewerbung'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
+    return pkg('career', ctl, {'lang': {'title': 'Sprachen'}, 'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Initiativbewerbung'}, 'job': {'title': 'Stelle'}, 'jobDetails': {'title': 'Stelle: Details'}, 'jobContact': {'title': 'Stelle: Kontakt'}, 'voice': {'title': 'Sprachnachricht'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
 
 
 def photo(name, alt_text=None):
@@ -509,6 +556,7 @@ def wizard(mode, form_id, left, person):
     O = {'label': {'title': 'Text', 'type': 'text'}}
     T = {'big': {'title': 'Groß', 'type': 'text'}, 'label': {'title': 'Titel', 'type': 'text'}, 'sub': {'title': 'Zusatz', 'type': 'text'}}
     ctl = {
+        **voice_controls({'voiceHint': 'Statt zu tippen: Sprachnachricht aufnehmen (bis 3 Minuten). Sie wird mit der Anfrage gesendet.'}),
         'mode': c('Variante', 'select', mode, 'settings', 'form', options=[{'value': 'project', 'label': 'Projektanfrage'}, {'value': 'damage', 'label': 'Schaden melden (Hausverwaltung)'}]),
         'formId': c('CRM Formular-ID', 'text', form_id, 'settings', 'form'),
         'eyebrow': c('Überzeile', 'text', left['eyebrow'], 'content', 'left'),
@@ -582,5 +630,5 @@ def wizard(mode, form_id, left, person):
     }
     groups = {k: {'title': t} for k, t in [('form', 'Formular'), ('left', 'Linke Seite'), ('person', 'Ansprechpartner'), ('tabs', 'Reiter'), ('questions', 'Fragen Hausverwaltung'), ('questions2', 'Fragen Projekt'), ('object', 'Objekt'),
                                            ('options', 'Auswahlmöglichkeiten'), ('fields', 'Felder'), ('units', 'Wohnungen'), ('upload', 'Fotos'), ('legal', 'Hinweise'),
-                                           ('buttons', 'Buttons'), ('messages', 'Meldungen')]}
+                                           ('buttons', 'Buttons'), ('messages', 'Meldungen'), ('voice', 'Sprachnachricht')]}
     return pkg('wizard', ctl, groups)

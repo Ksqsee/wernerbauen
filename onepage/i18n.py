@@ -191,7 +191,16 @@ T = {
 }
 
 
+VOICE = {'en': ('Rather talk than write?', 'Record a voice message (up to 3 minutes). It will be sent to us with the form.', 'Record voice message', 'Stop recording', 'Recording', 'Delete', 'No access to the microphone. Please allow access in your browser or simply write to us.'), 'pl': ('Wolisz powiedzieć niż pisać?', 'Nagraj wiadomość głosową (do 3 minut). Zostanie wysłana do nas razem z formularzem.', 'Nagraj wiadomość głosową', 'Zakończ nagrywanie', 'Nagrywanie', 'Usuń', 'Brak dostępu do mikrofonu. Zezwól na dostęp w przeglądarce lub po prostu napisz do nas.'), 'ru': ('Проще рассказать, чем написать?', 'Запишите голосовое сообщение (до 3 минут). Оно будет отправлено нам вместе с формой.', 'Записать голосовое сообщение', 'Остановить запись', 'Идёт запись', 'Удалить', 'Нет доступа к микрофону. Разрешите доступ в браузере или просто напишите нам.'), 'uk': ('Простіше розповісти, ніж написати?', 'Запишіть голосове повідомлення (до 3 хвилин). Воно буде надіслане нам разом із формою.', 'Записати голосове повідомлення', 'Зупинити запис', 'Йде запис', 'Видалити', 'Немає доступу до мікрофона. Дозвольте доступ у браузері або просто напишіть нам.'), 'tr': ('Yazmak yerine anlatmayı mı tercih edersiniz?', 'Bir sesli mesaj kaydedin (en fazla 3 dakika). Formla birlikte bize gönderilir.', 'Sesli mesaj kaydet', 'Kaydı durdur', 'Kayıt yapılıyor', 'Sil', 'Mikrofona erişim yok. Lütfen tarayıcınızda erişime izin verin ya da bize yazın.')}
+KEYS = ['voiceLabel', 'voiceHint', 'voiceRecord', 'voiceStop', 'voiceRecording', 'voiceDelete', 'voiceDenied']
+
+FILEHINT = {'en': 'On a phone, the voice recorder or your voice memos open; on a computer, choose an audio file. It will be sent to us with the form.', 'pl': 'Na telefonie otworzy się dyktafon lub notatki głosowe, na komputerze wybierz plik audio. Zostanie wysłany do nas razem z formularzem.', 'ru': 'На телефоне откроется диктофон или голосовые заметки, на компьютере выберите аудиофайл. Он будет отправлен нам вместе с формой.', 'uk': 'На телефоні відкриється диктофон або голосові нотатки, на комп’ютері виберіть аудіофайл. Він буде надісланий нам разом із формою.', 'tr': 'Telefonda ses kaydedici veya sesli notlarınız açılır, bilgisayarda bir ses dosyası seçin. Formla birlikte bize gönderilir.'}
+
+
 def career_tr(lang):
     t = dict(T[lang]['career'])
+    t.update(dict(zip(KEYS, VOICE[lang])))
+    t['voiceFileHint'] = FILEHINT[lang]
+    t['jobTitle'] = ''
     t['benefits'] = [{'text': b} for b in t['benefits']]
     return t

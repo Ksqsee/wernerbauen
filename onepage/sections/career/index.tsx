@@ -5,10 +5,14 @@ import Button from '@siteui/button';
 import Icon from '@siteui/icon';
 import FormField from '@siteui/form-field';
 import FileUpload from '@siteui/file-upload';
+import VoiceNote from './voice';
 import styles from './styles.module.css';
 
 const EMPTY = { firstName: '', lastName: '', email: '', phone: '', position: '', message: '' };
 
+function lines(t: any): string[] {
+  return String(t || '').split(/\n/).map((p) => p.trim()).filter(Boolean);
+}
 function paras(t: any): string[] {
   return String(t || '').split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
 }
@@ -19,16 +23,23 @@ export default function Career({
   attachLabel, attachHint, attachButton, attachRemove, attachTooLarge, attachAccept, attachMaxFiles, attachMaxMb,
   consentPre, privacyLabel, privacyHref, consentPost, requiredNote, submitLabel, sendingLabel, successText, errorText, requiredError, emailError,
   formId, langTitle, langLinks,
+  jobEyebrow, jobTitle, jobMeta, jobHook, jobIntro, jobMoreLabel, jobLessLabel,
+  jobTasksTitle, jobTasks, jobProfileTitle, jobProfile, jobOfferTitle, jobOffer, jobNote,
+  jobContactTitle, jobContactName, jobContactPhone, jobContactPhoneHref, jobContactEmail, jobApplyLabel,
+  voiceLabel, voiceHint, voiceRecord, voiceStop, voiceRecording, voiceDelete, voiceDenied, voiceFileHint,
 }: any) {
   const benefitList: any[] = Array.isArray(benefits) ? benefits : [];
   const langList: any[] = Array.isArray(langLinks) ? langLinks : [];
   const [data, setData] = useState<any>(EMPTY);
   const [files, setFiles] = useState<File[]>([]);
+  const [voice, setVoice] = useState<File | null>(null);
+  const [jobOpen, setJobOpen] = useState(false);
   const [errors, setErrors] = useState<any>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
 
   const set = (k: string) => (v: string) => setData({ ...data, [k]: v });
-  const toForm = () => {
+  const toForm = (pos?: string) => {
+    if (pos) setData((d: any) => ({ ...d, position: pos }));
     const el = typeof document !== 'undefined' ? document.getElementById(formAnchor) : null;
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -48,10 +59,12 @@ export default function Career({
     try {
       const attachments = [];
       for (const f of files) attachments.push(await crm.uploadFormFile(f));
+      if (voice) attachments.push(await crm.uploadFormFile(voice));
       await crm.submitForm({ formId, data: { ...data, attachments } });
       setStatus('ok');
       setData(EMPTY);
       setFiles([]);
+      setVoice(null);
     } catch (err) {
       setStatus('error');
     }
@@ -89,6 +102,48 @@ export default function Career({
           </div>
         </div>
 
+        {jobTitle ? (
+          <article className={styles.job}>
+            <div className={styles.jobHead}>
+              {jobEyebrow ? <span className={styles.eyebrow}>{jobEyebrow}</span> : null}
+              <h2 className={styles.jobTitle}>{jobTitle}</h2>
+              {jobMeta ? <p className={styles.jobMeta}>{jobMeta}</p> : null}
+            </div>
+            <div className={styles.jobBody}>
+              {jobHook ? <p className={styles.jobHook}>{jobHook}</p> : null}
+              {paras(jobIntro).map((p, i) => <p key={i} className={i === 0 ? styles.lead : styles.p}>{p}</p>)}
+              <div className={styles.jobActions}>
+                <Button href={'#' + formAnchor} variant="primary" size="md" arrow onClick={(e) => { e.preventDefault(); toForm(jobTitle); }}>{jobApplyLabel}</Button>
+                <button type="button" className={styles.more} aria-expanded={jobOpen} aria-controls="job-details" onClick={() => setJobOpen(!jobOpen)}>
+                  {jobOpen ? jobLessLabel : jobMoreLabel}
+                  <span className={[styles.caret, jobOpen ? styles.caretUp : ''].join(' ')}><Icon name="chevron" size={14} /></span>
+                </button>
+              </div>
+            </div>
+            {jobOpen ? (
+              <div id="job-details" className={styles.jobDetails}>
+                {[[jobTasksTitle, jobTasks], [jobProfileTitle, jobProfile], [jobOfferTitle, jobOffer]].map(([t, l]: any, k: number) => (
+                  <div key={k} className={styles.jobCol}>
+                    <h3 className={styles.jobColTitle}>{t}</h3>
+                    <ul className={styles.list}>{lines(l).map((li, n) => <li key={n} className={styles.li}>{li}</li>)}</ul>
+                  </div>
+                ))}
+                {jobNote ? <p className={styles.jobNote}>{jobNote}</p> : null}
+                {jobContactName ? (
+                  <div className={styles.jobContact}>
+                    <span className={styles.eyebrow}>{jobContactTitle}</span>
+                    <strong className={styles.jobContactName}>{jobContactName}</strong>
+                    <span className={styles.jobContactLinks}>
+                      {jobContactPhone ? <a href={jobContactPhoneHref}>{jobContactPhone}</a> : null}
+                      {jobContactEmail ? <a href={'mailto:' + jobContactEmail}>{jobContactEmail}</a> : null}
+                    </span>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+          </article>
+        ) : null}
+
         <div className={styles.initiative}>
           <h2 className={styles.initiativeTitle}>{initiativeTitle}</h2>
           <div className={styles.initiativeBody}>
@@ -121,6 +176,7 @@ export default function Career({
               </div>
               <FormField id="position" label={positionLabel} value={data.position} onChange={set('position')} />
               <FormField id="message" label={messageLabel} value={data.message} onChange={set('message')} multiline />
+              <VoiceNote value={voice} onChange={setVoice} label={voiceLabel} hint={voiceHint} recordLabel={voiceRecord} stopLabel={voiceStop} recordingLabel={voiceRecording} deleteLabel={voiceDelete} deniedText={voiceDenied} fileHint={voiceFileHint} filePrefix="bewerbung-sprachnachricht" />
               <FileUpload id="attachments" label={attachLabel} hint={attachHint} buttonLabel={attachButton} removeLabel={attachRemove} tooLargeText={attachTooLarge} accept={attachAccept} maxFiles={Number(attachMaxFiles)} maxSizeMb={Number(attachMaxMb)} files={files} onChange={setFiles} />
               <p className={styles.note}>{consentPre} <a className={styles.red} href={privacyHref}>{privacyLabel}</a> {consentPost}</p>
               <p className={styles.note}>{requiredNote}</p>
