@@ -4,18 +4,19 @@
   font-family: var(--font-kit-text-font), 'Inter', sans-serif;
 }
 .section * { box-sizing: border-box; }
-.container { max-width: 1328px; margin: 0 auto; padding: 0 32px; }
+.container { max-width: 1520px; margin: 0 auto; padding: 0 32px; }
 .row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 104px;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 96px;
   align-items: center;
 }
 .row + .row { margin-top: 168px; }
+.flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .flip .text { order: 2; }
 .flip .media { order: 1; }
 .text { display: flex; flex-direction: column; gap: 22px; max-width: 560px; }
-.flip .text { justify-self: end; }
+.flip .text { justify-self: start; }
 .h1 {
   margin: 0 0 8px;
   font-family: var(--font-kit-header-font), 'Archivo', sans-serif;
@@ -52,7 +53,7 @@
   background: var(--color-kit-key1, #D52625);
 }
 .media {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 5 / 4;
   overflow: hidden;
   background: var(--color-kit-light, #F3F0EB);
 }
@@ -81,7 +82,7 @@
   text-transform: uppercase;
   color: var(--color-kit-black, #121212);
 }
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px 48px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px 40px; }
 .card {
   display: flex;
   flex-direction: column;
@@ -96,6 +97,11 @@
 }
 .cardMedia { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--color-kit-light, #F3F0EB); }
 .wide { grid-column: 1 / -1; }
+.mMain, .mSide { display: block; overflow: hidden; min-height: 0; }
+.mosaic { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); gap: 4px; background: #ffffff; }
+.mosaic .mMain { grid-row: 1 / 3; }
+.mMain .img, .mSide .img { height: 100%; }
+.all { padding-top: 4px; }
 .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px; background: #ffffff; }
 .half { display: block; overflow: hidden; }
 .half .img { object-position: left center; }
@@ -166,7 +172,7 @@
 @media (max-width: 860px) {
   .section { padding: 72px 0 96px; }
   .container { padding: 0 20px; }
-  .row { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .row, .flip { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .row + .row { margin-top: 88px; }
   .flip .text, .text { order: 2; justify-self: stretch; max-width: none; }
   .flip .media, .media { order: 1; aspect-ratio: 4 / 3; }

@@ -23,10 +23,10 @@ def blocks_of(key):
 
 ROW_PHOTOS = {
     'fassadensanierung': ['fassade-oberfinanzdirektion-6.jpg', 'fassade-sanierung-hamburg.jpg', 'fassade-oberfinanzdirektion-1.jpg',
-                          'fassade-sanierung-balkon-3.jpg', 'fassadensanierung-hamburg-18.jpg'],
-    'wohnung': ['Wohnungssanierung-1-Flur.jpg', 'Wohnungssanierung-Badezimmer-1c-nachher.jpg', 'Wohnungssanierung-Fensterbank2.jpg',
-                'Wohnungssanierung-Stuck.jpg'],
-    'oeffentlich': ['c_0302_1000px.jpg', 'c_0757_1000px.jpg', 'b_9822_1000px.jpg', 'fassade-oberfinanzdirektion-2.jpg', 'c_0125_1000px.jpg'],
+                          'fassade-sanierung-balkon-3.jpg', 'fassade-oberfinanzdirektion-8.jpg'],
+    'wohnung': ['Wohnungssanierung-1-Flur.jpg', 'Wohnungssanierung-Badezimmer-1c-nachher.jpg', 'fassadensanierung-hamburg-16.jpg',
+                'c_0594_1000px.jpg'],
+    'oeffentlich': ['c_0302_1000px.jpg', 'c_0757_1000px.jpg', 'b_9822_1000px.jpg', 'c_0418_1000px.jpg', 'c_0125_1000px.jpg'],
 }
 
 F_ALL = names('fassade')

@@ -19,7 +19,7 @@ function valid(list: any): any[] {
   return (Array.isArray(list) ? list : []).filter((x: any) => x && x.image && x.image.src);
 }
 
-export default function Split({ blocks, headingMode, projectsEyebrow, projectsTitle, photos, photosLabel, openLabel, closeLabel, prevLabel, nextLabel }: any) {
+export default function Split({ blocks, headingMode, projectsEyebrow, projectsTitle, allLabel, allHref, photos, photosLabel, openLabel, closeLabel, prevLabel, nextLabel }: any) {
   const rows: any[] = Array.isArray(blocks) ? blocks : [];
   const cards: any[] = [];
   valid(photos).forEach((ph: any) => {
@@ -85,6 +85,7 @@ export default function Split({ blocks, headingMode, projectsEyebrow, projectsTi
             <div className={styles.projectsHead}>
               {projectsEyebrow ? <span className={styles.eyebrow}>{projectsEyebrow}</span> : null}
               {projectsTitle ? <h2 className={styles.projectsTitle}>{projectsTitle}</h2> : null}
+              {allLabel && allHref ? <div className={styles.all}><Button href={allHref} variant="link" size="md" arrow>{allLabel}</Button></div> : null}
             </div>
             <div className={styles.cards}>
               {cards.map((p: any, k: number) => {
@@ -101,8 +102,11 @@ export default function Split({ blocks, headingMode, projectsEyebrow, projectsTi
                         ))}
                       </span>
                     ) : (
-                      <span className={styles.cardMedia}>
-                        <Image src={cover.image.src} alt={cover.alt} className={styles.img} />
+                      <span className={[styles.cardMedia, list.length >= 3 ? styles.mosaic : ''].join(' ')}>
+                        <span className={styles.mMain}><Image src={cover.image.src} alt={cover.alt} className={styles.img} /></span>
+                        {list.length >= 3 ? list.filter((x: any) => x !== cover).slice(0, 2).map((ph: any, n: number) => (
+                          <span key={n} className={styles.mSide}><Image src={ph.image.src} alt={ph.alt} className={styles.img} /></span>
+                        )) : null}
                       </span>
                     )}
                     <span className={styles.cardBody}>

@@ -14,31 +14,28 @@ function paras(t: any): string[] {
 }
 
 export default function Career({
-  title, intro, benefitsTitle, benefits, jobsTitle, jobs, applyLabel, initiativeLabel,
-  formAnchor, formTitle, formIntro, firstNameLabel, lastNameLabel, emailLabel, phoneLabel, positionLabel, positionPlaceholder, messageLabel,
+  title, intro, benefitsTitle, benefits, initiativeTitle, initiativeText, applyLabel,
+  formAnchor, formTitle, formIntro, firstNameLabel, lastNameLabel, emailLabel, phoneLabel, positionLabel, messageLabel,
   attachLabel, attachHint, attachButton, attachRemove, attachTooLarge, attachAccept, attachMaxFiles, attachMaxMb,
   consentPre, privacyLabel, privacyHref, consentPost, requiredNote, submitLabel, sendingLabel, successText, errorText, requiredError, emailError,
   formId, langTitle, langLinks,
 }: any) {
-  const jobList: any[] = Array.isArray(jobs) ? jobs : [];
   const benefitList: any[] = Array.isArray(benefits) ? benefits : [];
   const langList: any[] = Array.isArray(langLinks) ? langLinks : [];
-  const positions = [...jobList.map((j: any) => j.title), initiativeLabel];
   const [data, setData] = useState<any>(EMPTY);
   const [files, setFiles] = useState<File[]>([]);
   const [errors, setErrors] = useState<any>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
 
   const set = (k: string) => (v: string) => setData({ ...data, [k]: v });
-  const pick = (pos: string) => {
-    setData((d: any) => ({ ...d, position: pos }));
+  const toForm = () => {
     const el = typeof document !== 'undefined' ? document.getElementById(formAnchor) : null;
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const validate = () => {
     const e: any = {};
-    ['firstName', 'lastName', 'email', 'position'].forEach((k) => { if (!String(data[k]).trim()) e[k] = requiredError; });
+    ['firstName', 'lastName', 'email'].forEach((k) => { if (!String(data[k]).trim()) e[k] = requiredError; });
     if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) e.email = emailError;
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -76,7 +73,7 @@ export default function Career({
             ) : null}
             {paras(intro).map((p, i) => <p key={i} className={i === 0 ? styles.lead : styles.p}>{p}</p>)}
             <div className={styles.cta}>
-              <Button href={'#' + formAnchor} variant="primary" size="md" arrow onClick={(e) => { e.preventDefault(); pick(data.position); }}>{applyLabel}</Button>
+              <Button href={'#' + formAnchor} variant="primary" size="md" arrow onClick={(e) => { e.preventDefault(); toForm(); }}>{applyLabel}</Button>
             </div>
           </div>
           <div className={styles.benefitsCol}>
@@ -92,22 +89,13 @@ export default function Career({
           </div>
         </div>
 
-        <div className={styles.jobsWrap}>
-          <h2 className={styles.sectionTitle}>{jobsTitle}</h2>
-          <div className={styles.jobs}>
-            {[...jobList, { title: initiativeLabel, initiative: true }].map((j: any, i: number) => (
-              <article key={i} className={[styles.job, j.initiative ? styles.initiative : ''].join(' ')} onClick={() => pick(j.title)}>
-                <span className={styles.jobNum} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                <div className={styles.jobMain}>
-                  <h3 className={styles.jobTitle}>{j.title}</h3>
-                  {j.meta ? <p className={styles.jobMeta}>{j.meta}</p> : null}
-                  {j.text ? <p className={styles.p}>{j.text}</p> : null}
-                </div>
-                <div className={styles.jobCta}>
-                  <Button variant="link" size="md" arrow onClick={(e) => { e.stopPropagation(); pick(j.title); }}>{applyLabel}</Button>
-                </div>
-              </article>
-            ))}
+        <div className={styles.initiative}>
+          <h2 className={styles.initiativeTitle}>{initiativeTitle}</h2>
+          <div className={styles.initiativeBody}>
+            {paras(initiativeText).map((p, i) => <p key={i} className={i === 0 ? styles.lead : styles.p}>{p}</p>)}
+            <div className={styles.cta}>
+              <Button href={'#' + formAnchor} variant="primary" size="md" arrow onClick={(e) => { e.preventDefault(); toForm(); }}>{applyLabel}</Button>
+            </div>
           </div>
         </div>
 
@@ -131,21 +119,7 @@ export default function Career({
                 <FormField id="email" label={emailLabel} type="email" value={data.email} onChange={set('email')} required error={errors.email} autoComplete="email" />
                 <FormField id="phone" label={phoneLabel} type="tel" value={data.phone} onChange={set('phone')} autoComplete="tel" />
               </div>
-              <div className={styles.selectField}>
-                <label htmlFor="position" className={styles.label}>{positionLabel}<span className={styles.req} aria-hidden="true">*</span></label>
-                <select
-                  id="position"
-                  className={[styles.select, errors.position ? styles.invalid : ''].join(' ')}
-                  value={data.position}
-                  onChange={(e) => set('position')(e.target.value)}
-                  aria-invalid={errors.position ? true : undefined}
-                  aria-describedby={errors.position ? 'position-err' : undefined}
-                >
-                  <option value="">{positionPlaceholder}</option>
-                  {positions.map((p, i) => <option key={i} value={p}>{p}</option>)}
-                </select>
-                {errors.position ? <span id="position-err" className={styles.error}>{errors.position}</span> : null}
-              </div>
+              <FormField id="position" label={positionLabel} value={data.position} onChange={set('position')} />
               <FormField id="message" label={messageLabel} value={data.message} onChange={set('message')} multiline />
               <FileUpload id="attachments" label={attachLabel} hint={attachHint} buttonLabel={attachButton} removeLabel={attachRemove} tooLargeText={attachTooLarge} accept={attachAccept} maxFiles={Number(attachMaxFiles)} maxSizeMb={Number(attachMaxMb)} files={files} onChange={setFiles} />
               <p className={styles.note}>{consentPre} <a className={styles.red} href={privacyHref}>{privacyLabel}</a> {consentPost}</p>

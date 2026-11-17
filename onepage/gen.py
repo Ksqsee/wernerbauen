@@ -94,7 +94,7 @@ def header(active, lang='de', de_href=None):
         'contactHref': c('Kontakt Link', 'text', '/kontakt', 'content', 'meta'),
         'applyLabel': c('Bewerben Button Text', 'text', 'Jetzt bewerben', 'content', 'meta'),
         'applyHref': c('Bewerben Button Link', 'text', '/karriere#bewerben', 'content', 'meta'),
-        'navItems': c('Menüpunkte (der erste steht vor „Leistungen“)', 'array', [n for n in NAV_MAIN if n['href'] in ('/', '/ueber-uns', '/karriere')], 'content', 'nav', items=LINK_ITEMS),
+        'navItems': c('Menüpunkte (stehen hinter „Leistungen“; ein Link zur Startseite steht davor)', 'array', [{'label': 'Referenzen', 'href': '/referenzen'}, {'label': 'Hausverwaltungen', 'href': '/hausverwaltungen'}, {'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Karriere', 'href': '/karriere'}], 'content', 'nav', items=LINK_ITEMS),
         'servicesLabel': c('Leistungen Menüpunkt', 'text', 'Leistungen', 'content', 'nav'),
         'serviceItems': c('Leistungen Untermenü', 'array', [n for n in NAV_MAIN if n['href'] not in ('/', '/ueber-uns', '/karriere')], 'content', 'nav', items=LINK_ITEMS),
         'activeHref': c('Aktive Seite (Link)', 'text', active, 'content', 'nav'),
@@ -281,11 +281,6 @@ def footer():
 
 
 def career(form_id='', lang='de'):
-    jobs = [
-        {'title': 'Maurer (m/w/d)', 'meta': 'Vollzeit · Hamburg', 'text': 'Mauerwerks-, Putz- und Fassadenarbeiten an Alt- und Denkmalbauten sowie in der Wohnungssanierung.'},
-        {'title': 'Maler und Lackierer (m/w/d)', 'meta': 'Vollzeit · Hamburg', 'text': 'Maler- und Stuckarbeiten in Wohnungen, Gebäuden und öffentlichen Einrichtungen.'},
-        {'title': 'Projekt-/Bauleiter (m/w/d)', 'meta': 'Vollzeit · Hamburg', 'text': 'Planung, Steuerung und Abnahme unserer Sanierungsprojekte – von der Fassade bis zur bezugsfertigen Wohneinheit.'},
-    ]
     benefits = [{'text': t} for t in [
         'Ein traditionsreiches Hamburger Familienunternehmen mit fast 100 Jahren Erfahrung',
         'Ein fester, qualifizierter Mitarbeiterstamm und ein kollegiales Miteinander',
@@ -299,18 +294,16 @@ def career(form_id='', lang='de'):
         'applyLabel': c('Bewerben Button', 'text', 'Jetzt bewerben', 'content', 'intro'),
         'benefitsTitle': c('Vorteile Überschrift', 'text', 'Was Sie bei uns erwartet', 'content', 'benefits'),
         'benefits': c('Vorteile', 'array', benefits, 'content', 'benefits', items={'text': {'title': 'Text', 'type': 'text'}}),
-        'jobsTitle': c('Stellen Überschrift', 'text', 'Offene Stellen', 'content', 'jobs'),
-        'jobs': c('Stellen', 'array', jobs, 'content', 'jobs', items={'title': {'title': 'Titel', 'type': 'text'}, 'meta': {'title': 'Art · Ort', 'type': 'text'}, 'text': {'title': 'Kurzbeschreibung', 'type': 'text'}}),
-        'initiativeLabel': c('Initiativbewerbung Text', 'text', 'Initiativbewerbung', 'content', 'jobs'),
+        'initiativeTitle': c('Initiativbewerbung Überschrift', 'text', 'Initiativbewerbungen erwünscht', 'content', 'jobs'),
+        'initiativeText': c('Initiativbewerbung Text (Absätze mit Leerzeile trennen)', 'text', 'Wir schreiben keine festen Stellen aus. Ob Handwerk, Bauleitung oder Quereinstieg: Uns interessiert, was Sie können und wer Sie sind – nicht, ob Sie in eine Stellenbezeichnung passen.\n\nSie denken, Sie gehören dazu? Dann sind Sie bei uns an Bord. Schreiben Sie uns einfach.', 'content', 'jobs'),
         'formAnchor': c('Anker-ID Formular', 'text', 'bewerben', 'settings', 'form'),
         'formTitle': c('Formular Überschrift', 'text', 'Jetzt bewerben', 'content', 'form'),
-        'formIntro': c('Formular Text', 'text', 'Senden Sie uns Ihre Bewerbung bequem über das Formular – Lebenslauf und Zeugnisse können Sie direkt anhängen. Wir melden uns zeitnah bei Ihnen.', 'content', 'form'),
+        'formIntro': c('Formular Text', 'text', 'Senden Sie uns Ihre Initiativbewerbung bequem über das Formular – Lebenslauf und Zeugnisse können Sie direkt anhängen. Wir melden uns zeitnah bei Ihnen.', 'content', 'form'),
         'firstNameLabel': c('Vorname', 'text', 'Vorname', 'content', 'fields'),
         'lastNameLabel': c('Nachname', 'text', 'Nachname', 'content', 'fields'),
         'emailLabel': c('E-Mail', 'text', 'E-Mail Adresse', 'content', 'fields'),
         'phoneLabel': c('Telefon', 'text', 'Rufnummer', 'content', 'fields'),
-        'positionLabel': c('Stelle', 'text', 'Gewünschte Stelle', 'content', 'fields'),
-        'positionPlaceholder': c('Stelle Platzhalter', 'text', 'Bitte auswählen', 'content', 'fields'),
+        'positionLabel': c('Beruf / Erfahrung', 'text', 'Ihr Beruf / Ihre Erfahrung', 'content', 'fields'),
         'messageLabel': c('Nachricht', 'text', 'Ihre Nachricht an uns', 'content', 'fields'),
         'submitLabel': c('Absenden Button', 'text', 'Bewerbung senden', 'content', 'fields'),
         'attachLabel': c('Anhang Label', 'text', 'Lebenslauf & Zeugnisse', 'content', 'attach'),
@@ -337,7 +330,7 @@ def career(form_id='', lang='de'):
             'label': {'title': 'Name', 'type': 'text'}, 'code': {'title': 'Sprachcode', 'type': 'text'},
             'href': {'title': 'Link', 'type': 'text'}, 'current': {'title': 'Aktuelle Sprache', 'type': 'checkbox'}}),
     }
-    return pkg('career', ctl, {'lang': {'title': 'Sprachen'}, 'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Stellen'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
+    return pkg('career', ctl, {'lang': {'title': 'Sprachen'}, 'intro': {'title': 'Einleitung'}, 'benefits': {'title': 'Vorteile'}, 'jobs': {'title': 'Initiativbewerbung'}, 'form': {'title': 'Formular'}, 'fields': {'title': 'Formularfelder'}, 'attach': {'title': 'Dateianhang'}, 'notes': {'title': 'Hinweise'}, 'messages': {'title': 'Meldungen'}})
 
 
 def photo(name, alt_text=None):
@@ -380,6 +373,8 @@ def split(blocks, projects, heading='h1first'):
             {'value': 'h1first', 'label': 'Seitentitel (H1) mit Einleitung'}, {'value': 'lead', 'label': 'Einleitung ohne Überschrift (Titel steht im Banner)'}, {'value': 'h2', 'label': 'Normale Überschrift (H2)'}]),
         'projectsEyebrow': c('Überzeile', 'text', 'Referenzen', 'content', 'projects'),
         'projectsTitle': c('Überschrift', 'text', 'Projekte & Einblicke', 'content', 'projects'),
+        'allLabel': c('Link zu allen Referenzen (Text)', 'text', 'Alle Referenzen ansehen', 'content', 'projects'),
+        'allHref': c('Link zu allen Referenzen', 'text', '/referenzen', 'content', 'projects'),
         'photos': c('Fotos (gleicher Projektname = eine Karte)', 'array', [ph for grp in projects for ph in grp], 'content', 'photos', items={
             'image': {'title': 'Bild', 'type': 'media'},
             'alt': {'title': 'Alt-Text', 'type': 'text'},
@@ -434,7 +429,7 @@ def hook(slides, links):
         'primaryLabel': c('Button Text', 'text', 'Projekt anfragen', 'content', 'buttons'),
         'primaryHref': c('Button Link', 'text', '/kontakt', 'content', 'buttons'),
         'secondaryLabel': c('Zweiter Button Text', 'text', 'Referenzen ansehen', 'content', 'buttons'),
-        'secondaryHref': c('Zweiter Button Link', 'text', '/fassadensanierung', 'content', 'buttons'),
+        'secondaryHref': c('Zweiter Button Link', 'text', '/referenzen', 'content', 'buttons'),
         'slides': c('Fotos (wechseln automatisch)', 'array', S, 'content', 'slides', items={
             'image': {'title': 'Foto', 'type': 'media'}, 'alt': {'title': 'Alt-Text', 'type': 'text'},
             'caption': {'title': 'Bildunterschrift', 'type': 'text'}}),
@@ -471,7 +466,7 @@ def footer_lux():
         'servicesTitle': c('Überschrift', 'text', 'Leistungen', 'content', 'services'),
         'serviceItems': c('Links', 'array', [n for n in NAV_MAIN if n['href'] not in ('/', '/ueber-uns', '/karriere')], 'content', 'services', items=LINK_ITEMS),
         'companyTitle': c('Überschrift', 'text', 'Unternehmen', 'content', 'company'),
-        'companyItems': c('Links', 'array', [{'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Karriere', 'href': '/karriere'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'company', items=LINK_ITEMS),
+        'companyItems': c('Links', 'array', [{'label': 'Über uns', 'href': '/ueber-uns'}, {'label': 'Referenzen', 'href': '/referenzen'}, {'label': 'Hausverwaltungen', 'href': '/hausverwaltungen'}, {'label': 'Karriere', 'href': '/karriere'}, {'label': 'Kontakt', 'href': '/kontakt'}], 'content', 'company', items=LINK_ITEMS),
         'groupTitle': c('Gruppe Überschrift', 'text', 'Ein Unternehmen der', 'content', 'group'),
         'groupLogo': c('Gruppe Logo', 'media', {'src': 'https://onecdn.io/media/3077348b-2423-4dca-a394-955347bc2d58/full', 'name': 'gruppenwerk-logo-weiss.svg', 'width': 439, 'height': 72}, 'content', 'group'),
         'groupAlt': c('Gruppe Alt-Text', 'text', 'Zur Gruppenwerk Website', 'content', 'group'),
